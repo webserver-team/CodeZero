@@ -16,7 +16,7 @@
 		String id=request.getParameter("id");
 		String passwd=request.getParameter("passwd");
 		String name=request.getParameter("name");
-		String phone=request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3");
+		String phone=request.getParameter("phone");
 		String email=request.getParameter("email");
 		
 		Statement stmt = null;

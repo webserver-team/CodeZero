@@ -3,7 +3,7 @@
 <%@ page import="java.sql.*" %>
 <html>
 <head>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="register.css">
 	<title>회원가입</title>
 </head>
 <%
@@ -33,7 +33,7 @@
 		var regExpId = /^[a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
 		var regExpName = /^[가-힣]*$/;
 		var regExpPasswd = /^[a-z|A-Z]/;
-		var regExpPhone = /^\d{3}-\d{3,4}-\d{4}$/;
+		var regExpPhone = /^\d{3}\d{3,4}\d{4}$/;
 		var regExpEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 		
 		let form = document.Member;
@@ -41,7 +41,7 @@
 		let id = form.id.value;
 		let name = form.name.value;
 		let passwd = form.passwd.value;
-		let phone = form.phone1.value + "-" + form.phone2.value + "-" + form.phone3.value;
+		let phone = form.phone.value;
 		let email = form.email.value;
 
 		if (!regExpId.test(id)) {
@@ -70,23 +70,31 @@
 	}
 </script>
 
-<body>
+<body style="background-color:#cfe7c3">
 	<div class="register">
-		<form action="register_process.jsp" name="Member" method="post">
-			<h3>회원가입</h3>
-			<p>아이디 : <input type="text" name="id"> <input type="button" value="중복 검사" onclick="checkId()">
-			<p>비밀번호 : <input type="password" name="passwd">
-			<p>이름 : <input type="text" name="name">
-			<p>연락처 : <select name="phone1">
-				<option value="010">010</option>
-				<option value="011">011</option>
-				<option value="016">016</option>
-				<option value="017">017</option>
-				<option value="019">019</option>
-			</select> - <input type="text" maxlength="4" size="4" name="phone2"> - <input type="text" maxlength="4" size="4" name="phone3">
-			<p>이메일: <input type="text" name="email">
-			<p> <input type="button" value="가입하기" onclick="checkMember()">
-		</form>		 
+		<div class="regi_out">
+			<div class="regi_in">
+				<form action="register_process.jsp" name="Member" method="post" style="">
+					<h3>회원가입</h3>
+					<div class="id input_div">
+						<input type="text" name="id" class="input" placeholder=" 아이디">
+					</div>
+					<div class="passwd input_div">
+					<input type="password" name="passwd" class="input" placeholder=" 비밀번호" style="margin-bottom:40px">
+					</div>
+					<div class="name input_div">
+						<input type="text" name="name" class="input" placeholder=" 이름">
+					</div>
+					<div class="phone input_div">
+						<input type="text" maxlength="11" name="phone" class="input" placeholder=" 전화번호">
+					</div>
+					<div class="email input_div">
+						<input type="text" name="email" class="input" placeholder=" 이메일">
+					</div>
+					<p style="display:flex; justify-content:space-around"> <input type="button" value="가입하기" style="margin-top:10px" onclick="checkMember()" class="button">
+				</form>		 
+			</div>
+		</div>
 	</div>
 </body>
 </html>

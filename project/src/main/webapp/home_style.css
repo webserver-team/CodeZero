@@ -27,8 +27,7 @@
 	flex-direction:row;
 	justify-content:space-around;
 	align-items:stretch;
-	height:30px;
-	
+	height:30px;	
 }
 
 .category_link{
@@ -37,6 +36,5 @@
 	
 	color:#03c75a; 
 	font-weight:bolder; 
-	font-size:14px; 
-	
+	font-size:14px; 	
 }
