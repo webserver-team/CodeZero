@@ -9,26 +9,6 @@
 <body style="background-color:#cfe7c3">
 	<div class="container pu-4">
 	<%@ include file="menu_home.jsp" %>
-		<div class="category">
-			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
-				JAVA
-			</a>		
-			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
-				C
-			</a>
-			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
-				C++	
-			</a>
-			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
-				인공지능
-			</a>
-			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
-				디자인
-			</a>
-			<a href="home.jsp" class="category_link d-flex align-items-center text-decoration-none">
-				게시판	
-			</a>
-		</div>
 		<div class="container text-center" style = "height:90%">
 			<div class="searcharea">
 				<div class="searchbox">

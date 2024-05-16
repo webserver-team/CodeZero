@@ -40,3 +40,23 @@ span{
 	margin-right:2px;
 	margin-left:2px;
 }
+
+
+.category{
+	display:flex;
+	flex-direction:row;
+	justify-content:space-around;
+	align-items:stretch;
+	height:30px;
+	padding-top:20px;	
+}
+
+.category_link{
+	text-align:centet;
+	position:relative;
+	
+	color:#03c75a; 
+	font-weight:bolder; 
+	font-size:14px; 
+	
+}

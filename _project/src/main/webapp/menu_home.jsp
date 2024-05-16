@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="header_style.css">
 
-<header class="pb-3 border-bottom" style="border-bottom:1px solid #03c75a !important">
+<header class="pb-3 border-bottom" style="margin-bottom:20px; padding-bottom:15px !important; border-bottom:1px solid #03c75a !important">
 <div class="container text-center">
 	<div class="row">
 		<div class="col" style="margin-top:10px">
@@ -23,7 +23,26 @@
 			회원가입
 			</a>
 		</div>
-		
+		<div class="category">
+			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
+				JAVA
+			</a>		
+			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
+				C
+			</a>
+			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
+				C++	
+			</a>
+			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
+				인공지능
+			</a>
+			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
+				디자인
+			</a>
+			<a href="home.jsp" class="category_link d-flex align-items-center text-decoration-none">
+				게시판	
+			</a>
+		</div>
 	</div>
 </div>
 </header>
