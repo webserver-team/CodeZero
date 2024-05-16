@@ -22,11 +22,7 @@
 %>
 
 <script type="text/javascript">
-	function checkId(){
-		
-		
-	}
-	
+
 
 	function checkMember(){
 		
