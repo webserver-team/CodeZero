@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+
+.searcharea {
+	width:50%; 
+	height:50px; 
+	margin:10% auto 0%; 
+	text-align: center;
+}
+.searchbox {
+	width:100%; 
+	text-align: center;
+	border:1px solid #03c75a;
+	border-radius:33px;
+	background-color:#fff;
+}
+.search {
+	width:80%; 
+	height:100%; 
+	border:0;
+	
+	outline:0;
+}
+
+.category{
+	display:flex;
+	flex-direction:row;
+	justify-content:space-around;
+	align-items:stretch;
+	height:30px;
+	
+}
+
+.category_link{
+	text-align:centet;
+	position:relative;
+	
+	color:#03c75a; 
+	font-weight:bolder; 
+	font-size:14px; 
+	
+}
