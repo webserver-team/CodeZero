@@ -74,22 +74,22 @@
 	<div class="register">
 		<div class="regi_out">
 			<div class="regi_in">
-				<form action="register_process.jsp" name="Member" method="post" style="">
+				<form action="register_process.jsp" name="Member" method="post" class="regi_form">
 					<h3>회원가입</h3>
-					<div class="id input_div">
-						<input type="text" name="id" class="input" placeholder=" 아이디">
+					<div class="id_div input_div">
+						<input type="text" name="id" class="input id" placeholder="아이디">
 					</div>
-					<div class="passwd input_div">
-					<input type="password" name="passwd" class="input" placeholder=" 비밀번호" style="margin-bottom:40px">
+					<div class="passwd_div input_div">
+					<input type="password" name="passwd" class="input passwd" placeholder="비밀번호" >
 					</div>
-					<div class="name input_div">
-						<input type="text" name="name" class="input" placeholder=" 이름">
+					<div class="name_div input_div">
+						<input type="text" name="name" class="input name" placeholder="이름">
 					</div>
-					<div class="phone input_div">
-						<input type="text" maxlength="11" name="phone" class="input" placeholder=" 전화번호">
+					<div class="phone_div input_div">
+						<input type="text" maxlength="11" name="phone" class="input phone" placeholder="전화번호">
 					</div>
-					<div class="email input_div">
-						<input type="text" name="email" class="input" placeholder=" 이메일">
+					<div class="email_div input_div">
+						<input type="text" name="email" class="input email" placeholder="이메일">
 					</div>
 					<p style="display:flex; justify-content:space-around"> <input type="button" value="가입하기" style="margin-top:10px" onclick="checkMember()" class="button">
 				</form>		 
