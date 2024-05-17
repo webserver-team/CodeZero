@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<script type="text/javascript">
+    <script type="text/javascript">
 
 	/*
 	var idMessageLimit = 0;
@@ -61,15 +60,15 @@
 		else
 			form.submit();
 	}
-	
 </script>
+</head>
 <body>
     <div>
     <h1>로그인 </h1>
     <form name="loginForm" action="login_process.jsp" method="post">
-       <label>ID &nbsp;</label> <input type="text" name="user_id"> <br>
-       <label>PW </label> 		<input type="password" name="password"> <br>
-       							<input type="button" value="로그인 하기" onclick="loginAttempt()">
+       <input type="text" placeholder="아이디" name="user_id"> <br>
+       <input type="password" placeholder="비밀번호" name="password">
+       <input type="button" value="로그인 하기" onclick="loginAttempt()">
     </form>
     </div>
 

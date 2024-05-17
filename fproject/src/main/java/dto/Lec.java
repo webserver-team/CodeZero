@@ -77,7 +77,7 @@ public class Lec implements Serializable {
 	private String lecCategory;
 	private String lecLevel;
 	private int lecPrice;
-	private int lecReviewCount;
+	private int lecReviewCount = 0;
 	
 	// 기본 생성자
 	public Lec() {
