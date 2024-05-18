@@ -11,14 +11,12 @@ create table lecture(
 	primary key (lecId)
 );
 
-alter table lecture change column lecname
-
 show tables
 
 desc lecture
 
 insert into lecture values(
-	201000001,
+	201000000,
 	'스프링 핵심 원리 - 기본편',
 	'김영한',
 	'스프링 입문자가 예제를 만들어가면서 스프링의 핵심 원리를 이해하고, 스프링 기본기를 확실히 다질 수 있습니다.',
@@ -36,7 +34,7 @@ select lecName from lecture where lecPrice=88000;
 
 -- lecture 테이블 안의 lecLevel의 최대 크기 늘림 --
 ALTER TABLE lecture MODIFY lecLevel VARCHAR(20);
-
+ALTER TABLE lecture MODIFY lecId int not null auto_increment;
 -- lecture 테이블 안에서 Id가 201000002인 행을 지움 --
 delete from lecture where lecId=201000002;
 delete from lecture;
