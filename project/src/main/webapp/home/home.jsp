@@ -3,11 +3,11 @@
 <html>
 <head>
 	<link rel="stylesheet" href="../stylesheet/home_style.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../stylesheet/styles.css">
 	<title>Welcome</title>
 </head>
 <body style="background-color:#cfe7c3">
-	<div class="container pu-4">
+	<div class="container">
 	<%@ include file="/../header/header.jsp" %>
 		<div class="container text-center" style = "height:90%">
 			<div class="searcharea">

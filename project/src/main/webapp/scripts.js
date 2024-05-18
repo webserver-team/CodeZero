@@ -1,22 +1,45 @@
 document.addEventListener("DOMContentLoaded", function () {
     var registerButton = document.getElementById("registerButton");
-    var modalBackground = document.getElementById("modalBackground");
+    var regi_Background = document.getElementById("regi_Background");
     var registerModal = document.getElementById("registerModal");
-    var closeModal = document.getElementById("closeModal");
+    var registerClose = document.getElementById("registerClose");
 
     registerButton.addEventListener("click", function () {
-        modalBackground.style.display = "block";
+        regi_Background.style.display = "block";
         registerModal.style.display = "block";
     });
 
-    closeModal.addEventListener("click", function () {
-        modalBackground.style.display = "none";
+    registerClose.addEventListener("click", function () {
+        regi_Background.style.display = "none";
         registerModal.style.display = "none";
     });
 
     // Close modal when clicking outside of it
-    modalBackground.addEventListener("click", function () {
-        modalBackground.style.display = "none";
+    regi_Background.addEventListener("click", function () {
+        regi_Background.style.display = "none";
         registerModal.style.display = "none";
+    });
+    
+   
+    
+    var loginButton = document.getElementById("loginButton");
+    var login_Background = document.getElementById("login_Background");
+    var loginModal = document.getElementById("loginModal");
+    var loginClose = document.getElementById("loginClose");
+    
+    loginButton.addEventListener("click", function () {
+        login_Background.style.display = "block";
+        loginModal.style.display = "block";
+    });
+
+    loginClose.addEventListener("click", function () {
+        login_Background.style.display = "none";
+        loginModal.style.display = "none";
+    });
+    
+     // Close modal when clicking outside of it
+    login_Background.addEventListener("click", function () {
+        login_Background.style.display = "none";
+        loginModal.style.display = "none";
     });
 });

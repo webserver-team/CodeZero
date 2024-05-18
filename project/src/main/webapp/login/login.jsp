@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="stylesheet" href="../stylesheet/login.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,14 +64,28 @@
 </script>
 </head>
 <body>
-    <div>
-    <h1>로그인 </h1>
-    <form name="loginForm" action="login_process.jsp" method="post">
-       <input type="text" placeholder="아이디" name="id"> <br>
-       <input type="password" placeholder="비밀번호" name="passwd">
-       <input type="button" value="로그인 하기" onclick="loginAttempt()">
-    </form>
-    </div>
-
+<div id="login_Background" class="login-background"></div>
+		
+	<div id="loginModal" class="login-modal">
+		<div class="login_out">
+			<div class="login_in">
+				
+				<form action="login_process.jsp" id="Member" method="post" class="login_form">
+				
+				
+					<span id="loginClose" class="close" style="left:10">&times;</span>
+					<h3>로그인</h3>
+					
+					<div class="id_div input_div">
+						<input type="text" name="id" class="input id" placeholder="아이디">
+			   		</div>
+					<div class="passwd_div input_div">
+						<input type="password" name="passwd" class="input passwd" placeholder="비밀번호" >
+			     	</div>
+			     	<p style="display:flex; justify-content:space-around"> <input type="button" value="로그인" style="margin-top:10px" onclick="loginAttempt()" class="button">
+				</form>		 
+			</div>
+		</div>
+	</div>
 </body>
 </html>

@@ -66,22 +66,22 @@ function checkMember(){
 }
 </script>
 
-<body style="background-color:#cfe7c3">
-	<div id="modalBackground" class="modal-background"></div>
+<body>
+	<div id="regi_Background" class="regi-background"></div>
 		
-	<div id="registerModal" class="register">
+	<div id="registerModal" class="register-modal">
 		<div class="regi_out">
 			<div class="regi_in">
 				
-				<form action="../register/register_process.jsp" id="Member" method="post" class="regi_form">
+				<form action="register_process.jsp" id="Member" method="post" class="regi_form">
 				
-					<span id="closeModal" class="close" style="left:10">&times;</span>
+					<span id="registerClose" class="close" style="left:10">&times;</span>
 					<h3>회원가입</h3>
 					<div class="id_div input_div">
 						<input type="text" name="id" class="input id" placeholder="아이디">
 					</div>
 					<div class="passwd_div input_div">
-					<input type="password" name="passwd" class="input passwd" placeholder="비밀번호" >
+						<input type="password" name="passwd" class="input passwd" placeholder="비밀번호" >
 					</div>
 					<div class="name_div input_div">
 						<input type="text" name="name" class="input name" placeholder="이름">
