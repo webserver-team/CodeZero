@@ -2,9 +2,9 @@
 <%@ page import="java.sql.*" %>
 
 
-<link rel="stylesheet" href="header_style.css">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="register.css">
+<link rel="stylesheet" href="../stylesheet/header_style.css">
+<link rel="stylesheet" href="../stylesheet/styles.css">
+<link rel="stylesheet" href="../stylesheet/register.css">
 
 <%
 	Connection conn = null;
@@ -71,7 +71,7 @@
 <div class="container text-center">
 	<div class="row">
 		<div class="col" style="margin-top:10px">
-		   	<a href="./home.jsp" class="link1 d-flex align-items-center text-dark 
+		   	<a href="../home/home.jsp" class="link1 d-flex align-items-center text-dark 
 		   	text-decoration-none"> 
 		    <svg width="32" height="32" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
 				<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
@@ -81,10 +81,10 @@
 			</a>    
 		</div>
 		<div class="col" style="margin-top:12px; display:flex; justify-content:flex-end">
-			<a href="./login.jsp" class="link d-flex align-items-center text-decoration-none" style="color:#03c75a; font-weight:bolder; font-size:12px">
+			<a href="../login/login.jsp" class="link d-flex align-items-center text-decoration-none" style="color:#03c75a; font-weight:bolder; font-size:12px">
 			로그인
 			</a>
-			 <button id="loginButton">Login</button>
+			 <button id="loginButton">회원가입</button>
 			 
 			 
 			<div id="modalBackground" class="modal-background"></div>
@@ -93,7 +93,7 @@
 				<div class="regi_out">
 					<div class="regi_in">
 						
-						<form action="register_process.jsp" id="Member" method="post" class="regi_form">
+						<form action="../register/register_process.jsp" id="Member" method="post" class="regi_form">
 						
 							<span id="closeModal" class="close" style="left:10">&times;</span>
 							<h3>회원가입</h3>
@@ -119,28 +119,28 @@
 				
 	   	 	</div>
 		</div>
-		<script src="scripts.js"></script>
+		<script src="../scripts.js"></script>
 
 
 		
 		
 		<div class="category">
-			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
+			<a href="../lectures/lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
 				JAVA
 			</a>		
-			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
+			<a href="../lectures/lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
 				C
 			</a>
-			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
+			<a href="../lectures/lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
 				C++	
 			</a>
-			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
+			<a href="../lectures/lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
 				인공지능
 			</a>
-			<a href="lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
+			<a href="../lectures/lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
 				디자인
 			</a>
-			<a href="home.jsp" class="category_link d-flex align-items-center text-decoration-none">
+			<a href="../home/home.jsp" class="category_link d-flex align-items-center text-decoration-none">
 				게시판	
 			</a>
 		</div>

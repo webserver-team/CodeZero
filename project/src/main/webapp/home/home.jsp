@@ -2,13 +2,13 @@
     pageEncoding="UTF-8" errorPage = "errorpage.jsp" %>
 <html>
 <head>
-	<link rel="stylesheet" href="home_style.css">
+	<link rel="stylesheet" href="../stylesheet/home_style.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<title>Welcome</title>
 </head>
 <body style="background-color:#cfe7c3">
 	<div class="container pu-4">
-	<%@ include file="menu_home.jsp" %>
+	<%@ include file="/../header/header.jsp" %>
 		<div class="container text-center" style = "height:90%">
 			<div class="searcharea">
 				<div class="searchbox">

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<%@ include file="dbconn.jsp" %>
+	<%@ include file="/../db/dbconn.jsp" %>
 	<%
 		request.setCharacterEncoding("utf-8");
 	
@@ -28,14 +28,14 @@
 	%>
 			<script>
 				alert("회원이 되신 것을 환영합니다.");
-				window.location.href = "home.jsp";
+				window.location.href = "../home/home.jsp";
 			</script>
 	<%
 		}catch (SQLException ex){
 	%>
 			<script>
 				alert("회원가입에 실패했습니다.");
-				window.location.href = "home.jsp";
+				window.location.href = "../home/home.jsp";
 			</script>
 	<%
 		} finally {
