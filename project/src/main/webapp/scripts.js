@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var loginButton = document.getElementById("loginButton");
+    var registerButton = document.getElementById("registerButton");
     var modalBackground = document.getElementById("modalBackground");
     var registerModal = document.getElementById("registerModal");
     var closeModal = document.getElementById("closeModal");
 
-    loginButton.addEventListener("click", function () {
+    registerButton.addEventListener("click", function () {
         modalBackground.style.display = "block";
         registerModal.style.display = "block";
     });
