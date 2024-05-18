@@ -47,7 +47,7 @@
 	var messageLimit = 0;
 	
 	function loginAttempt(){
-		var form = document.loginForm;
+		var form = document.getElementById('login_Member');
 		var errorMessage = document.createElement("p");
 		
 		if ((form.id.value && form.passwd.value) == "") {
@@ -70,7 +70,7 @@
 		<div class="login_out">
 			<div class="login_in">
 				
-				<form action="login_process.jsp" id="Member" method="post" class="login_form">
+				<form action="../login/login_process.jsp" id="login_Member" method="post" class="login_form">
 				
 				
 					<span id="loginClose" class="close" style="left:10">&times;</span>

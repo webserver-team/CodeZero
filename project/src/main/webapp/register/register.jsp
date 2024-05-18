@@ -32,7 +32,7 @@ function checkMember(){
 	var regExpPhone = /^\d{3}\d{3,4}\d{4}$/;
 	var regExpEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 	
-	let form = document.getElementById('Member');
+	let form = document.getElementById('regi_Member');
 	
 	let id = form.id.value;
 	let name = form.name.value;
@@ -73,7 +73,7 @@ function checkMember(){
 		<div class="regi_out">
 			<div class="regi_in">
 				
-				<form action="register_process.jsp" id="Member" method="post" class="regi_form">
+				<form action="../register/register_process.jsp" id="regi_Member" method="post" class="regi_form">
 				
 					<span id="registerClose" class="close" style="left:10">&times;</span>
 					<h3>회원가입</h3>
