@@ -1,16 +1,5 @@
 @charset "UTF-8";
 
-.link1{
-	position:relative;
-	width:120px;
-	height:50px;
-}
-.link2{
-	position:relative;
-	width:72px;
-	height:50px;
-	
-}
 svg{
 	position:absolute;
 	top:15;

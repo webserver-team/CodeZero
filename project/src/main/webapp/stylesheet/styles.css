@@ -25,7 +25,7 @@ body {
 	justify-content:center;	
 	padding-right: calc(var(--bs-gutter-x)* .5);
     padding-left: calc(var(--bs-gutter-x)* .5);
-    margin-bottom:5%;
+    margin-bottom:3%;
 }
 
 ::after, ::before{
@@ -39,14 +39,14 @@ body {
     margin-left:2%;
 }
 
-.link{
-	text-decoration: none;
-}
 
 input{
     font-size: inherit;
 }
 
 a{
+	display:flex;
+	align-items:center;
+	justify-content:center;
 	text-decoration:none;
 }

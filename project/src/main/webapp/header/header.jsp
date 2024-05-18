@@ -19,6 +19,9 @@
 	} catch (SQLException ex) {
 			
 	}
+	
+	String id = (String)session.getAttribute("id");
+			
 %>
 
 
@@ -36,12 +39,17 @@
 			</a>    
 			<div class="login-register" style="display:flex; justify-content:flex-end; width:100%">
 		
+				<% if (id == null) {%>
 				<button id="loginButton" class="header-button">로그인</button>
 				<jsp:include page="../login/login.jsp"></jsp:include>
 	
 				<button id="registerButton" class="header-button">회원가입</button> 
 				<jsp:include page="../register/register.jsp"></jsp:include>
-				
+				<% } 
+				else {%>
+				<a href="mypage.jsp" class="link" style="font-size:13px; margin-right:5px"><%= id %>님</a>				
+				<button id="logout" class="header-button">로그아웃</button>
+				<% } %>
 			</div>
 			<script src="../scripts.js"></script>
 		</div>
