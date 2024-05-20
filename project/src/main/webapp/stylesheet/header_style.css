@@ -21,6 +21,12 @@
 	height:50px;
 }
 
+.logout{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
 
 .link{
 	position:relative;

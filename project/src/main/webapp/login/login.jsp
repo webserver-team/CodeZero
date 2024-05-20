@@ -3,12 +3,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="../stylesheet/login.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="text/javascript">
+<%@ include file ="../db/dbconn.jsp" %>
+
+<link rel="stylesheet" href="../stylesheet/login.css">
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   
+   
+	<script type="text/javascript">
 
 	/*
 	var idMessageLimit = 0;
@@ -44,24 +48,24 @@
 	}
 	*/
 	
-	var messageLimit = 0;
-	
-	function loginAttempt(){
-		var form = document.getElementById('login_Member');
-		var errorMessage = document.createElement("p");
+		var messageLimit = 0;
 		
-		if ((form.id.value && form.passwd.value) == "") {
-			if (messageLimit < 1){
-				errorMessage.textContent = "아이디 또는 비밀번호를 입력해주세요."
-				form.appendChild(errorMessage);
-				messageLimit += 1;
+		function loginAttempt(){
+			var form = document.getElementById('login_Member');
+			var errorMessage = document.createElement("p");
+			
+			if ((form.id.value && form.passwd.value) == "") {
+				if (messageLimit < 1){
+					errorMessage.textContent = "아이디 또는 비밀번호를 입력해주세요."
+					form.appendChild(errorMessage);
+					messageLimit += 1;
+				}
+				return false;	
 			}
-			return false;	
+			else
+				form.submit();
 		}
-		else
-			form.submit();
-	}
-</script>
+	</script>	
 </head>
 <body>
 <div id="login_Background" class="login-background"></div>

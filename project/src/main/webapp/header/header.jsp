@@ -20,7 +20,7 @@
 			
 	}
 	
-	String id = (String)session.getAttribute("id");
+	String name = (String)session.getAttribute("name");
 			
 %>
 
@@ -39,7 +39,7 @@
 			</a>    
 			<div class="login-register" style="display:flex; justify-content:flex-end; width:100%">
 		
-				<% if (id == null) {%>
+				<% if (name == null) {%>
 				<button id="loginButton" class="header-button">로그인</button>
 				<jsp:include page="../login/login.jsp"></jsp:include>
 	
@@ -47,8 +47,10 @@
 				<jsp:include page="../register/register.jsp"></jsp:include>
 				<% } 
 				else {%>
-				<a href="mypage.jsp" class="link" style="font-size:13px; margin-right:5px"><%= id %>님</a>				
-				<button id="logout" class="header-button">로그아웃</button>
+				<a href="mypage.jsp" class="link" style="font-size:13px; margin-right:5px"><%= name %> 님</a>
+				<form action="../login/logout_process.jsp" class="logout" style="height:100%">
+					<button type="submit" id="logout" class="header-button">로그아웃</button>
+				</form>
 				<% } %>
 			</div>
 			<script src="../scripts.js"></script>
