@@ -6,37 +6,54 @@
 <%@ include file ="../db/dbconn.jsp" %>
 
 <link rel="stylesheet" href="../stylesheet/login.css">
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-   
-   
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
 	<script type="text/javascript">
 
-	/*
+	
 	var idMessageLimit = 0;
 	var pwMessageLimit = 0;
+	var messageExist = 0;
+	
 	function loginAttempt(){
-		var form = document.loginForm;
+		var form = document.getElementById('login_Member');
 		var errorMessage = document.createElement("p");
+		errorMessage.id = "errorMessage";
+		var message = document.getElementById("errorMessage");
+		
 		if (form.id.value == "") {
 			if (idMessageLimit < 1){
-				errorMessage.textContent = "아이디를 입력해주세요."
-				form.appendChild(errorMessage);
-				idMessageLimit += 1;
+				if(messageExist == 0){
+					form.appendChild(errorMessage);
+					errorMessage.textContent = "아이디를 입력해주세요."
+					messageExist = 1;
+				}
+				else{
+					message = document.getElementById("errorMessage");
+					message.textContent = "아이디를 입력해주세요."
+					idMessageLimit = 1;
+				}
 			}
-			return false;	
+			pwMessageLimit = 0;
+			return false;
 		}
 		else {
 			idMessageLimit = 0;
 		}
 		
-		if (form.pw.value == ""){
+		if (form.passwd.value == ""){
 			if (pwMessageLimit < 1){
-				errorMessage.textContent = "비밀번호 입력해주세요."
-				form.appendChild(errorMessage);
-				pwMessageLimit += 1;
+				if(messageExist == 0){
+					form.appendChild(errorMessage);
+					errorMessage.textContent = "비밀번호를 입력해주세요."
+					messageExist = 1;
+				}
+				else{
+					message = document.getElementById("errorMessage");
+					message.textContent = "비밀번호를 입력해주세요."
+					pwMessageLimit = 1;
+				}
 			}
 			return false;
 		}
@@ -46,25 +63,26 @@
 		
 	form.submit();
 	}
-	*/
 	
-		var messageLimit = 0;
+	
+// 		var messageLimit = 0;
 		
-		function loginAttempt(){
-			var form = document.getElementById('login_Member');
-			var errorMessage = document.createElement("p");
+// 		function loginAttempt(){
+// 			var form = document.getElementById('login_Member');
+// 			var errorMessage = document.createElement("p");
 			
-			if ((form.id.value && form.passwd.value) == "") {
-				if (messageLimit < 1){
-					errorMessage.textContent = "아이디 또는 비밀번호를 입력해주세요."
-					form.appendChild(errorMessage);
-					messageLimit += 1;
-				}
-				return false;	
-			}
-			else
-				form.submit();
-		}
+// 			if ((form.id.value && form.passwd.value) == "") {
+// 				if (messageLimit < 1){
+// 					errorMessage.textContent = "아이디 또는 비밀번호를 입력해주세요."
+// 					form.appendChild(errorMessage);
+// 					messageLimit += 1;
+// 				}
+// 				return false;	
+// 			}
+// 			else
+// 				form.submit();
+// 		}
+
 	</script>	
 </head>
 <body>
