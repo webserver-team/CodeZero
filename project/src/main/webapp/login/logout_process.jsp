@@ -7,10 +7,9 @@
 <title>logout</title>
 </head>
 <body>
-	
-<%
-	String name = (String)session.getAttribute("name");
-%>
-	<%= name %>
+	<%
+		session.invalidate();
+		response.sendRedirect("../home/home.jsp");
+	%>
 </body>
 </html>
