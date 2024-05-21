@@ -26,9 +26,9 @@
 
 function checkMember(){
 	
-	var regExpId = /^[a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+	var regExpId = /^[a-z][a-z0-9]{4,19}$/;
 	var regExpName = /^[가-힣]*$/;
-	var regExpPasswd = /^[a-z|A-Z]/;
+	var regExpPasswd = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 	var regExpPhone = /^\d{3}\d{3,4}\d{4}$/;
 	var regExpEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 	
@@ -41,16 +41,16 @@ function checkMember(){
 	let email = form.email.value;
 
 	if (!regExpId.test(id)) {
-		alert("아이디는 문자로 시작해 주세요");
+		alert("아이디 : 5~20자의 영문 소문자, 숫자만 사용 가능합니다.");
 		form.id.select();
 		return;
 	}
 	if (!regExpName.test(name)) {
-		alert("이름은 한글만으로 입력해 주세요");
+		alert("이름 : 한글만 사용 가능합니다.");
 		return;
 	}
 	if (!regExpPasswd.test(passwd)) {
-		alert("비밀번호는 영문만으로 입력해 주세요");
+		alert("비밀번호 : 최소 8자 이상이어야 하며, 영문자 및 숫자를 포함해야 합니다.");
 		return;
 	}
 	if (!regExpPhone.test(phone)) {

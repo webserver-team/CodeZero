@@ -20,12 +20,14 @@
 		var form = document.getElementById('login_Member');
 		var errorMessage = document.createElement("p");
 		errorMessage.id = "errorMessage";
+		errorMessage.style = "font-size:13px"
 		var message = document.getElementById("errorMessage");
+		var target = document.getElementById("passwd_div");
 		
 		if (form.id.value == "") {
 			if (idMessageLimit < 1){
 				if(messageExist == 0){
-					form.appendChild(errorMessage);
+					form.insertBefore(errorMessage, target.nextSibling);
 					errorMessage.textContent = "아이디를 입력해주세요."
 					messageExist = 1;
 				}
@@ -45,7 +47,7 @@
 		if (form.passwd.value == ""){
 			if (pwMessageLimit < 1){
 				if(messageExist == 0){
-					form.appendChild(errorMessage);
+					form.insertBefore(errorMessage, target.nextSibling);
 					errorMessage.textContent = "비밀번호를 입력해주세요."
 					messageExist = 1;
 				}
@@ -98,13 +100,13 @@
 					<span id="loginClose" class="close" style="left:10">&times;</span>
 					<h3>로그인</h3>
 					
-					<div class="id_div input_div">
+					<div class="login_id_div input_div">
 						<input type="text" name="id" class="input id" placeholder="아이디">
 			   		</div>
-					<div class="passwd_div input_div">
+					<div class="login_passwd_div input_div" id="passwd_div">
 						<input type="password" name="passwd" class="input passwd" placeholder="비밀번호" >
 			     	</div>
-			     	<p style="display:flex; justify-content:space-around"> <input type="button" value="로그인" style="margin-top:10px" onclick="loginAttempt()" class="button">
+			     	<p style="display:flex; justify-content:space-around"> <input type="button" value="로그인" style="margin-top:70px" onclick="loginAttempt()" class="button">
 				</form>		 
 			</div>
 		</div>
