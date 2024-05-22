@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	메인 페이지 
+	<h1>메인 페이지</h1> 
 </body>
 </html>

@@ -13,3 +13,4 @@ DESC member;
 SELECT * FROM member;
 
 INSERT INTO member (user_id, password) values ('ksy','12345')
+INSERT INTO member (user_id, password) values ('kss','123')
