@@ -60,7 +60,7 @@
 				<jsp:include page="../register/register.jsp"></jsp:include>
 				<% } 
 				else {%>
-				<a href="mypage.jsp" class="link" style="font-size:13px; margin-right:5px"><%= name %> 님</a>
+				<a href="../mypage/mypage.jsp" class="link" style="font-size:13px; margin-right:5px"><%= name %> 님</a>
 				<form action="../login/logout_process.jsp" class="logout" style="height:100%">
 					<button type="submit" id="logout" class="header-button">로그아웃</button>
 				</form>

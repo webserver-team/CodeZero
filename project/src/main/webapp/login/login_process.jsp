@@ -31,27 +31,22 @@
                 // 입력한 비밀번호와 데이터베이스에 저장된 비밀번호 비교
                 if (passwd.equals(storedPassword)) {
                     // 로그인 성공 시 메인 페이지로 이동
-                    session.setAttribute("id", id);
+					session.setAttribute("id", id);	
                     session.setAttribute("name", storedName);
                     response.sendRedirect("../home/home.jsp");
                 } else {
                     // 비밀번호 불일치 시 에러 메시지 출력
-                    %>
-                    <script type="text/javascript">
-						alert("비밀번호가 일치하지 않습니다.");
-						window.location.href = "../home/home.jsp"
-                    </script>
-                    <%
+	                session.setAttribute("message", "비밀번호가 일치하지 않습니다.");
+	                session.setAttribute("login_modal_status", "on");
+	                response.sendRedirect("../home/home.jsp");
                 }
             } else {
                 // 사용자가 존재하지 않을 때 에러 메시지 출력
+                session.setAttribute("message", "사용자가 존재하지 않습니다.");
+                session.setAttribute("login_modal_status", "on");
+                response.sendRedirect("../home/home.jsp");
                 
-			    %>
-           		<script type="text/javascript">
-					alert("사용자가 존재하지 않습니다.");
-					window.location.href = "../home/home.jsp"
-		        </script>
-			    <%       
+                       
             }
         } catch (SQLException e) {
             e.printStackTrace();

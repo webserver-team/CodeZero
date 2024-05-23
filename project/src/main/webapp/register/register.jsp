@@ -11,32 +11,6 @@
 
 <script type="text/javascript">
 
-window.onload = function(){
-	
-	var modal_status = '<%= session.getAttribute("modal_status")%>';
-	var message = '<%= session.getAttribute("message")%>';
-
-	
-	if (modal_status == "on"){
-		document.getElementById("registerModal").style.display = "block";
-		document.getElementById("regi_Background").style.display = "block";
-	}
-
-	if (message != 'null'){
-		setTimeout(function() {			// modal창을 띄우고 alert창이 뜨게 하기 위해 약간의 지연시간을 줌
-			alert(message);
-			}, 100);
-	}
-	
-	<% 
-		session.removeAttribute("modal_status");
-		session.removeAttribute("message");
-	%>
-}
-</script>
-
-<script type="text/javascript">
-
 function checkMember(){
 	
 	var regExpId = /^[a-z][a-z0-9]{4,19}$/;

@@ -31,7 +31,7 @@
 			
             if (rs.next()) {
             	session.setAttribute("message", "이미 사용중인 ID입니다.");
-            	session.setAttribute("modal_status","on");
+            	session.setAttribute("regi_modal_status","on");
             	response.sendRedirect("../home/home.jsp");
             }
             else {
