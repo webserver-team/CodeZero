@@ -22,7 +22,20 @@
 	
 	String name = (String)session.getAttribute("name");
 			
+	
 %>
+
+
+<script>
+	function clearText(){
+		var inputs = document.getElementsByClassName("input");
+		for (var i = 0; i < inputs.length; i++)
+			inputs[i].value = "";
+	}
+	
+	
+	
+</script>
 
 
 
@@ -40,10 +53,10 @@
 			<div class="login-register" style="display:flex; justify-content:flex-end; width:100%; height:32px">
 		
 				<% if (name == null) {%>
-				<button id="loginButton" class="header-button">로그인</button>
+				<button id="loginButton" class="header-button" onclick="clearText()">로그인</button>
 				<jsp:include page="../login/login.jsp"></jsp:include>
 	
-				<button id="registerButton" class="header-button">회원가입</button> 
+				<button id="registerButton" class="header-button" onclick="clearText()">회원가입</button> 
 				<jsp:include page="../register/register.jsp"></jsp:include>
 				<% } 
 				else {%>

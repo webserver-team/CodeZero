@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../stylesheet/styles.css">
 <title>회원가입 성공</title>
 </head>
 
@@ -22,22 +23,29 @@
 		Statement stmt = null;
 		
 		try{
+			
+			String sqlCheckId = "SELECT * FROM member WHERE id ='" + id + "'";
+
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlCheckId);
+			
+            if (rs.next()) {
+            	session.setAttribute("message", "이미 사용중인 ID입니다.");
+            	session.setAttribute("modal_status","on");
+            	response.sendRedirect("../home/home.jsp");
+            }
+            else {
 			String sql="INSERT INTO member VALUES('" + id + "','" + passwd + "','" + name + "','" + phone + "','" + email + "')";
 			stmt=conn.createStatement();
 			stmt.executeUpdate(sql);
-	%>
-			<script>
-				alert("회원이 되신 것을 환영합니다.");
-				window.location.href = "../home/home.jsp";
-			</script>
-	<%
+			
+			session.setAttribute("message", "회원이 되신 것을 환영합니다.");
+        	response.sendRedirect("../home/home.jsp");
+            }
 		}catch (SQLException ex){
-	%>
-			<script>
-				alert("회원가입에 실패했습니다.");
-				window.location.href = "../home/home.jsp";
-			</script>
-	<%
+			session.setAttribute("message", "회원가입에 실패했습니다.");
+        	response.sendRedirect("../home/home.jsp");
+      
 		} finally {
 			if (stmt!=null)
 				stmt.close();

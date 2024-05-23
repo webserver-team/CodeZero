@@ -5,24 +5,37 @@
 <head>
 	<link rel="stylesheet" href="../stylesheet/register.css">
 	<title>회원가입</title>
-</head>
-<%
-	Connection conn = null;
-	try {
-		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/JSP_project";
-		String user="root";
-		String password="1234";
-		
-		conn=DriverManager.getConnection(url, user, password);
-		
-	} catch (SQLException ex) {
-			
-	}
-%>
+</head> 
+
+<%@ include file="/../db/dbconn.jsp" %>
 
 <script type="text/javascript">
 
+window.onload = function(){
+	
+	var modal_status = '<%= session.getAttribute("modal_status")%>';
+	var message = '<%= session.getAttribute("message")%>';
+
+	
+	if (modal_status == "on"){
+		document.getElementById("registerModal").style.display = "block";
+		document.getElementById("regi_Background").style.display = "block";
+	}
+
+	if (message != 'null'){
+		setTimeout(function() {			// modal창을 띄우고 alert창이 뜨게 하기 위해 약간의 지연시간을 줌
+			alert(message);
+			}, 100);
+	}
+	
+	<% 
+		session.removeAttribute("modal_status");
+		session.removeAttribute("message");
+	%>
+}
+</script>
+
+<script type="text/javascript">
 
 function checkMember(){
 	
@@ -73,6 +86,7 @@ function checkMember(){
 		<div class="regi_out">
 			<div class="regi_in">
 				
+<!-- 				<form action="${pageContext.request.contextPath}/RegisterServlet" id="regi_Member" method="post" class="regi_form"> -->
 				<form action="../register/register_process.jsp" id="regi_Member" method="post" class="regi_form">
 				
 					<span id="registerClose" class="close" style="left:10">&times;</span>

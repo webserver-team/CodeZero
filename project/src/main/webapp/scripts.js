@@ -20,8 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
         registerModal.style.display = "none";
     });
     
-   
-    
     var loginButton = document.getElementById("loginButton");
     var login_Background = document.getElementById("login_Background");
     var loginModal = document.getElementById("loginModal");
