@@ -8,9 +8,8 @@
 <link rel="stylesheet" href="../stylesheet/login.css">
 	<meta charset="UTF-8">
 	<title>Document</title>
-	
-	<script type="text/javascript">
 
+	<script type="text/javascript">
 	
 	var idMessageLimit = 0;
 	var pwMessageLimit = 0;
@@ -60,8 +59,7 @@
 		else {
 			pwMessageLimit = 0;
 		}
-		
-	form.submit();
+		form.submit();
 	}
 	
 	

@@ -31,6 +31,7 @@
                 // 입력한 비밀번호와 데이터베이스에 저장된 비밀번호 비교
                 if (passwd.equals(storedPassword)) {
                     // 로그인 성공 시 메인 페이지로 이동
+                    session.setAttribute("id", id);
                     session.setAttribute("name", storedName);
                     response.sendRedirect("../home/home.jsp");
                 } else {

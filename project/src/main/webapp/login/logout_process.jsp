@@ -9,8 +9,8 @@
 <body>
 	
 <%
-	String name = (String)session.getAttribute("name");
+	session.invalidate();
+	response.sendRedirect("../home/home.jsp");
 %>
-	<%= name %>
 </body>
 </html>

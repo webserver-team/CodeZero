@@ -37,7 +37,7 @@
 				</svg>   
 		    	<span><b>CODE:0</b></span>
 			</a>    
-			<div class="login-register" style="display:flex; justify-content:flex-end; width:100%">
+			<div class="login-register" style="display:flex; justify-content:flex-end; width:100%; height:32px">
 		
 				<% if (name == null) {%>
 				<button id="loginButton" class="header-button">로그인</button>
