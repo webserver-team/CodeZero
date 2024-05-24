@@ -41,8 +41,15 @@ body {
 }
 
 .errorMessage{
+	display:flex;
+	justify-content:center;
+	align-items:center;
 	font-size:13px;
 	color:#ff6868;
+	margin-bottom:5px;
+	margin-top:5px;
+	white-space: pre-line;
+	line-height: 1.7;
 }
 
 input{

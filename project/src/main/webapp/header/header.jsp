@@ -7,21 +7,9 @@
 <link rel="stylesheet" href="../stylesheet/register.css">
 
 <%
-	Connection conn = null;
-	try {
-		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/JSP_project";
-		String user="root";
-		String password="1234";
-		
-		conn=DriverManager.getConnection(url, user, password);
-		
-	} catch (SQLException ex) {
-			
-	}
 	
-	String name = (String)session.getAttribute("name");
-			
+	String header_name = (String)session.getAttribute("name");
+	String header_id = (String)session.getAttribute("id");
 	
 %>
 
@@ -52,7 +40,7 @@
 			</a>    
 			<div class="login-register" style="display:flex; justify-content:flex-end; width:100%; height:32px">
 		
-				<% if (name == null) {%>
+				<% if (header_name == null) {%>
 				<button id="loginButton" class="header-button" onclick="clearText()">로그인</button>
 				<jsp:include page="../login/login.jsp"></jsp:include>
 	
@@ -60,7 +48,7 @@
 				<jsp:include page="../register/register.jsp"></jsp:include>
 				<% } 
 				else {%>
-				<a href="../mypage/mypage.jsp" class="link" style="font-size:13px; margin-right:5px"><%= name %> 님</a>
+				<a href="../mypage/mypage.jsp" class="link" style="font-size:13px; margin-right:5px"><%= header_name %> 님</a>
 				<form action="../login/logout_process.jsp" class="logout" style="height:100%">
 					<button type="submit" id="logout" class="header-button">로그아웃</button>
 				</form>

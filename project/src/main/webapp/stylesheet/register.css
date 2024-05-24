@@ -96,7 +96,6 @@ input::placeholder{
 
 .passwd_div{
 	border-radius:0px 0px 7px 7px;
-	margin-bottom:30px;
 	border-top:0px;
 }
 .email_div{
@@ -130,4 +129,16 @@ input::placeholder{
 	border:1px solid #03c75a;
 	border-radius:10px;
 	cursor:pointer; 
+}
+
+#regi_errorMessage1{
+	height: 45px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#regi_errorMessage2{
+	height: 70px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

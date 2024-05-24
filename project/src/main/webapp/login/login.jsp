@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<%@ include file ="../db/dbconn.jsp" %>
 
 <link rel="stylesheet" href="../stylesheet/login.css">
 	<meta charset="UTF-8">
@@ -14,24 +13,21 @@
 	var messageExist = false;
 	var noId = false;
 	var noPw = false;	
+
+	var errorMessage = document.createElement("p");
+	errorMessage.id = "login_errorMessage";
 	
 	function loginAttempt(){
-		var form = document.getElementById('login_Member');
-		
+		var form = document.getElementById("login_Member");
+		var target = document.getElementById("login_passwd_div");
 
-		var errorMessage = document.createElement("p");
-		errorMessage.id = "errorMessage";
-	
-// 		errorMessage.style = "font-size:13px"
-		var target = document.getElementById("passwd_div");
-
-		if (!messageExist)
+		if (!messageExist){
 			form.insertBefore(errorMessage, target.nextSibling);
-		messageExist = true;
+			messageExist = true;
+		}
 		
-		var error = document.getElementById("errorMessage");
-		error.classList.add("errorMessage");
-
+		var error = document.getElementById("login_errorMessage");
+		error.classList.add("login_errorMessage");
 
 		if (form.id.value == "")
 			noId = true;
@@ -45,11 +41,11 @@
 		if (noId){
 			if (noPw){
 				error.textContent = "아이디, 비밀번호를 입력해주세요."
-				document.getElementById("input_id").focus();
+				form.id.select();
 			}
 			else{
 				error.textContent = "아이디를 입력해주세요."
-				document.getElementById("input_id").focus();
+				form.passwd.select();
 			}
 			return false;
 		}
@@ -139,7 +135,7 @@
 					<div class="login_id_div input_div">
 						<input type="text" id="input_id" name="id" class="input id" placeholder="아이디">
 			   		</div>
-					<div class="login_passwd_div input_div" id="passwd_div">
+					<div class="login_passwd_div input_div" id="login_passwd_div">
 						<input type="password" id="input_passwd" name="passwd" class="input passwd" placeholder="비밀번호">
 			     	</div>
 			     	<p style="display:flex; justify-content:space-around"> <input type="button" value="로그인" style="margin-top:70px" onclick="loginAttempt()" class="button">

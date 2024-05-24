@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.my_info{
+	display:flex;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.my_info_input{
+	margin-left:5px;
+	width:90%;
+	border:0px;
+	color:#03c75a;
+}
+
+.my_info_in{
+	display:flex;
+	align-items:center;
+	border:1px;
+	backGround-color:#e1f0d9;
+	color:#03c75a;
+	border-radius:7px 0px 0px 7px;
+}
+
+.my_p{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	text-align:center;
+	
+	width:55px;
+	height : 30px;
+	padding-left:5px;
+	padding-right:5px;
+	margin:0px;	
+	border-right:5px solid #cfe7c3;
+}

@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+.login_errorMessage{
+	font-size:13px;
+	color:#ff6868;
+	margin-bottom:0px;
+	margin-top:0px;
+}
 
 .login-background {
     display: none;
