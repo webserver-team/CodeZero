@@ -11,44 +11,50 @@
 
 	<script type="text/javascript">
 	
-	var messageExist = 0;
-	var noId = 0;
-	var noPw = 0;
+	var messageExist = false;
+	var noId = false;
+	var noPw = false;	
 	
 	function loginAttempt(){
 		var form = document.getElementById('login_Member');
+		
+
 		var errorMessage = document.createElement("p");
 		errorMessage.id = "errorMessage";
-		errorMessage.style = "font-size:13px"
+	
+// 		errorMessage.style = "font-size:13px"
 		var target = document.getElementById("passwd_div");
-		
-		if (form.id.value == "")
-			noId = 1;
-		else 
-			noId = 0;
-		if (form.passwd.value == "")
-			noPw = 1;
-		else 
-			noPw = 0;
-			
-		if (messageExist == 0){
+
+		if (!messageExist)
 			form.insertBefore(errorMessage, target.nextSibling);
-			messageExist = 1;
-		}
+		messageExist = true;
 		
-		if (noId == 1){
-			if (noPw == 1){
-				document.getElementById("errorMessage").textContent = "아이디, 비밀번호를 입력해주세요."
+		var error = document.getElementById("errorMessage");
+		error.classList.add("errorMessage");
+
+
+		if (form.id.value == "")
+			noId = true;
+		else 
+			noId = false;
+		if (form.passwd.value == "")
+			noPw = true;
+		else 
+			noPw = false;
+		
+		if (noId){
+			if (noPw){
+				error.textContent = "아이디, 비밀번호를 입력해주세요."
 				document.getElementById("input_id").focus();
 			}
 			else{
-				document.getElementById("errorMessage").textContent = "아이디를 입력해주세요."
+				error.textContent = "아이디를 입력해주세요."
 				document.getElementById("input_id").focus();
 			}
 			return false;
 		}
-		else if (noPw == 1){
-			document.getElementById("errorMessage").textContent = "비밀번호를 입력해주세요."
+		else if (noPw){
+			error.textContent = "비밀번호를 입력해주세요."
 			document.getElementById("input_passwd").focus();
 			return false;
 		}		

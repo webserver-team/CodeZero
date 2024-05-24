@@ -40,6 +40,10 @@ body {
     margin-left:2%;
 }
 
+.errorMessage{
+	font-size:13px;
+	color:#ff6868;
+}
 
 input{
     font-size: inherit;

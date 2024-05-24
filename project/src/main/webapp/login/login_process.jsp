@@ -35,13 +35,13 @@
                     session.setAttribute("name", storedName);
                     response.sendRedirect("../home/home.jsp");
                 } else {
-                    // 비밀번호 불일치 시 에러 메시지 출력
+                    // 비밀번호 불일치 시 에러 메시지
 	                session.setAttribute("message", "비밀번호가 일치하지 않습니다.");
 	                session.setAttribute("login_modal_status", "on");
 	                response.sendRedirect("../home/home.jsp");
                 }
             } else {
-                // 사용자가 존재하지 않을 때 에러 메시지 출력
+                // 사용자가 존재하지 않을 때 에러 메시지
                 session.setAttribute("message", "사용자가 존재하지 않습니다.");
                 session.setAttribute("login_modal_status", "on");
                 response.sendRedirect("../home/home.jsp");

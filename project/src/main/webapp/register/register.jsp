@@ -11,6 +11,12 @@
 
 <script type="text/javascript">
 
+var id_errorMessege = document.createElement("p");
+var passwd_errorMessege = document.createElement("p");
+var name_errorMessege = document.createElement("p");
+var phone_errorMessege = document.createElement("p");
+var email_errorMessege = document.createElement("p");
+
 function checkMember(){
 	
 	var regExpId = /^[a-z][a-z0-9]{4,19}$/;
@@ -19,35 +25,51 @@ function checkMember(){
 	var regExpPhone = /^\d{3}\d{3,4}\d{4}$/;
 	var regExpEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 	
-	let form = document.getElementById('regi_Member');
+	var form = document.getElementById('regi_Member');
 	
-	let id = form.id.value;
-	let name = form.name.value;
-	let passwd = form.passwd.value;
-	let phone = form.phone.value;
-	let email = form.email.value;
+	var id = form.id.value;
+	var name = form.name.value;
+	var passwd = form.passwd.value;
+	var phone = form.phone.value;
+	var email = form.email.value;
 
+	var noId = false;
+	var noPw = false;
+	var noName = false;
+	var noPhone = false;
+	var noEmail = false;
+	
 	if (!regExpId.test(id)) {
-		alert("아이디 : 5~20자의 영문 소문자, 숫자만 사용 가능합니다.");
+		noId = true;
 		form.id.select();
+		
+// 		alert("아이디 : 5~20자의 영문 소문자, 숫자만 사용 가능합니다.");
 		return;
-	}
-	if (!regExpName.test(name)) {
-		alert("이름 : 한글만 사용 가능합니다.");
-		return;
-	}
+	} else noId = false;
 	if (!regExpPasswd.test(passwd)) {
-		alert("비밀번호 : 최소 8자 이상이어야 하며, 영문자 및 숫자를 포함해야 합니다.");
+		form.passwd.select();
+		noPw = true;
+// 		alert("비밀번호 : 최소 8자 이상이어야 하며, 영문자 및 숫자를 포함해야 합니다.");
 		return;
-	}
+	} else noPw = false;
+	if (!regExpName.test(name)) {
+		form.name.select();
+		noName = true;
+// 		alert("이름 : 한글만 사용 가능합니다.");
+		return;
+	} else noName = false;
 	if (!regExpPhone.test(phone)) {
-		alert("연락처 입력을 확인해 주세요");
+		form.phone.select();
+		noPhone = true;
+// 		alert("연락처 입력을 확인해 주세요");
 		return;
-	}
+	} else noPhone = false;
 	if (!regExpEmail.test(email)) {
-		alert("이메일 입력을 확인해 주세요");
+		form.email.select();
+		noEmail = true;
+// 		alert("이메일 입력을 확인해 주세요");
 		return;
-	}
+	} else noEmail = false;
 	
 	form.submit();
 }
