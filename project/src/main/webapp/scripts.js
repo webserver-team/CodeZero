@@ -1,3 +1,19 @@
+
+
+function loginOnEnter(event) {
+    if (event.keyCode === 13) {  // Enter 키의 keyCode는 13입니다.
+    	loginAttempt();
+    }
+}
+
+function registerOnEnter(event) {
+    if (event.keyCode === 13) {  // Enter 키의 keyCode는 13입니다.
+    	checkMember();
+    }
+}
+    
+    
+
 document.addEventListener("DOMContentLoaded", function () {
     var registerButton = document.getElementById("registerButton");
     var regi_Background = document.getElementById("regi_Background");
@@ -7,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     registerButton.addEventListener("click", function () {
         regi_Background.style.display = "block";
         registerModal.style.display = "block";
+		document.getElementById("regi_input_id").focus();
     });
 
     registerClose.addEventListener("click", function () {
@@ -28,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     loginButton.addEventListener("click", function () {
         login_Background.style.display = "block";
         loginModal.style.display = "block";
+		document.getElementById("login_input_id").focus();
     });
 
     loginClose.addEventListener("click", function () {

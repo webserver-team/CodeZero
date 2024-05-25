@@ -49,14 +49,18 @@
 
 	<div class="container">
 		<%@ include file="/../header/header.jsp"%>
-		<div class="container">
+	</div>
+	<div class="container mypage_container">
+		<div class="my_infos_box">
 			<div class="my_infos">
+
+				<h2 class="mypage_title">회원정보</h2>
 
 				<div class="my_info">
 					<div class="my_info_in">
 						<p class="my_p">ID</p>
 					</div>
-					<div class="my_info_in">
+					<div class="my_info_in value">
 						<div class="my_info_div" id="my_id_div">
 							<input type="text" id="my_id_input" value="<%=db_id%>"
 								class="my_info_input" disabled>
@@ -69,7 +73,7 @@
 						<p class="my_p">이름</p>
 					</div>
 
-					<div class="my_info_in">
+					<div class="my_info_in value">
 						<div class="my_info_div" id="my_name_div">
 							<input type="text" id="my_name_input" value="<%=db_name%>"
 								class="my_info_input" disabled>
@@ -81,7 +85,7 @@
 					<div class="my_info_in">
 						<p class="my_p">연락처</p>
 					</div>
-					<div class="my_info_in">
+					<div class="my_info_in value">
 						<div class="my_info_div" id="my_phone_div">
 							<input type="text" id="my_phone_input" value="<%=db_phone%>"
 								class="my_info_input" disabled>
@@ -93,14 +97,16 @@
 					<div class="my_info_in">
 						<p class="my_p">이메일</p>
 					</div>
-					<div class="my_info_in">
+					<div class="my_info_in value">
 						<div class="my_info_div" id="my_email_div">
 							<input type="text" id="my_email_input" value="<%=db_email%>"
 								class="my_info_input" disabled>
 						</div>
 					</div>
 				</div>
-				<input type="button" value="회원 정보 수정">
+				<h3></h3>
+				<input type="button" class="change_info_button" value="회원 정보 수정">
+				<h5></h5>
 			</div>
 		</div>
 	</div>

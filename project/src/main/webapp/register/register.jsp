@@ -124,27 +124,27 @@
 					<span id="registerClose" class="close" style="left:10">&times;</span>
 					<h3>회원가입</h3>
 					<div class="id_div input_div">
-						<input type="text" name="id" class="input id" placeholder="아이디">
+						<input type="text" id="regi_input_id" name="id" class="input id" placeholder="아이디" onkeydown="registerOnEnter(event)">
 					</div>
 					<div id="regi_passwd_div" class="passwd_div input_div">
-						<input type="password" name="passwd" class="input passwd" placeholder="비밀번호" >
+						<input type="password" id="regi_input_passwd"  name="passwd" class="input passwd" placeholder="비밀번호" onkeydown="registerOnEnter(event)">
 					</div>
 					
 					<p id="regi_errorMessage1" class="errorMessage">
 					
 					<div class="name_div input_div">
-						<input type="text" name="name" class="input name" placeholder="이름">
+						<input type="text" id="regi_input_name" name="name" class="input name" placeholder="이름" onkeydown="registerOnEnter(event)">
 					</div>
 					<div class="phone_div input_div">
-						<input type="text" maxlength="11" name="phone" class="input phone" placeholder="전화번호">
+						<input type="text" id="regi_input_phone" maxlength="11" name="phone" class="input phone" placeholder="전화번호" onkeydown="registerOnEnter(event)">
 					</div>
 					<div id="regi_email_div" class="email_div input_div">
-						<input type="text" name="email" class="input email" placeholder="이메일">
+						<input type="text" id="regi_input_email" name="email" class="input email" placeholder="이메일" onkeydown="registerOnEnter(event)">
 					</div>
 					
 					<p id="regi_errorMessage2" class="errorMessage">
 					
-					<p style="display:flex; justify-content:space-around"> <input type="button" value="가입하기" style="margin-top:5px" onclick="checkMember()" class="button">
+					<p style="display:flex; justify-content:space-around"> <input type="button" value="가입하기" style="margin-top:5px" onclick="checkMember()" class="register_button">
 				</form>		 
 			</div>
 		</div>

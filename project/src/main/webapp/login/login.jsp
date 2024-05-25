@@ -16,6 +16,8 @@
 
 	var errorMessage = document.createElement("p");
 	errorMessage.id = "login_errorMessage";
+
+	
 	
 	function loginAttempt(){
 		var form = document.getElementById("login_Member");
@@ -45,76 +47,17 @@
 			}
 			else{
 				error.textContent = "아이디를 입력해주세요."
-				form.passwd.select();
+				form.id.select();
 			}
 			return false;
 		}
 		else if (noPw){
 			error.textContent = "비밀번호를 입력해주세요."
-			document.getElementById("input_passwd").focus();
 			return false;
 		}		
-	
-// 		if (form.id.value == "") {
-// 			if (idMessageLimit < 1){
-// 				if(messageExist == 0){
-// 					form.insertBefore(errorMessage, target.nextSibling);
-// 					errorMessage.textContent = "아이디를 입력해주세요."
-// 					messageExist = 1;
-// 					idMessageLimit = 1;
-// 				}
-// 				else{
-// 					message = document.getElementById("errorMessage");
-// 					message.textContent = "아이디를 입력해주세요."
-// 					idMessageLimit = 1;
-// 				}
-// 			}
-// 			pwMessageLimit = 0;
-// 			return false;
-// 		}
-// 		else {
-// 			idMessageLimit = 0;
-// 		}
-		
-// 		if (form.passwd.value == ""){
-// 			if (pwMessageLimit < 1){
-// 				if(messageExist == 0){
-// 					form.insertBefore(errorMessage, target.nextSibling);
-// 					errorMessage.textContent = "비밀번호를 입력해주세요."
-// 					messageExist = 1;
-// 					pwMessageLimit = 1;
-// 				}
-// 				else{
-// 					message = document.getElementById("errorMessage");
-// 					message.textContent = "비밀번호를 입력해주세요."
-// 					pwMessageLimit = 1;
-// 				}
-// 			}
-// 			return false;
-// 		}
-// 		else {
-// 			pwMessageLimit = 0;
-// 		}
-
 		form.submit();
 	}
 
-// 	function hideIdMessage(){
-// 		if (noId != 0 && messageExist != 0){
-// 			document.getElementById("errorMessage").style.display = "none";
-// 			noId= 0;
-// 			messageExist = 0;	
-// 		}
-// 	}
-	
-// 	function hidePwMessage(){
-// 		if (noPw != 0 && messageExist != 0){
-// 			document.getElementById("errorMessage").style.display = "none";
-// 			noPw = 0;
-// 			messageExist = 0;
-// 		}
-// 	}
-	
 	</script>
 	
 		
@@ -133,12 +76,12 @@
 					<h3>로그인</h3>
 					
 					<div class="login_id_div input_div">
-						<input type="text" id="input_id" name="id" class="input id" placeholder="아이디">
+						<input type="text" id="login_input_id" name="id" class="input id" placeholder="아이디" onkeydown="loginOnEnter(event)">
 			   		</div>
 					<div class="login_passwd_div input_div" id="login_passwd_div">
-						<input type="password" id="input_passwd" name="passwd" class="input passwd" placeholder="비밀번호">
+						<input type="password" id="login_input_passwd" name="passwd" class="input passwd" placeholder="비밀번호" onkeydown="loginOnEnter(event)">
 			     	</div>
-			     	<p style="display:flex; justify-content:space-around"> <input type="button" value="로그인" style="margin-top:70px" onclick="loginAttempt()" class="button">
+			     	<p style="display:flex; justify-content:space-around"> <input type="button" value="로그인" style="margin-top:70px" onclick="loginAttempt()" class="login_button">
 				</form>		 
 			</div>
 		</div>

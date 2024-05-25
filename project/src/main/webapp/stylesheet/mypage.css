@@ -1,8 +1,35 @@
 @charset "UTF-8";
 
+.mypage_container{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	margin-top:10%;
+	margin-bottom:10%;
+}
+
+.my_infos{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	color:#03c75a;
+	width:100%;
+	
+	margin:0px 50px 50px 50px;
+}
+.my_infos_box{
+	display:flex;
+	width:60%;
+	border-radius:10px;
+	border:solid 1px #03c75a;
+	background-color:#deefd6;
+}
+
 .my_info{
 	display:flex;
-	margin-top:10px;
+	justify-content:center;
+	width:80%;
 	margin-bottom:10px;
 }
 
@@ -11,15 +38,29 @@
 	width:90%;
 	border:0px;
 	color:#03c75a;
+	backGround-color:white;
+}
+
+.my_info_div{
+	width:100%;
 }
 
 .my_info_in{
 	display:flex;
+	justify-content:center;
 	align-items:center;
-	border:1px;
-	backGround-color:#e1f0d9;
+	border:1px solid #03c75a;
+	border-right:0px;
+	backGround-color:white;
 	color:#03c75a;
 	border-radius:7px 0px 0px 7px;
+	
+}
+
+.my_info_in.value{
+	border:1px solid #03c75a;
+	border-radius:0px 7px 7px 0px;
+	flex-grow:1;
 }
 
 .my_p{
@@ -33,5 +74,24 @@
 	padding-left:5px;
 	padding-right:5px;
 	margin:0px;	
-	border-right:5px solid #cfe7c3;
+}
+
+.change_info_button{
+	margin-top:60px;
+	width:80%;
+	height:40px;
+	color:#03c75a;
+	background-color:white;
+	border:1px solid #03c75a;
+	border-radius:10px;
+	cursor:pointer;
+}
+
+.mypage_title{
+	text-align:center; 
+	width:100%;
+	margin-top:30px;
+	margin-bottom:100px; 
+	padding-bottom:30px;
+	border-bottom:1px solid #03c75a;
 }
