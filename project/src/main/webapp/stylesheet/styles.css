@@ -53,6 +53,11 @@ body {
 	line-height: 1.7;
 }
 
+
+
+input[text]{
+	outline:0;
+}
 input{
     font-size: inherit;
 }

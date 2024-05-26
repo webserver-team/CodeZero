@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+.check_passwd_container{
+	display:flex;
+	justify-content:center;
+	min-height:600px;
+	margin-top:10%;
+	margin-bottom:10%;
+}
+
+.check_passwd_box{
+	display:flex;
+	align-items:center;
+	width:60%;
+	height:100%;
+	border-radius:10px;
+	border:solid 1px #03c75a;
+	background-color:#deefd6;
+	color:#03c75a;
+}
+
+.check_passwd{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	color:#03c75a;
+	width:100%;
+	
+	margin:0px 50px 50px 50px;
+}
+
+.check_passwd_div{
+	width:100%;
+}
+
+.check_passwd_title{
+	text-align:center; 
+	width:100%;
+	margin-top:30px;
+	margin-bottom:100px; 
+	padding-bottom:30px;
+	border-bottom:1px solid #03c75a;
+}
+
+
+.check_passwd_form{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	width:100%;
+}
+
+.check_passwd_in{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+
+	width:300px;
+	height:35px;
+	
+	border:1px solid #03c75a;
+	backGround-color:white;
+	color:#03c75a;
+	border-radius:5px 5px 5px 5px;
+	
+}
+
+.check_passwd_input{
+	margin-left:5px;
+	width:100%;
+	border:0px;
+	color:#03c75a;
+	backGround-color:white;
+}
+
+.check_passwd_button{
+	margin-top:250px;
+	width:300px;
+	height:35px;
+	color:#03c75a;
+	background-color:white;
+	border:1px solid #03c75a;
+	border-radius:10px;
+	cursor:pointer;	
+}
+
