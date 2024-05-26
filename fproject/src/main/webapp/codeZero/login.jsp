@@ -55,7 +55,7 @@
 				form.appendChild(errorMessage);
 				messageLimit += 1;
 			}
-			return false;	
+			return false;
 		}
 		else
 			form.submit();

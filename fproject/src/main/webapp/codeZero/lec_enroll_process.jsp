@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.io.*" %>
+<%@ page import="com.oreilly.servlet.*" %>
+<%@ page import="com.oreilly.servlet.multipart.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,21 +17,24 @@
 	<%@ include file ="connection.jsp" %>
 	<%
 		request.setCharacterEncoding("utf-8");
+		MultipartRequest multi = new MultipartRequest(request, "/Users/mm/git/CodeZero/fproject/src/main/webapp/resource/upload", 5*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 		
 		// *** 데이터를 한번에 받아오도록 수정
 		int lecId = 201000001;
-		String lecName = request.getParameter("lecName");
-		String teacherName = request.getParameter("teacherName");
-		String lecDescription = request.getParameter("lecDescription");
-		String lecCategory = request.getParameter("lecCategory");
-		String lecLevel = request.getParameter("lecLevel");
-		int lecPrice = Integer.parseInt(request.getParameter("lecPrice"));
+		String lecName = multi.getParameter("lecName");
+		String teacherName = multi.getParameter("teacherName");
+		String lecDescription = multi.getParameter("lecDescription");
+		String lecCategory = multi.getParameter("lecCategory");
+		String lecLevel = multi.getParameter("lecLevel");
+		String lecPriceString = multi.getParameter("lecPrice");
+		int lecPrice = Integer.parseInt(multi.getParameter("lecPrice"));
 		int lecReviewCount = 0;
+		
 		
 		Statement stmt = null;
 		
         try {
-        	String sql="INSERT INTO lecture(lecId, lecName, teacherName, lecDescription, lecCategory, lecLevel, lecPrice, lecReviewCount) VALUES (" + null + ", '" + lecName + "', '" + teacherName + "', '" + lecDescription + "', '" + lecCategory + "', '" + lecLevel + "', " + lecPrice + ", " + lecReviewCount + ")";
+        	String sql="INSERT INTO lecture(lecName, teacherName, lecDescription, lecCategory, lecLevel, lecPrice, lecReviewCount) VALUES ('" + lecName + "', '" + teacherName + "', '" + lecDescription + "', '" + lecCategory + "', '" + lecLevel + "', " + lecPrice + ", " + lecReviewCount + ")";
         	stmt = conn.createStatement();
         	stmt.executeUpdate(sql);
         	String message = "강의가 정상적으로 등록되었습니다.";

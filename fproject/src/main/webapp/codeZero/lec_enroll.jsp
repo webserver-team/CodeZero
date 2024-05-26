@@ -8,10 +8,14 @@
 </head>
 <body>
 	<h1>강의 등록</h1>
-	<form action="lec_enroll_process.jsp" method="get">
+	<form action="lec_enroll_process.jsp" method="post" enctype="multipart/form-data" >
 		<input type="text" name="lecName" placeholder="강의명" maxlength="30">
 		<br>
 		<input type="text" name="teacherName" placeholder="강사명">
+		<br>
+		강의 이미지 등록 <input type="file" name="imageName">
+		<br>
+		강의 동영상 등록 <input type="file" name="videoName">
 		<br>
 		<select name="lecCategory">
 		<optgroup label="프로그래밍">
