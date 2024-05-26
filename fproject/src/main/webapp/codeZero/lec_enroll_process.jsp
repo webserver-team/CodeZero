@@ -26,7 +26,6 @@
 		String lecDescription = multi.getParameter("lecDescription");
 		String lecCategory = multi.getParameter("lecCategory");
 		String lecLevel = multi.getParameter("lecLevel");
-		String lecPriceString = multi.getParameter("lecPrice");
 		int lecPrice = Integer.parseInt(multi.getParameter("lecPrice"));
 		int lecReviewCount = 0;
 		

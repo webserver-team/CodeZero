@@ -5,17 +5,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function check() {
+		var form = document.getElementById("lec_enroll");
+		var message = "값을 입력해 주세요";
+		
+		if (form.lecName.value=="" || form.teacherName.value=="" || form.videoName.value=="" || form.lecCategory.value=="" || form.lecLevel.value=="" || form.lecPrice.value=="") {
+			alert("입력하지 않은 값이 있습니다.");
+			return false;
+		
+		} else if (form.lecName.value.length < 5) {
+			alert("강의명은 5글자 이상 입력해야 합니다. ");
+			form.lecName.select()
+			return false;
+		} else if (isNaN(form.lecPrice.value)){
+			alert("가격은 숫자로 입력해야 합니다.");
+			form.lecPrice.select()
+			return false;
+		}
+		else {
+			form.submit();
+		}
+	}
+</script>
 </head>
 <body>
 	<h1>강의 등록</h1>
-	<form action="lec_enroll_process.jsp" method="post" enctype="multipart/form-data" >
-		<input type="text" name="lecName" placeholder="강의명" maxlength="30">
+	<form id="lec_enroll" name="lec_enroll" action="lec_enroll_process.jsp" method="post" enctype="multipart/form-data">
+		<input type="text" name="lecName" placeholder="강의명" size="30" maxlength="50">
+		<input type="text" name="teacherName" placeholder="강사명" size="15" maxlength="10">
 		<br>
-		<input type="text" name="teacherName" placeholder="강사명">
+		강의 이미지  <input type="file" name="imageName">
 		<br>
-		강의 이미지 등록 <input type="file" name="imageName">
-		<br>
-		강의 동영상 등록 <input type="file" name="videoName">
+		강의 동영상  <input type="file" name="videoName">
 		<br>
 		<select name="lecCategory">
 		<optgroup label="프로그래밍">
@@ -42,8 +64,6 @@
 			<option value="시스템">시스템</option>
 			<option value="클라우드">클라우드</option>
 		</optgroup>
-		<!-- ***이벤트 핸들러 함수 설정하기 -->
-		<input type="hidden" id="Field" name="field">
 		</select>
 		<select name="lecLevel">
 			<option disabled hidden selected>단계 선택</option>
@@ -52,11 +72,11 @@
 			<option value="고급">고급</option>
 		</select>
 		<br>
-		<input type="text" placeholder="가격" name="lecPrice">
+		<input type="text" placeholder="가격" name="lecPrice" size="15" maxlength="10">
 		<br>
-		<textarea name="lecDescription" cols="40" rows="3" placeholder="강의 설명"></textarea>
+		<textarea name="lecDescription" cols="40" rows="3" placeholder="강의 설명" maxlength="150"></textarea>
 		<br>
-		<input type="submit" value="등록">
+		<input type="button" value="강의 등록" onclick="check()">
 	</form>
 </body>
 </html>
