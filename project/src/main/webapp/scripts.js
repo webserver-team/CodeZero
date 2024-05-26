@@ -1,17 +1,22 @@
 
 
 function loginOnEnter(event) {
-    if (event.keyCode === 13) {  // Enter 키의 keyCode는 13입니다.
+    if (event.keyCode === 13) {  
     	loginAttempt();
     }
 }
 
 function registerOnEnter(event) {
-    if (event.keyCode === 13) {  // Enter 키의 keyCode는 13입니다.
+    if (event.keyCode === 13) { 
     	checkMember();
     }
 }
-    
+
+function modifyOnEnter(event) {
+    if (event.keyCode === 13) { 
+    	modifyAttempt();
+    }
+}    
     
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -29,12 +34,27 @@ document.addEventListener("DOMContentLoaded", function () {
     registerClose.addEventListener("click", function () {
         regi_Background.style.display = "none";
         registerModal.style.display = "none";
+        document.getElementById("id_error").style.display = "none";
+        document.getElementById("passwd_error").style.display = "none";
+        document.getElementById("name_error").style.display = "none";
+        document.getElementById("phone_error").style.display = "none";
+        document.getElementById("email_error").style.display = "none";	
+		regi_errors.style.display = "none";
+        document.getElementById("empty1").style.display = "block";
+        document.getElementById("empty2").style.display = "block";
     });
 
-    // Close modal when clicking outside of it
     regi_Background.addEventListener("click", function () {
         regi_Background.style.display = "none";
         registerModal.style.display = "none";
+        document.getElementById("id_error").style.display = "none";
+        document.getElementById("passwd_error").style.display = "none";
+        document.getElementById("name_error").style.display = "none";
+        document.getElementById("phone_error").style.display = "none";
+        document.getElementById("email_error").style.display = "none";	
+		regi_errors.style.display = "none";
+        document.getElementById("empty1").style.display = "block";
+        document.getElementById("empty2").style.display = "block";
     });
     
     var loginButton = document.getElementById("loginButton");
@@ -51,11 +71,12 @@ document.addEventListener("DOMContentLoaded", function () {
     loginClose.addEventListener("click", function () {
         login_Background.style.display = "none";
         loginModal.style.display = "none";
+        login_errorMessage.style.display = "none";
     });
     
-     // Close modal when clicking outside of it
     login_Background.addEventListener("click", function () {
         login_Background.style.display = "none";
         loginModal.style.display = "none";
+        login_errorMessage.style.display = "none";
     });
 });

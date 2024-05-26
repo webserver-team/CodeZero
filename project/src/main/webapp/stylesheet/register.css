@@ -56,6 +56,7 @@
 
 .regi_form{
 	width:70%;
+	height:475px;
 	text-align:center;
 }
 
@@ -88,23 +89,28 @@ input::placeholder{
 	border-radius:7px 7px 0px 0px;
 	border-bottom:0px;
 }
-.name_div{
-	border-radius:7px 7px 0px 0px;
-	border-bottom:0px;
-}
 
 .passwd_div{
 	border-radius:0px 0px 7px 7px;
 	border-top:0px;
+	margin-bottom:7px;
 }
-.email_div{
-	border-radius:0px 0px 7px 7px;
-	border-top:0px;
+
+.name_div{
+	border-radius:7px 7px 0px 0px;
+	border-bottom:0px;
+	margin-top:10px;
 }
 
 .phone_div{
 	border-bottom:0px;
 	border-top:0px;
+}
+
+.email_div{
+	border-radius:0px 0px 7px 7px;
+	border-top:0px;
+	margin-bottom:7px;
 }
 
 .id{
@@ -140,4 +146,11 @@ input::placeholder{
 	height: 70px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+#regi_errors{
+	display:none;
+	flex-direction:column;
+	align-items:center;
+	height:70px;
 }

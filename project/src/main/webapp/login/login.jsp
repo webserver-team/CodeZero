@@ -10,26 +10,12 @@
 
 	<script type="text/javascript">
 	
-	var messageExist = false;
 	var noId = false;
 	var noPw = false;	
 
-	var errorMessage = document.createElement("p");
-	errorMessage.id = "login_errorMessage";
-
-	
-	
 	function loginAttempt(){
 		var form = document.getElementById("login_Member");
-		var target = document.getElementById("login_passwd_div");
-
-		if (!messageExist){
-			form.insertBefore(errorMessage, target.nextSibling);
-			messageExist = true;
-		}
-		
 		var error = document.getElementById("login_errorMessage");
-		error.classList.add("login_errorMessage");
 
 		if (form.id.value == "")
 			noId = true;
@@ -43,19 +29,24 @@
 		if (noId){
 			if (noPw){
 				error.textContent = "아이디, 비밀번호를 입력해주세요."
+				error.style.display = "block";
 				form.id.select();
 			}
 			else{
 				error.textContent = "아이디를 입력해주세요."
+					error.style.display = "block";
 				form.id.select();
 			}
-			return false;
 		}
 		else if (noPw){
 			error.textContent = "비밀번호를 입력해주세요."
-			return false;
+				error.style.display = "block";
+			form.passwd.select();
 		}		
-		form.submit();
+		else 
+			error.style.display = "none";
+		if (!noId && !noPw) 
+			form.submit();
 	}
 
 	</script>
@@ -75,13 +66,20 @@
 					<span id="loginClose" class="close" style="left:10">&times;</span>
 					<h3>로그인</h3>
 					
+					<p style="height:60px"></p>
+					
 					<div class="login_id_div input_div">
-						<input type="text" id="login_input_id" name="id" class="input id" placeholder="아이디" onkeydown="loginOnEnter(event)">
+						<input type="text" id="login_input_id" maxlength="20" name="id" class="input id" placeholder="아이디" onkeydown="loginOnEnter(event)">
 			   		</div>
 					<div class="login_passwd_div input_div" id="login_passwd_div">
-						<input type="password" id="login_input_passwd" name="passwd" class="input passwd" placeholder="비밀번호" onkeydown="loginOnEnter(event)">
+						<input type="password" id="login_input_passwd" maxlength="20" name="passwd" class="input passwd" placeholder="비밀번호" onkeydown="loginOnEnter(event)">
 			     	</div>
-			     	<p style="display:flex; justify-content:space-around"> <input type="button" value="로그인" style="margin-top:70px" onclick="loginAttempt()" class="login_button">
+			     	
+			     	<p id="login_errorMessage" class="errorMessage" style="height:0px"></p>
+			     	
+			     	<p style="height:80px"></p>
+			     	
+			     	<p style="display:flex; justify-content:space-around"> <input type="button" value="로그인" onclick="loginAttempt()" class="login_button">
 				</form>		 
 			</div>
 		</div>

@@ -10,6 +10,24 @@
 </head>
 <body>
 	<%@ include file="../db/dbconn.jsp"%>
+	
+	<script type="text/javascript">
+	
+	window.onload = function(){
+		messageAlert();
+	}
+	
+	function messageAlert(){
+		var message = '<%=session.getAttribute("modify_message")%>';
+		if (message != 'null'){
+			setTimeout(function() {	
+				alert(message);
+				}, 100);
+		}	
+		<%session.removeAttribute("modify_message");%>
+	}
+	</script>
+	
 	<%
 	String id = (String) session.getAttribute("id");
 
@@ -46,13 +64,12 @@
 	}
 	%>
 
-
 	<div class="container">
 		<%@ include file="/../header/header.jsp"%>
 	</div>
 	<div class="container mypage_container">
 		<div class="my_infos_box">
-			<div class="my_infos">
+			<form action="checkPasswd.jsp" method="POST" class="my_infos">
 
 				<h2 class="mypage_title">회원정보</h2>
 
@@ -105,9 +122,9 @@
 					</div>
 				</div>
 				<h3></h3>
-				<input type="button" class="change_info_button" value="회원 정보 수정">
+				<input type="submit" class="change_info_button" value="회원 정보 수정">
 				<h5></h5>
-			</div>
+			</form>
 		</div>
 	</div>
 </body>

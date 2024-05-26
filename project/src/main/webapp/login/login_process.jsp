@@ -45,8 +45,6 @@
                 session.setAttribute("message", "사용자가 존재하지 않습니다.");
                 session.setAttribute("login_modal_status", "on");
                 response.sendRedirect("../home/home.jsp");
-                
-                       
             }
         } catch (SQLException e) {
             e.printStackTrace();
