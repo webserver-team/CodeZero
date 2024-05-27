@@ -4,59 +4,14 @@
 <html lang="en">
 <head>
 
-<link rel="stylesheet" href="../stylesheet/login.css">
+	<link rel="stylesheet" href="../stylesheet/login.css">
 	<meta charset="UTF-8">
 	<title>Document</title>
-
-	<script type="text/javascript">
-	
-	var noId = false;
-	var noPw = false;	
-
-	function loginAttempt(){
-		var form = document.getElementById("login_Member");
-		var error = document.getElementById("login_errorMessage");
-
-		if (form.id.value == "")
-			noId = true;
-		else 
-			noId = false;
-		if (form.passwd.value == "")
-			noPw = true;
-		else 
-			noPw = false;
-		
-		if (noId){
-			if (noPw){
-				error.textContent = "아이디, 비밀번호를 입력해주세요."
-				error.style.display = "block";
-				form.id.select();
-			}
-			else{
-				error.textContent = "아이디를 입력해주세요."
-					error.style.display = "block";
-				form.id.select();
-			}
-		}
-		else if (noPw){
-			error.textContent = "비밀번호를 입력해주세요."
-				error.style.display = "block";
-			form.passwd.select();
-		}		
-		else 
-			error.style.display = "none";
-		if (!noId && !noPw) 
-			form.submit();
-	}
-
-	</script>
-	
-		
 </head>
 <body>
-<div id="login_Background" class="login-background"></div>
+<div id="login_Background" class="login-background modal"></div>
 		
-	<div id="loginModal" class="login-modal">
+	<div id="loginModal" class="login-modal modal">
 		<div class="login_out">
 			<div class="login_in">
 				

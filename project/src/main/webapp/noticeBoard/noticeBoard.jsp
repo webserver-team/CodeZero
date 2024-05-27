@@ -22,6 +22,8 @@
 	</div>
 		<div class="noticeBoard">
 			<div class="board_table">
+<!------------------------------------------------------------------------------------>
+				<p style="height:10px; margin:0px"></p>
 				<div class="table_row">
 					<div class="table_col article">
 						<a href="board.jsp" class="board_article">게시글 제목</a>
@@ -132,6 +134,8 @@
 						<p class="board_date">게시일</p>
 					</div>
 				</div>
+				<p style="height:10px; margin:0px"></p>
+<!------------------------------------------------------------------------------------>
 			</div>
 		</div>
 	</div>

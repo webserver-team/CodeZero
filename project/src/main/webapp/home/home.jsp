@@ -35,6 +35,8 @@ function registerModal(){
 	if (regi_modal_status == "on"){
 		document.getElementById("registerModal").style.display = "block";
 		document.getElementById("regi_Background").style.display = "block";
+		document.getElementById("registerModal").classList.add("fadeIn");
+		document.getElementById("regi_Background").classList.add("fadeIn");
 		document.getElementById("regi_input_id").focus();
 	}
 	<%session.removeAttribute("regi_modal_status");%>
@@ -45,6 +47,8 @@ function loginModal(){
 			if (login_modal_status == "on") {
 				document.getElementById("loginModal").style.display = "block";
 				document.getElementById("login_Background").style.display = "block";
+				document.getElementById("loginModal").classList.add("fadeIn");
+				document.getElementById("login_Background").classList.add("fadeIn");
 				document.getElementById("login_input_id").focus();
 			}
 	<%session.removeAttribute("login_modal_status");%>

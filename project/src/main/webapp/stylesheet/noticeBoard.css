@@ -42,7 +42,6 @@
 .board_table{
 	display:flex;
 	flex-direction:column;
-	
 	width:90%;
 }
 
@@ -59,7 +58,10 @@
 .table_col{
 	display:flex;
 	align-items:center;
-	border-bottom:1px solid #a2eb7e;
+	background-color:#d9ecce;
+	border-bottom:2px solid #cfe7c3;
+	
+	border-top:2px solid #cfe7c3;
 }
 
 .board_article{
@@ -104,6 +106,7 @@
 
 .table_col.article{
 	width:70%;
+	border-radius:5px 0px 0px 5px;
 }
 .table_col.name{
 	width:15%;
@@ -113,6 +116,8 @@
 	display:flex;
 	justify-content:center;
 	align-items:center;
-	
-	
+	border-radius:0px 5px 5px 0px;
 }
+
+
+
