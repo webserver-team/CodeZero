@@ -39,3 +39,9 @@ ALTER TABLE lecture MODIFY lecId int not null auto_increment;
 -- lecture 테이블 안에서 Id가 201000002인 행을 지움 --
 delete from lecture where lecId=201000002;
 delete from lecture;
+
+-- 행 추가 --
+alter table lecture add fileName varchar(150);
+alter table lecture add video varchar(150);
+
+ALTER TABLE lecture CHANGE COLUMN fileName image VARCHAR(100);
