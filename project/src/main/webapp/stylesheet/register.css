@@ -75,7 +75,6 @@
 .input{
 	padding-left:5px;
 	width:90%;
-	height:100%;
 	border:0px;
 	background-color:#fff;
 	color:#03c75a;
@@ -117,7 +116,7 @@ input::placeholder{
 	border-bottom:1px solid #cce7c0;
 }
 
-.name{
+.regi_name{
 	border-bottom:1px solid #cce7c0;
 }
 

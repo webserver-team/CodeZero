@@ -27,7 +27,7 @@
 
 
 
-<header class="pb-3 border-bottom" style="margin-bottom:20px; padding-bottom:15px !important; border-bottom:1px solid #03c75a !important">
+<header class="pb-3 border-bottom" style="margin-top: 10px; margin-bottom:20px; padding-bottom:15px !important; border-bottom:1px solid #03c75a !important">
 <div class="container text-center">
 	<div class="row">
 		<div class="col" style="margin-top:10px">
@@ -74,7 +74,7 @@
 		<a href="../lectures/lectures.jsp" class="category_link d-flex align-items-center text-decoration-none">
 			디자인
 		</a>
-		<a href="../home/home.jsp" class="category_link d-flex align-items-center text-decoration-none">
+		<a href="../noticeBoard/noticeBoard.jsp" class="category_link d-flex align-items-center text-decoration-none">
 			게시판	
 		</a>
 	</div>

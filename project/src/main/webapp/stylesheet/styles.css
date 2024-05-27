@@ -1,7 +1,16 @@
 body {
 	min-width:750px;
+	margin:0px;
     font-family: Arial, sans-serif;
     background-color:#cfe7c3;
+}
+
+.footer{
+	display:block;
+	width:100%;
+	height:200px;
+	margin-top:200px;
+	background-color:#adcd94;
 }
 
 .main-content {

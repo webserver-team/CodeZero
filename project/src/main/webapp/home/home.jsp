@@ -42,11 +42,11 @@ function registerModal(){
 
 function loginModal(){
 	var login_modal_status = '<%=session.getAttribute("login_modal_status")%>';
-	if (login_modal_status == "on") {
-		document.getElementById("loginModal").style.display = "block";
-		document.getElementById("login_Background").style.display = "block";
-		document.getElementById("login_input_id").focus();
-	}
+			if (login_modal_status == "on") {
+				document.getElementById("loginModal").style.display = "block";
+				document.getElementById("login_Background").style.display = "block";
+				document.getElementById("login_input_id").focus();
+			}
 	<%session.removeAttribute("login_modal_status");%>
 		}
 	</script>
@@ -55,12 +55,21 @@ function loginModal(){
 	<div class="container">
 		<%@ include file="/../header/header.jsp"%>
 	</div>
-	<div class="container text-center" style="height: 90%">
+	<div class="container text-center" style="height:90%">
 		<div class="searcharea">
 			<div class="searchbox">
 				<input class="search" type="text" placeholder="검색어를 입력해 주세요.">
 			</div>
 		</div>
+
+		<p style="height: 100px"></p>
+		<div class="box">
+			<div class="lecture_box1"></div>
+			<div class="lecture_box2"></div>
+			<div class="lecture_box2"></div>
+		</div>
 	</div>
+	<p style="height:100px"></p>
+	<%@ include file="/../footer/footer.jsp"%>
 </body>
 </html>

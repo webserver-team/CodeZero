@@ -144,7 +144,7 @@
 					<p id="passwd_error" class="errorMessage">비밀번호 : 최소 8자 이상, 영문자 및 숫자 포함</p>
 					
 					<div class="name_div input_div">
-						<input type="text" id="regi_input_name" maxlength="7" name="name" class="input name" placeholder="이름" onkeydown="registerOnEnter(event)">
+						<input type="text" id="regi_input_name" maxlength="7" name="name" class="input regi_name" placeholder="이름" onkeydown="registerOnEnter(event)">
 					</div>
 					<div class="phone_div input_div">
 						<input type="text" id="regi_input_phone" maxlength="11" name="phone" class="input phone" placeholder="전화번호" onkeydown="registerOnEnter(event)">
