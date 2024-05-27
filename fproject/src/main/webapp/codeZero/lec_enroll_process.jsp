@@ -30,6 +30,7 @@
         Enumeration files = multi.getFileNames();
         String imageFileName = null;
         String videoFileName = null;
+        
 
         while (files.hasMoreElements()) {
             String fname = (String) files.nextElement();

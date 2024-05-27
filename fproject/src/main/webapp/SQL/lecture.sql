@@ -30,6 +30,7 @@ insert into lecture values(
 select * from lecture;
 select lecId from lecture;
 
+
 -- lecture 테이블에서 lecPrice가 88000인 행의 lecName을 출력 --
 select lecName from lecture where lecPrice=88000;
 
