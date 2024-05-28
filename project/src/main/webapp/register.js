@@ -24,7 +24,14 @@ function modifyOnEnter(event) {
 
 function checkMember(){
 	
-	var form = document.getElementById("regi_Member");
+	var idError = document.getElementById("id-error");		
+	var passwdError = document.getElementById("passwd-error");
+	var nameError = document.getElementById("name-error");
+	var phoneError = document.getElementById("phone-error");
+	var emailError = document.getElementById("email-error");
+	
+	
+	var form = document.getElementById("regi-member");
 
 	var id = form.id.value;
 	var name = form.name.value;
@@ -32,74 +39,49 @@ function checkMember(){
 	var phone = form.phone.value;
 	var email = form.email.value;
 	
-	var idError = document.getElementById("id_error");		
-	var passwdError = document.getElementById("passwd_error");
-	var nameError = document.getElementById("name_error");
-	var phoneError = document.getElementById("phone_error");
-	var emailError = document.getElementById("email_error");
-	
-	var errors = document.getElementById("regi_errors"); 
-	
-	var empty1 = document.getElementById("empty1");
-	var empty2 = document.getElementById("empty2");
-	
 	if (!regExpId.test(id)) {
-		idError.style.display = "block";
+		idError.style.height = "20px";
 		noId = true;
 	}
 	else {
-		idError.style.display = "none";
+		idError.style.height = "0px";
 		noId = false;
 	}
 	
 	if (!regExpPasswd.test(passwd)) {
-		passwdError.style.display = "block";
+		passwdError.style.height = "20px";
 		noPw = true;
 	} 
 	else {
-		passwdError.style.display = "none";
+		passwdError.style.height = "0px";
 		noPw = false;
 	}
 	
 	if (!regExpName.test(name)) {
-		nameError.style.display = "block";
+		nameError.style.height = "20px";
 		noName = true;
 	} 
 	else {
-		nameError.style.display = "none";
+		nameError.style.height = "0px";
 		noName = false;
 	}
 	
 	if (!regExpPhone.test(phone)) {
-		phoneError.style.display = "block";
+		phoneError.style.height = "20px";
 		noPhone = true;
 	}
 	else {
-		phoneError.style.display = "none";
+		phoneError.style.height = "0px";
 		noPhone = false;
 	}
 	
 	if (!regExpEmail.test(email)) {
-		emailError.style.display = "block";
+		emailError.style.height = "20px";
 		noEmail = true;
 	} 
 	else {
-		emailError.style.display = "none";
+		emailError.style.height = "0px";
 		noEmail = false;
-	}
-	
-	if (noId || noPw)
-		empty1.style.display = "none";
-	else 
-		empty1.style.display = "block";
-	
-	if (noName || noPhone || noEmail){
-		empty2.style.display = "none";
-		errors.style.display = "block";
-	}
-	else{ 
-		empty1.style.display = "flex";	
-		errors.style.display = "none";
 	}
 	
 	if (noEmail)
@@ -118,55 +100,56 @@ function checkMember(){
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+	
+	var idError = document.getElementById("id-error");		
+	var passwdError = document.getElementById("passwd-error");
+	var nameError = document.getElementById("name-error");
+	var phoneError = document.getElementById("phone-error");
+	var emailError = document.getElementById("email-error");
+	
     var registerButton = document.getElementById("registerButton");
-    var regi_Background = document.getElementById("regi_Background");
+    var regiBackground = document.getElementById("regi-background");
     var registerModal = document.getElementById("registerModal");
     var registerClose = document.getElementById("registerClose");
 
     registerButton.addEventListener("click", function () {
-        regi_Background.style.display = "block";
+        regiBackground.style.display = "block";
         registerModal.style.display = "block";
         
         setTimeout(function() {
-			regi_Background.classList.add("fadeIn");
-			registerModal.classList.add("fadeIn");
+			regiBackground.style.opacity = "1";
+			registerModal.style.opacity = "1";
 		}, 10)
 		document.getElementById("regi_input_id").focus();
     });
 
     registerClose.addEventListener("click", function () {
-        regi_Background.classList.remove("fadeIn");
-		registerModal.classList.remove("fadeIn");
+        regiBackground.style.opacity = "0";
+		registerModal.style.opacity = "0";
 		setTimeout(function() {
-			regi_Background.style.display = "none";
+			regiBackground.style.display = "none";
         	registerModal.style.display = "none";
+        	
+        	idError.style.height = "0px";
+	        passwdError.style.height = "0px";
+	        nameError.style.height = "0px";
+	        phoneError.style.height = "0px";
+	        emailError.style.height = "0px";
 		}, 500)
-		
-        id_error.style.display = "none";
-        passwd_error.style.display = "none";
-        name_error.style.display = "none";
-        phone_error.style.display = "none";
-        email_error.style.display = "none";	
-		regi_errors.style.display = "none";
-        empty1.style.display = "block";
-        empty2.style.display = "block";
     });
 
-    regi_Background.addEventListener("click", function () {
-		regi_Background.classList.remove("fadeIn");
-		registerModal.classList.remove("fadeIn");
+    regiBackground.addEventListener("click", function () {
+		regiBackground.style.opacity="0";
+		registerModal.style.opacity="0"
 		setTimeout(function() {
-			regi_Background.style.display = "none";
+			regiBackground.style.display = "none";
         	registerModal.style.display = "none";
+        	
+	        idError.style.height = "0px";
+   			passwdError.style.height = "0px";
+	        nameError.style.height = "0px";
+	        phoneError.style.height = "0px";
+	        emailError.style.height = "0px";
 		}, 500)
-
-        document.getElementById("id_error").style.display = "none";
-        document.getElementById("passwd_error").style.display = "none";
-        document.getElementById("name_error").style.display = "none";
-        document.getElementById("phone_error").style.display = "none";
-        document.getElementById("email_error").style.display = "none";	
-		regi_errors.style.display = "none";
-        document.getElementById("empty1").style.display = "block";
-        document.getElementById("empty2").style.display = "block";
     });
 });

@@ -34,10 +34,10 @@ function registerModal(){
 	var regi_modal_status = '<%=session.getAttribute("regi_modal_status")%>';
 	if (regi_modal_status == "on"){
 		document.getElementById("registerModal").style.display = "block";
-		document.getElementById("regi_Background").style.display = "block";
+		document.getElementById("regi-background").style.display = "block";
 		document.getElementById("registerModal").classList.add("fadeIn");
-		document.getElementById("regi_Background").classList.add("fadeIn");
-		document.getElementById("regi_input_id").focus();
+		document.getElementById("regi-background").classList.add("fadeIn");
+		document.getElementById("regi-input-id").focus();
 	}
 	<%session.removeAttribute("regi_modal_status");%>
 }
@@ -46,31 +46,34 @@ function loginModal(){
 	var login_modal_status = '<%=session.getAttribute("login_modal_status")%>';
 			if (login_modal_status == "on") {
 				document.getElementById("loginModal").style.display = "block";
-				document.getElementById("login_Background").style.display = "block";
+				document.getElementById("login-background").style.display = "block";
 				document.getElementById("loginModal").classList.add("fadeIn");
-				document.getElementById("login_Background").classList.add("fadeIn");
-				document.getElementById("login_input_id").focus();
+				document.getElementById("login-background").classList.add("fadeIn");
+				document.getElementById("login-input-id").focus();
 			}
 	<%session.removeAttribute("login_modal_status");%>
 		}
 	</script>
 
 
+	<%@ include file="/../header/header.jsp"%>
+	
 	<div class="container">
-		<%@ include file="/../header/header.jsp"%>
-	</div>
-	<div class="container text-center" style="height:90%">
+	
+		<div style="height:200px"></div>
+		
 		<div class="searcharea">
 			<div class="searchbox">
 				<input class="search" type="text" placeholder="검색어를 입력해 주세요.">
 			</div>
 		</div>
 
-		<p style="height: 100px"></p>
+		<div style="height:200px"></div>
+		
 		<div class="box">
-			<div class="lecture_box1"></div>
-			<div class="lecture_box2"></div>
-			<div class="lecture_box2"></div>
+			<div class="lecture-box1"></div>
+			<div class="lecture-box2"></div>
+			<div class="lecture-box2"></div>
 		</div>
 	</div>
 	<p style="height:100px"></p>

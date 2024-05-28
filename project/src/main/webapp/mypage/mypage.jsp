@@ -3,8 +3,8 @@
 
 <html>
 <head>
-<link rel="stylesheet" href="../stylesheet/styles.css">
 <link rel="stylesheet" href="../stylesheet/mypage.css">
+<link rel="stylesheet" href="../stylesheet/styles.css">
 <meta charset="UTF-8">
 <title>마이페이지</title>
 </head>
@@ -64,65 +64,63 @@
 	}
 	%>
 
-	<div class="container">
-		<%@ include file="/../header/header.jsp"%>
-	</div>
-	<div class="container mypage_container">
-		<div class="my_infos_box">
-			<form action="checkPasswd.jsp" method="POST" class="my_infos">
+	<%@ include file="/../header/header.jsp"%>
+	<div class="mypage-container container">
+		<div class="my-infos-box">
+			<form action="checkPasswd.jsp" method="POST" class="my-infos">
 
-				<h2 class="mypage_title">회원정보</h2>
+				<h2 class="mypage-title">회원정보</h2>
 
-				<div class="my_info">
-					<div class="my_info_in">
-						<p class="my_p">ID</p>
+				<div class="my-info">
+					<div class="my-info-in">
+						<p class="my-p">ID</p>
 					</div>
-					<div class="my_info_in value">
-						<div class="my_info_div" id="my_id_div">
-							<input type="text" id="my_id_input" value="<%=db_id%>"
-								class="my_info_input" disabled>
+					<div class="my-info-in value">
+						<div class="my-info-div" id="my-id-div">
+							<input type="text" id="my-id-input" value="<%=db_id%>"
+								class="my-info-input" disabled>
 						</div>
 					</div>
 				</div>
 
-				<div class="my_info">
-					<div class="my_info_in">
-						<p class="my_p">이름</p>
+				<div class="my-info">
+					<div class="my-info-in">
+						<p class="my-p">이름</p>
 					</div>
 
-					<div class="my_info_in value">
-						<div class="my_info_div" id="my_name_div">
-							<input type="text" id="my_name_input" value="<%=db_name%>"
-								class="my_info_input" disabled>
+					<div class="my-info-in value">
+						<div class="my-info-div" id="my-name-div">
+							<input type="text" id="my-name-input" value="<%=db_name%>"
+								class="my-info-input" disabled>
 						</div>
 					</div>
 				</div>
 
-				<div class="my_info">
-					<div class="my_info_in">
-						<p class="my_p">연락처</p>
+				<div class="my-info">
+					<div class="my-info-in">
+						<p class="my-p">연락처</p>
 					</div>
-					<div class="my_info_in value">
-						<div class="my_info_div" id="my_phone_div">
-							<input type="text" id="my_phone_input" value="<%=db_phone%>"
-								class="my_info_input" disabled>
+					<div class="my-info-in value">
+						<div class="my-info-div" id="my-phone-div">
+							<input type="text" id="my-phone-input" value="<%=db_phone%>"
+								class="my-info-input" disabled>
 						</div>
 					</div>
 				</div>
 
-				<div class="my_info">
-					<div class="my_info_in">
-						<p class="my_p">이메일</p>
+				<div class="my-info">
+					<div class="my-info-in">
+						<p class="my-p">이메일</p>
 					</div>
-					<div class="my_info_in value">
-						<div class="my_info_div" id="my_email_div">
-							<input type="text" id="my_email_input" value="<%=db_email%>"
-								class="my_info_input" disabled>
+					<div class="my-info-in value">
+						<div class="my-info-div" id="my-email-div">
+							<input type="text" id="my-email-input" value="<%=db_email%>"
+								class="my-info-input" disabled>
 						</div>
 					</div>
 				</div>
 				<h3></h3>
-				<input type="submit" class="change_info_button" value="회원 정보 수정">
+				<input type="submit" class="change-info-button" value="회원 정보 수정">
 				<h5></h5>
 			</form>
 		</div>

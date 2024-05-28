@@ -9,73 +9,13 @@
 <title>마이페이지</title>
 </head>
 <body>
+	<script src="../modify.js"></script>
 	<script type="text/javascript">
 	
 	window.onload = function(){
-		document.getElementById("my_name_input").focus();
+		document.getElementById("my-name-input").focus();
 	}
 	
-	</script>
-	
-	<script type="text/javascript">
-	
-		var noName = false;
-		var noPhone = false;
-		var noEmail = false;
-		
-		var regExpName = /^[가-힣]{2,7}$/;
-		var regExpPhone = /^\d{3}\d{3,4}\d{4}$/;
-		var regExpEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-	
-		function modifyAttempt(){
-			
-			var form = document.getElementById("mypage_modify_form");
-
-			var name = form.name.value;
-			var phone = form.phone.value;
-			var email = form.email.value;
-			
-			var nameError = document.getElementById("name_error");	
-			var phoneError = document.getElementById("phone_error");
-			var emailError = document.getElementById("email_error");
-			
-			if (!regExpName.test(name)){
-				nameError.style.display = "block";
-				noName = true;
-			}
-			else {
-				nameError.style.display = "none";
-				noName = false;
-			}
-
-			if (!regExpPhone.test(phone)){
-				phoneError.style.display = "block";
-				noPhone = true;
-			}
-			else {
-				phoneError.style.display = "none";
-				noPhone = false;
-			}
-			
-			if (!regExpEmail.test(email)){
-				emailError.style.display = "block";
-				noEmail = true;
-			}
-			else {
-				emailError.style.display = "none";
-				noEmail = false;
-			}
-			
-			if (noEmail)
-				document.getElementById("my_email_input").focus();
-			if (noPhone)
-				document.getElementById("my_phone_input").focus();
-			if (noName)
-				document.getElementById("my_name_input").focus();
-			
-			if (!noName && !noPhone && !noEmail)
-				form.submit();
-		}
 	</script>
 	
 	<%@ include file="../db/dbconn.jsp"%>
@@ -115,68 +55,67 @@
 	}
 	%>
 
-	<div class="container">
-		<%@ include file="/../header/header.jsp"%>
-	</div>
-	<div class="container mypage_container">
-		<div class="my_infos_box">
-			<form action="mypage_modify_process.jsp" method="POST" id="mypage_modify_form" class="my_infos">
+	<%@ include file="/../header/header.jsp"%>
+		
+	<div class="container mypage-container">
+		<div class="my-infos-box">
+			<form action="mypage_modify_process.jsp" method="POST" id="mypage-modify-form" class="my-infos">
 
-				<h2 class="mypage_title">회원정보</h2>
+				<h2 class="mypage-title">회원정보</h2>
 
-				<div id="my_info_id" class="my_info">
-					<div class="my_info_in">
-						<p class="my_p">ID</p>
+				<div id="my-info-id" class="my-info">
+					<div class="my-info-in">
+						<p class="my-p">ID</p>
 					</div>
-					<div class="my_info_in value">
-						<div class="my_info_div" id="my_id_div">
-							<input type="text" id="my_id_input" name="id" value="<%=db_id%>"
-								class="my_info_input" disabled>
+					<div class="my-info-in value">
+						<div class="my-info-div" id="my-id-div">
+							<input type="text" id="my-id-input" name="id" value="<%=db_id%>"
+								class="my-info-input" disabled>
 						</div>
 					</div>
 				</div>
 
-				<div id="my_info_name" class="my_info">
-					<div class="my_info_in">
-						<p class="my_p">이름</p>
+				<div id="my-info-name" class="my-info" style="margin:0px">
+					<div class="my-info-in">
+						<p class="my-p">이름</p>
 					</div>
 
-					<div class="my_info_in value">
-						<div class="my_info_div" id="my_name_div">
-							<input type="text" id="my_name_input" maxlength="" name="name" placeholder="<%=db_name%>"
-								class="my_info_input" onkeydown="modifyOnEnter(event)">
+					<div class="my-info-in value">
+						<div class="my-info-div" id="my-name-div">
+							<input type="text" id="my-name-input" maxlength="" name="name" placeholder="<%=db_name%>"
+								class="my-info-input" onkeydown="modifyOnEnter(event)">
 						</div>
 					</div>
 				</div>
-				<p id="name_error" class="errorMessage modify_error">이름 : 한글만 사용 가능</p>
+				<p id="name-error" class="errorMessage modify-error">이름 : 한글만 사용 가능</p>
 
-				<div id="my_info_phone" class="my_info">
-					<div class="my_info_in">
-						<p class="my_p">연락처</p>
+				<div id="my-info-phone" class="my-info" style="margin:0px">
+					<div class="my-info-in">
+						<p class="my-p">연락처</p>
 					</div>
-					<div class="my_info_in value">
-						<div class="my_info_div" id="my_phone_div">
-							<input type="text" id="my_phone_input" maxlength="11" name="phone" placeholder="<%=db_phone%>"
-								class="my_info_input" onkeydown="modifyOnEnter(event)">
+					<div class="my-info-in value">
+						<div class="my-info-div" id="my-phone-div">
+							<input type="text" id="my-phone-input" maxlength="11" name="phone" placeholder="<%=db_phone%>"
+								class="my-info-input" onkeydown="modifyOnEnter(event)">
 						</div>
 					</div>
 				</div>
-				<p id="phone_error" class="errorMessage modify_error">연락처 입력을 확인해 주세요</p>
+				<p id="phone-error" class="errorMessage modify-error">연락처 입력을 확인해 주세요</p>
 
-				<div id="my_info_email" class="my_info">
-					<div class="my_info_in">
-						<p class="my_p">이메일</p>
+				<div id="my-info-email" class="my-info" style="margin:0px">
+					<div class="my-info-in">
+						<p class="my-p">이메일</p>
 					</div>
-					<div class="my_info_in value">
-						<div class="my_info_div" id="my_email_div">
-							<input type="text" id="my_email_input" maxlength="40" name="email" placeholder="<%=db_email%>"
-								class="my_info_input" onkeydown="modifyOnEnter(event)">
+					<div class="my-info-in value">
+						<div class="my-info-div" id="my-email-div">
+							<input type="text" id="my-email-input" maxlength="40" name="email" placeholder="<%=db_email%>"
+								class="my-info-input" onkeydown="modifyOnEnter(event)">
 						</div>
 					</div>
 				</div>
-				<p id="email_error" class="errorMessage modify_error">이메일 입력을 확인해 주세요</p>
+				<p id="email-error" class="errorMessage modify-error">이메일 입력을 확인해 주세요</p>
 				<h3></h3>
-				<input type="button" class="change_info_button" onclick="modifyAttempt()" value="회원 정보 수정">
+				<input type="button" class="change-info-button" onclick="modifyAttempt()" value="회원 정보 수정">
 				<h5></h5>
 			</form>
 		</div>

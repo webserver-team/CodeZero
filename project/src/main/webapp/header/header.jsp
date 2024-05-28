@@ -16,10 +16,15 @@ String header_id = (String) session.getAttribute("id");
 		var inputs = document.getElementsByClassName("input");
 		for (var i = 0; i < inputs.length; i++)
 			inputs[i].value = "";
-	}#bcdbace3
+	}
 </script>
 
-<header style="height: 110px; margin-top: 10px; margin-bottom: 20px">
+<script src="../login.js"></script>
+<script src="../register.js"></script>
+<script src="../dropdown.js"></script>
+
+<header class="header">
+<div class="header-box">
 	<div class="header-container"
 		style="height: 110px; display: flex; flex-direction: column">
 		<div class="row">
@@ -56,9 +61,6 @@ String header_id = (String) session.getAttribute("id");
 					}
 					%>
 				</div>
-				<script src="../login.js"></script>
-				<script src="../register.js"></script>
-				<script src="../dropdown.js"></script>
 			</div>
 		</div>
 
@@ -83,44 +85,45 @@ String header_id = (String) session.getAttribute("id");
 					게시판 </a>
 			</div>
 			<div id="dropdownContent" class="dropdown-content">
-				<div class="dropdown-category">
-					<a class="dropdown-category-a">뭐시기</a> 
-					<a class="dropdown-category-a">뭐시기</a> 
-					<a class="dropdown-category-a">뭐시기</a>
+				<div id="dropdown-category" class="dropdown-category">
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a> 
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
 				</div>
-				<div class="dropdown-category">
-					<a class="dropdown-category-a">뭐시기</a> 
-					<a class="dropdown-category-a">뭐시기</a> 
-					<a class="dropdown-category-a">뭐시기</a>
-					<a class="dropdown-category-a">뭐시기</a> 
-					<a class="dropdown-category-a">뭐시기</a>
+				<div id="dropdown-category" class="dropdown-category">
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
 				</div>
-				<div class="dropdown-category">
-					<a class="dropdown-category-a">뭐시기</a> 
-					<a class="dropdown-category-a">뭐시기</a> 
-					<a class="dropdown-category-a">뭐시기</a> 
-					<a class="dropdown-category-a">뭐시기</a>
+				<div id="dropdown-category" class="dropdown-category">
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
 				</div>
-				<div class="dropdown-category">
-					<a class="dropdown-category-a">뭐시기</a>
-					<a class="dropdown-category-a">뭐시기</a>
-					<a class="dropdown-category-a">뭐시기</a>
-					<a class="dropdown-category-a">뭐시기</a>
+				<div id="dropdown-category" class="dropdown-category">
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
 				</div>
-				<div class="dropdown-category">
-					<a class="dropdown-category-a">뭐시기</a>
-					<a class="dropdown-category-a">뭐시기</a>
-					<a class="dropdown-category-a">뭐시기</a>
+				<div id="dropdown-category" class="dropdown-category">
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
 				</div>
-				<div class="dropdown-category">
-					<a class="dropdown-category-a">뭐시기</a>
-					<a class="dropdown-category-a">뭐시기</a>
-					<a class="dropdown-category-a">뭐시기</a>
-					<a class="dropdown-category-a">뭐시기</a>
-					<a class="dropdown-category-a">뭐시기</a>
-					<a class="dropdown-category-a">뭐시기</a>
+				<div id="dropdown-category" class="dropdown-category">
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </header>

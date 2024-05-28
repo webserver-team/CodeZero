@@ -64,26 +64,24 @@
 	}
 	%>
 
-	<div class="container">
-		<%@ include file="/../header/header.jsp"%>
-	</div>
-	<div class="container mypage_container">
-		<div class="my_infos_box">
-			<form action="checkPasswd_process.jsp" method="POST" class="my_infos">
+	<%@ include file="/../header/header.jsp"%>
+	<div class="container mypage-container">
+		<div class="my-infos-box">
+			<form action="checkPasswd_process.jsp" method="POST" class="my-infos">
 
-				<h2 class="mypage_title">회원정보</h2>
+				<h2 class="mypage-title">회원정보</h2>
 
-				<div class="my_info" style="width:250px">
-					<div class="check_passwd_in">
-						<div class="check_passwd_div">
-							<input type="password" name="passwd" id="checkPasswd" class="check_passwd_input"
+				<div class="my-info" style="width:250px">
+					<div class="check-passwd-in">
+						<div class="check-passwd-div">
+							<input type="password" name="passwd" id="checkPasswd" class="check-passwd-input"
 								placeholder="비밀번호">
 						</div>
 					</div>
 				</div>
 				
 				<p style="height:100px"></p>
-				<input type="submit" class="change_info_button" style="width:250px" value="확인">
+				<input type="submit" class="change-info-button" style="width:250px" value="확인">
 			</form>
 		</div>
 	</div>

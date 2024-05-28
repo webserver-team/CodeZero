@@ -12,8 +12,7 @@
 	<div class="container">
 		<%@ include file="/../header/header.jsp"%>
 	</div>
-	<div class="container table_container" style="height:90%">
-	<p style="height:100px"></p>
+	<div class="container table_container">
 	<div style="width:63%">
 		<div class="board_top">
 			<h3 style="padding-left:10px; color:#03c75a">자유게시판</h3>

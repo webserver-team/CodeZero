@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.login_errorMessage{
+.login-errorMessage{
 	font-size:13px;
 	color:#ff6868;
 	margin-bottom:0px;
@@ -40,7 +40,7 @@
     cursor: pointer;
 }
 
-.login_out{
+.login-out{
 	width:400px;
 	min-height:600px;
 	max-height:80%;
@@ -51,7 +51,7 @@
 	background:#e0f0d9;
 }
 
-.login_in{
+.login-in{
 	color:#03c75a;
 	width:100%;
 	height:80%;
@@ -59,7 +59,7 @@
 	justify-content:center;
 }
 
-.login_form{
+.login-form{
 	width:70%;
 	margin-top:50px;
 	text-align:center;
@@ -78,13 +78,13 @@ input::placeholder{
 	color:#03c75a;
 }
 
-.login_id_div{
+.login-id-div{
 	margin-top:50px;
 	border-radius:7px 7px 0px 0px;
 	border-bottom:0px !important;
 }
 
-.login_passwd_div{
+.login-passwd-div{
 	border-radius:0px 0px 7px 7px;
 	margin-bottom:15px;
 	border-top:0px !important;
@@ -94,7 +94,7 @@ input::placeholder{
 	border-bottom:1px solid #cce7c0;
 }
 
-.login_button{
+.login-button{
 	width:100%;
 	height:40px;
 	color:#03c75a;
