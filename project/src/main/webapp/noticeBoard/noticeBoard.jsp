@@ -16,7 +16,9 @@
 	<div style="width:63%">
 		<div class="board_top">
 			<h3 style="padding-left:10px; color:#03c75a">자유게시판</h3>
-			<a href="create_post.jsp" class="create_post">게시물 작성</a>
+			<div class="createpost-div">
+				<input type="button" class="createpost" value="글쓰기">
+			</div>
 		</div>
 	</div>
 		<div class="noticeBoard">

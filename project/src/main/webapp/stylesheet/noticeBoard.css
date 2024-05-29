@@ -18,10 +18,17 @@
 	position: relative; 
 	color:#03c75a;
 	align-items:center;
+	justify-content:space-between;
 }
 
-.create_post{
-	right:2%;
+.createpost-div{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width:14%;
+	height:100%;
+}
+.createpost{
 	position: absolute;
 	font-size:14px;
 	font-weight: bolder;
@@ -32,7 +39,7 @@
 	
 	background-color:#e9f4e3;
 }
-.create_post:hover{
+.createpost:hover{
 	cursor:pointer;
 }
 
@@ -108,6 +115,7 @@
 }
 .table_col.name{
 	width:15%;
+	padding-left:10px;
 }
 .table_col.date{
 	width:15%;

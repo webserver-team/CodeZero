@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../stylesheet/styles.css">
+<link rel="stylesheet" href="../stylesheet/create_post.css">
 <title>게시판</title>
 </head>
 <body>
@@ -12,7 +13,13 @@
 		<%@ include file="/../header/header.jsp"%>
 	</div>
 	<div class="container table_container" style="height: 90%">
-		<p style="height: 100px"></p>
+		<div class="createpost-title-div">
+			<h3 class="createpost-title">게시물 작성</h3>
+		</div>
+		<form class="createpost-form">
+			<textarea id="post-textarea" class="post-textarea"></textarea>
+			<input type="button" class="createpost-button" value="등록하기"> 
+		</form>
 	</div>
 </body>
 </html>
