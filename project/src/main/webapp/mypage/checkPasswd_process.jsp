@@ -30,7 +30,7 @@
 				response.sendRedirect("mypage_modify.jsp");
 			}
 			else{
-				session.setAttribute("check_passwd_message", "비밀번호가 일치하지 않습니다.");
+				session.setAttribute("message", "비밀번호가 일치하지 않습니다.");
 				response.sendRedirect("checkPasswd.jsp");
 			}
 		}

@@ -11,11 +11,9 @@
 <body>
 	<script src="../modify.js"></script>
 	<script type="text/javascript">
-	
-	window.onload = function(){
+	window.addEventListener('load', function() {
 		document.getElementById("my-name-input").focus();
-	}
-	
+	});	
 	</script>
 	
 	<%@ include file="../db/dbconn.jsp"%>

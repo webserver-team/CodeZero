@@ -10,21 +10,9 @@
 </head>
 <body>
 	<script type="text/javascript">
-	
-	window.onload = function(){
-		messageAlert();
-	}
-	
-	function messageAlert(){
-		var message = '<%=session.getAttribute("check_passwd_message")%>';
-		if (message != 'null'){
-			setTimeout(function() {
-				alert(message);
-				}, 100);
-		}	
+	window.addEventListener('load', function() {
 		document.getElementById("checkPasswd").focus();
-		<%session.removeAttribute("check_passwd_message");%>
-	}
+	});
 	</script>
 
 	<%@ include file="../db/dbconn.jsp"%>

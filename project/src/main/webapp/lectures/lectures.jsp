@@ -6,8 +6,8 @@
 <title>강의 목록</title>
 </head>
 <body style="background-color:#cfe7c3">
-	<div class="container pu-4" style="height:100%;">
-	<%@ include file="/../header/header.jsp" %>
+<%@ include file="/../header/header.jsp" %>
+	<div class="container">
 		<div class="gridbox">
 			<div class="box">
 				<div class="lecture">
@@ -46,5 +46,6 @@
 			</div>
 		</div>
 	</div>
+<%@ include file="/../footer/footer.jsp" %>
 </body>
 </html>

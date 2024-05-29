@@ -20,6 +20,8 @@
 		String phone=request.getParameter("phone");
 		String email=request.getParameter("email");
 		
+		String referer = request.getHeader("Referer");
+		
 		Statement stmt = null;
 		
 		try{
@@ -32,7 +34,7 @@
             if (rs.next()) {
             	session.setAttribute("message", "이미 사용중인 ID입니다.");
             	session.setAttribute("regi_modal_status","on");
-            	response.sendRedirect("../home/home.jsp");
+            	response.sendRedirect(referer);
             }
             else {
 			String sql="INSERT INTO member VALUES('" + id + "','" + passwd + "','" + name + "','" + phone + "','" + email + "')";
@@ -40,11 +42,11 @@
 			stmt.executeUpdate(sql);
 			
 			session.setAttribute("message", "회원이 되신 것을 환영합니다.");
-        	response.sendRedirect("../home/home.jsp");
+			response.sendRedirect(referer);
             }
 		}catch (SQLException ex){
 			session.setAttribute("message", "회원가입에 실패했습니다.");
-        	response.sendRedirect("../home/home.jsp");
+			response.sendRedirect(referer);
       
 		} finally {
 			if (stmt!=null)

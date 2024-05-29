@@ -14,6 +14,8 @@
 
         String id = request.getParameter("id");
         String passwd = request.getParameter("passwd");
+        
+        String referer = request.getHeader("Referer");
 
         ResultSet rs = null;
         Statement stmt = null;
@@ -33,18 +35,18 @@
                     // 로그인 성공 시 메인 페이지로 이동
 					session.setAttribute("id", id);	
                     session.setAttribute("name", storedName);
-                    response.sendRedirect("../home/home.jsp");
+                    response.sendRedirect(referer);
                 } else {
                     // 비밀번호 불일치 시 에러 메시지
 	                session.setAttribute("message", "비밀번호가 일치하지 않습니다.");
 	                session.setAttribute("login_modal_status", "on");
-	                response.sendRedirect("../home/home.jsp");
+	                response.sendRedirect(referer);
                 }
             } else {
                 // 사용자가 존재하지 않을 때 에러 메시지
                 session.setAttribute("message", "사용자가 존재하지 않습니다.");
                 session.setAttribute("login_modal_status", "on");
-                response.sendRedirect("../home/home.jsp");
+                response.sendRedirect(referer);
             }
         } catch (SQLException e) {
             e.printStackTrace();

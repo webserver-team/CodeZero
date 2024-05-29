@@ -50,7 +50,7 @@ function modifyAttempt(){
 	if (noPhone)
 		document.getElementById("my-phone-input").focus();
 	if (noName)
-		document.getElementById("my_name_input").focus();
+		document.getElementById("my-name-input").focus();
 	
 	if (!noName && !noPhone && !noEmail)
 		form.submit();

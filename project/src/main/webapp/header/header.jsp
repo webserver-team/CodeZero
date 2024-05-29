@@ -19,6 +19,53 @@ String header_id = (String) session.getAttribute("id");
 	}
 </script>
 
+<script type="text/javascript">
+	
+	window.onload = function(){
+		
+		
+		loginModal();
+		
+		registerModal();
+		
+		messageAlert();
+	}
+	
+	function messageAlert(){
+		var message = '<%=session.getAttribute("message")%>';
+		if (message != 'null'){
+			setTimeout(function() {			// modal창을 띄우고 alert창이 뜨게 하기 위해 약간의 지연시간을 줌
+				alert(message);
+				}, 100);
+		}	
+		<%session.removeAttribute("message");%>
+	}
+	
+	function registerModal(){
+		var regi_modal_status = '<%=session.getAttribute("regi_modal_status")%>';
+		if (regi_modal_status == "on"){
+			document.getElementById("registerModal").style.display = "block";
+			document.getElementById("regi-background").style.display = "block";
+			document.getElementById("registerModal").classList.add("fadeIn");
+			document.getElementById("regi-background").classList.add("fadeIn");
+			document.getElementById("regi-input-id").focus();
+		}
+		<%session.removeAttribute("regi_modal_status");%>
+	}
+	
+	function loginModal(){
+		var login_modal_status = '<%=session.getAttribute("login_modal_status")%>';
+				if (login_modal_status == "on") {
+					document.getElementById("loginModal").style.display = "block";
+					document.getElementById("login-background").style.display = "block";
+					document.getElementById("loginModal").classList.add("fadeIn");
+					document.getElementById("login-background").classList.add("fadeIn");
+					document.getElementById("login-input-id").focus();
+				}
+		<%session.removeAttribute("login_modal_status");%>
+	}
+</script>
+
 <script src="../login.js"></script>
 <script src="../register.js"></script>
 <script src="../dropdown.js"></script>

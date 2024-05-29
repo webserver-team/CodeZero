@@ -9,6 +9,17 @@
 <title>게시판</title>
 </head>
 <body>
+
+<%
+	String id = (String)session.getAttribute("id");
+	String referer = request.getHeader("Referer");
+
+	if (id == null){
+		response.sendRedirect("../home/home.jsp");
+	}
+%>
+
+
 	<div class="container">
 		<%@ include file="/../header/header.jsp"%>
 	</div>
