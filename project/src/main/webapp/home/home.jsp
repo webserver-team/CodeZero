@@ -7,10 +7,6 @@
 <title>Welcome</title>
 </head>
 <body>
-
-	
-
-
 	<%@ include file="/../header/header.jsp"%>
 	
 	<div class="container">

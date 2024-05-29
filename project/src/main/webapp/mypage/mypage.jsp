@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="dao.MemberList" %>
+<%@ page import="dto.Member" %>
 
 <html>
 <head>
@@ -9,30 +11,16 @@
 <title>마이페이지</title>
 </head>
 <body>
-	<%@ include file="../db/dbconn.jsp"%>
-	
-	<script type="text/javascript">
-	
-	window.onload = function(){
-		messageAlert();
-	}
-	
-	function messageAlert(){
-		var message = '<%=session.getAttribute("modify_message")%>';
-		if (message != 'null'){
-			setTimeout(function() {	
-				alert(message);
-				}, 100);
-		}	
-		<%session.removeAttribute("modify_message");%>
-	}
-	</script>
-	
+
 	<%
+	
+	if (session.getAttribute("id") == null){
+		response.sendRedirect("../home/home.jsp");
+	}
+	
 	String id = (String) session.getAttribute("id");
 
-	ResultSet rs = null;
-	Statement stmt = null;
+// 	String referer = request.getHeader("Referer");
 
 	String db_id = null;
 	String db_passwd = null;
@@ -40,28 +28,19 @@
 	String db_phone = null;
 	String db_email = null;
 
-	try {
-		String sql = "SELECT * FROM member WHERE id='" + id + "'";
-		stmt = conn.createStatement();
-		rs = stmt.executeQuery(sql);
-
-		if (rs.next()) {
-			db_id = rs.getString("id");
-			db_passwd = rs.getString("passwd");
-			db_name = rs.getString("name");
-			db_phone = rs.getString("phone");
-			db_email = rs.getString("email");
-		}
-	} catch (SQLException e) {
-		e.printStackTrace();
-	} finally {
-		if (rs != null)
-			rs.close();
-		if (stmt != null)
-			stmt.close();
-		if (conn != null)
-			conn.close();
-	}
+	MemberList memberlist = new MemberList();
+	Member member = new Member();
+	
+	member = memberlist.getMember(id);
+		
+	db_id = member.getMemberId();
+	db_passwd = member.getMemberPasswd();
+	db_name = member.getMemberName();
+	db_phone = member.getMemberPhone();
+	db_email = member.getMemberEmail();
+	
+// 	if (db_id == null)
+// 		response.sendRedirect(referer);
 	%>
 
 	<%@ include file="/../header/header.jsp"%>

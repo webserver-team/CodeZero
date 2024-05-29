@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %>
+<%@ page import="dao.MemberList" %>
+<%@ page import="dto.Member" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,6 @@
 </head>
 
 <body>
-	<%@ include file="/../db/dbconn.jsp" %>
 	<%
 		request.setCharacterEncoding("utf-8");
 	
@@ -22,38 +22,19 @@
 		
 		String referer = request.getHeader("Referer");
 		
-		Statement stmt = null;
+		String message = null;
 		
-		try{
-			
-			String sqlCheckId = "SELECT * FROM member WHERE id ='" + id + "'";
-
-            stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlCheckId);
-			
-            if (rs.next()) {
-            	session.setAttribute("message", "이미 사용중인 ID입니다.");
-            	session.setAttribute("regi_modal_status","on");
-            	response.sendRedirect(referer);
-            }
-            else {
-			String sql="INSERT INTO member VALUES('" + id + "','" + passwd + "','" + name + "','" + phone + "','" + email + "')";
-			stmt=conn.createStatement();
-			stmt.executeUpdate(sql);
-			
-			session.setAttribute("message", "회원이 되신 것을 환영합니다.");
-			response.sendRedirect(referer);
-            }
-		}catch (SQLException ex){
-			session.setAttribute("message", "회원가입에 실패했습니다.");
-			response.sendRedirect(referer);
-      
-		} finally {
-			if (stmt!=null)
-				stmt.close();
-			if (conn!=null)
-				conn.close();
+		MemberList member = new MemberList(); 
+		
+		message = member.addMember(id, passwd, name, phone, email);
+		
+		session.setAttribute("message", message);
+		
+		if(message.equals("이미 사용중인 ID입니다.")){
+			session.setAttribute("regi_modal_status","on");
 		}
+		
+		response.sendRedirect(referer);
 	%>
 </body>
 </html>

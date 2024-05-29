@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page import="java.sql.*"%>
-
 
 <link rel="stylesheet" href="../stylesheet/header_style.css">
 <link rel="stylesheet" href="../stylesheet/styles.css">
@@ -22,7 +20,6 @@ String header_id = (String) session.getAttribute("id");
 <script type="text/javascript">
 	
 	window.onload = function(){
-		
 		
 		loginModal();
 		
