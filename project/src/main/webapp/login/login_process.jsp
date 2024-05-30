@@ -20,9 +20,9 @@
 
         String[] result = null;
 
-        MemberList member = new MemberList();
+        MemberList memberlist = new MemberList();
         
-        result = member.checkMember(id, passwd);
+        result = memberlist.checkMember(id, passwd);
         
         if (result[0].equals("비밀번호가 일치하지 않습니다.")){
         	session.setAttribute("message", result[0]);
