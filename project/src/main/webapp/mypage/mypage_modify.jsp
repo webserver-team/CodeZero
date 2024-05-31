@@ -17,7 +17,6 @@
 	});	
 	</script>
 	
-	<%@ include file="../db/dbconn.jsp"%>
 	<%
 	System.out.println(session.getAttribute("id"));
 	if (session.getAttribute("id") == null){

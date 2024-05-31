@@ -10,7 +10,6 @@
 <title>마이페이지</title>
 </head>
 <body>
-	<%@ include file="../db/dbconn.jsp"%>
 	<%
 	String id = (String) session.getAttribute("id");
 	String passwd = request.getParameter("passwd");

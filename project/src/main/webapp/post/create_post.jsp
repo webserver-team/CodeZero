@@ -19,7 +19,6 @@
 	}
 %>
 
-
 	<div class="container">
 		<%@ include file="/../header/header.jsp"%>
 	</div>
@@ -27,9 +26,10 @@
 		<div class="createpost-title-div">
 			<h3 class="createpost-title">게시물 작성</h3>
 		</div>
-		<form class="createpost-form">
-			<textarea id="post-textarea" class="post-textarea"></textarea>
-			<input type="button" class="createpost-button" value="등록하기"> 
+		<form action="create_post_process.jsp" class="createpost-form">
+			<input type="text" name="postTitle" maxlength="100">
+			<textarea id="post-textarea" name="postContent" class="post-textarea" maxlength="10000"></textarea>
+			<input type="submit" class="createpost-button" value="등록하기">
 		</form>
 	</div>
 </body>

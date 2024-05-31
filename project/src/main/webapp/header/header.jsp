@@ -125,7 +125,7 @@ String header_id = (String) session.getAttribute("id");
 				<a href="../lectures/lectures.jsp" class="category-link"> 디자인 </a>
 			</div>
 			<div class="category-div">
-				<a href="../noticeBoard/noticeBoard.jsp" class="category-link">
+				<a href="../post/posts.jsp" class="category-link">
 					게시판 </a>
 			</div>
 			<div id="dropdownContent" class="dropdown-content">

@@ -7,8 +7,6 @@
 	<title>회원가입</title>
 </head> 
 
-<%@ include file="/../db/dbconn.jsp" %>
-
 <body>
 	<div id="regi-background" class="regi-background modal"></div>
 		
