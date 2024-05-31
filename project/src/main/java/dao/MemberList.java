@@ -151,12 +151,33 @@ public class MemberList{
 		String message = null;
 		
 		try {
-			String sql = "UPDATE member SET name = '" + name + "', phone = '" + phone + "', email = '" + email + "' WHERE id = '" + id + "'";
+			String sql = "UPDATE member SET name = '" + name + "', phone = '" + phone + "', email = '" + email + "' WHERE id = '" + id + "';";
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
 			
 			message = "회원정보가 수정되었습니다.";
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (stmt != null)
+				stmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return message;
+	}
+	
+	public String deleteMember(String id) throws SQLException {
+		String message = null;
+		
+		try {
+			String sql = "DELETE FROM member WHERE id = '" + id + "';";
+			stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			
+			message = "회원탈퇴하였습니다.";
+		} catch (SQLException e) {
+			message = "회원탈퇴에 실패하였습니다.";
 			e.printStackTrace();
 		} finally {
 			if (stmt != null)

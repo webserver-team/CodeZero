@@ -71,10 +71,6 @@ body {
     margin-bottom:20px;
 }
 
-::after, ::before{
-	box-sizing:border-box;
-}
-
 .errorMessage{
 	display:block;
 	
@@ -90,7 +86,12 @@ body {
 	transition:height 0.4s ease;
 }
 
-
+a{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	text-decoration:none;
+}
 
 input[type="text"]{
 	outline:0;
@@ -99,9 +100,4 @@ input{
     font-size: inherit;
 }
 
-a{
-	display:flex;
-	align-items:center;
-	justify-content:center;
-	text-decoration:none;
-}
+

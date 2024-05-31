@@ -6,6 +6,12 @@ var regExpName = /^[가-힣]{2,7}$/;
 var regExpPhone = /^\d{3}\d{3,4}\d{4}$/;
 var regExpEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
+function modifyOnEnter(event) {
+    if (event.keyCode === 13) { 
+    	modifyAttempt();
+    }
+}   
+
 function modifyAttempt(){
 	
 	var form = document.getElementById("mypage-modify-form");

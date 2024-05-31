@@ -7,6 +7,7 @@
 <head>
 <link rel="stylesheet" href="../stylesheet/mypage.css">
 <link rel="stylesheet" href="../stylesheet/styles.css">
+<script src="../mypage.js"></script>
 <meta charset="UTF-8">
 <title>마이페이지</title>
 </head>
@@ -46,7 +47,7 @@
 	<%@ include file="/../header/header.jsp"%>
 	<div class="mypage-container container">
 		<div class="my-infos-box">
-			<form action="checkPasswd.jsp" method="POST" class="my-infos">
+			<div class="my-infos">
 
 				<h2 class="mypage-title">회원정보</h2>
 
@@ -99,9 +100,12 @@
 					</div>
 				</div>
 				<h3></h3>
-				<input type="submit" class="change-info-button" value="회원 정보 수정">
+				<div class="buttons-div">
+					<a href="checkPasswd.jsp" class="change-info-button">회원 정보 수정</a>
+					<input type="button" class="remove-member-button" value="회원 탈퇴" onclick="removeMember()">
+				</div>
 				<h5></h5>
-			</form>
+			</div>
 		</div>
 	</div>
 	<%@ include file="/../footer/footer.jsp"%>

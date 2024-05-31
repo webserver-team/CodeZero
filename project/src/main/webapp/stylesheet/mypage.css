@@ -79,7 +79,48 @@
 	margin:0px;	
 }
 
+.mypage-title{
+	text-align:center; 
+	width:100%;
+	margin-top:30px;
+	margin-bottom:100px; 
+	padding-bottom:30px;
+	border-bottom:1px solid #03c75a;
+}
+
+.buttons-div{
+	display:flex;
+	
+	margin-top:auto;
+	width:80%;
+	height:35px;
+}
+
 .change-info-button{
+	width:100%;
+	height:100%;
+	
+	margin-right:5px;
+	
+	color:#03c75a;
+	background-color:white;
+	border:1px solid #03c75a;
+	border-radius:10px;
+	cursor:pointer;
+}
+.remove-member-button{
+	width:100%;
+	height:100%;
+	
+	margin-left:5px;
+	
+	color:white;
+	background-color:#ff8c8c;
+	border:1px solid #ff8c8c;
+	border-radius:10px;
+	cursor:pointer;
+}
+.check-passwd-button{
 	margin-top:auto;
 	width:80%;
 	height:35px;
@@ -90,14 +131,7 @@
 	cursor:pointer;
 }
 
-.mypage-title{
-	text-align:center; 
-	width:100%;
-	margin-top:30px;
-	margin-bottom:100px; 
-	padding-bottom:30px;
-	border-bottom:1px solid #03c75a;
-}
+
 
 .check-passwd-in{
 	flex-grow:1;

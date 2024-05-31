@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../stylesheet/styles.css">
-<link rel="stylesheet" href="../stylesheet/post.css">
+<link rel="stylesheet" href="../stylesheet/posts.css">
 <title>게시판</title>
 </head>
 
@@ -65,27 +65,37 @@ if (id == null) {
 				<!------------------------------------------------------------------------------------>
 				<p style="height: 10px; margin: 0px"></p>
 				<%
-				int i = 1;
-				String string_i = Integer.toString(i);;
-				Post post = null;
+				Post[] posts = null;
 				PostList postlist = new PostList();
-
-				while ((post = postlist.getPost(string_i)).getPostTitle() != null) {
+				
+				if (!postlist.existPost()) {
 				%>
-				<div class="table_row">
-					<div class="table_col article">
-						<a href="board.jsp" class="board_article"><%=post.getPostTitle()%></a>
-					</div>
-					<div class="table_col name">
-						<a href="user.jsp" class="board_name"><%=post.getUserId()%></a>
-					</div>
-					<div class="table_col date">
-						<p class="board_date">게시일</p>
-					</div>
+				<div class="table_row" style="display:flex; justify-content:center; align-items:center">
+						<p>게시물이 없습니다.</p>
 				</div>
 				<%
-					i++;
-					string_i = Integer.toString(i);
+				}
+				else {
+					postlist = new PostList();
+					posts = postlist.getPostList();
+
+					if (posts != null){
+						for (int i = 0; i < posts.length; i++){
+							%>
+							<div class="table_row">
+								<div class="table_col article">
+									<a href="post.jsp?=<%=posts[i].getPostID() %>" class="board_article"><%=posts[i].getPostTitle()%></a>
+								</div>
+								<div class="table_col name">
+									<a class="board_name"><%=posts[i].getUserId()%></a>
+								</div>
+								<div class="table_col date">
+									<p class="board_date">24/05/30</p>
+								</div>
+							</div>
+							<%					
+						}
+					}
 				}
 				%>
 				<p style="height: 10px; margin: 0px"></p>

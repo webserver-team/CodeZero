@@ -16,12 +16,6 @@ function registerOnEnter(event) {
     }
 }
 
-function modifyOnEnter(event) {
-    if (event.keyCode === 13) { 
-    	modifyAttempt();
-    }
-}   
-
 function checkMember(){
 	
 	var idError = document.getElementById("id-error");		

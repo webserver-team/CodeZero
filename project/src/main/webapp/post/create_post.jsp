@@ -18,6 +18,28 @@
 		response.sendRedirect("../home/home.jsp");
 	}
 %>
+	
+	<script>
+		function onPost(){
+			var postForm = document.getElementById("post-form");
+			var postTitle = document.getElementById("post-title");
+			var postTextarea = document.getElementById("post-textarea");
+			
+			if (postTitle.value == ""){
+				alert("제목을 입력해주세요");
+				postTitle.select();
+				return false;
+			}
+			else if (postTextarea.value == ""){
+				alert("내용을 입력해주세요");
+				postTextarea.select();
+				return false;
+			}
+			else{
+				postForm.submit();
+			}
+		}
+	</script>
 
 	<div class="container">
 		<%@ include file="/../header/header.jsp"%>
@@ -26,10 +48,10 @@
 		<div class="createpost-title-div">
 			<h3 class="createpost-title">게시물 작성</h3>
 		</div>
-		<form action="create_post_process.jsp" class="createpost-form">
-			<input type="text" name="postTitle" maxlength="100">
-			<textarea id="post-textarea" name="postContent" class="post-textarea" maxlength="10000"></textarea>
-			<input type="submit" class="createpost-button" value="등록하기">
+		<form action="create_post_process.jsp" id="post-form" class="createpost-form" onsubmit="return false;">
+			<input type="text" id="post-title" name="postTitle" class="post-title" maxlength="100" placeholder="제목을 입력해주세요">
+			<textarea id="post-textarea" name="postContent" class="post-textarea" maxlength="10000" placeholder="내용을 입력해주세요"></textarea>
+			<input type="button" class="createpost-button" value="등록하기" onclick="onPost()">
 		</form>
 	</div>
 </body>
