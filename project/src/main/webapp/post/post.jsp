@@ -21,33 +21,28 @@
 		PostList postlist = new PostList();
 		post = postlist.getPost(postId);
 	%>
-	
+
+	<%if (session.getAttribute("id") == null) { %>
 	<script>
-		function onComment(){
-			var commentForm = document.getElementById("comment-on-form");
-			var commentText = document.getElementById("comment-textarea");
-			
-			if (commentText.value == ""){
-				alert("댓글을 입력해주세요");
-				commentText.select();
-				return false;
-			}
-			else
-				commentForm.submit();
-		}
+	document.addEventListener("DOMContentLoaded", function() {
+		var commentOn = document.getElementById("commentOn");
+		var loginBackground = document.getElementById("login-background");
+		var loginModal = document.getElementById("loginModal");
+
+		commentOn.addEventListener("click", function() {
+			loginBackground.style.display = "block";
+			loginModal.style.display = "block";
+			setTimeout(function() {
+				loginBackground.style.opacity = "1";
+				loginModal.style.opacity = "1";
+			}, 10)
+			document.getElementById("login-input-id").focus();
+		});
+	});
 	</script>
-	
-	<script>
-	document.addEventListener('DOMContentLoaded', autoResize);
-	
-	// textarea의 높이를 자동으로 조정하는 함수
-	function autoResize() {
-	    const textarea = document.getElementById('post-textarea');
-	    textarea.style.height = 'auto'; // 높이를 자동으로 조정
-	    textarea.style.height = textarea.scrollHeight + 'px'; // 스크롤 높이만큼 조정
+	<%
 	}
-	</script>
-	
+	%>
 	
 	<div class="container">
 		<%@ include file="/../header/header.jsp"%>
@@ -57,7 +52,7 @@
 			<h3 class="post-title"><%=post.getPostTitle() %></h3>
 		</div>
 		<div id="post-div" class="post-div">
-			<textarea id="post-textarea" name="postContent" class="post-textarea" maxlength="10000" placeholder="내용을 입력해주세요" disabled><%=post.getPostContent() %></textarea>
+			<textarea id="post-textarea" name="postContent" class="post-textarea" maxlength="10000" disabled><%=post.getPostContent() %></textarea>
 		</div>
 		
 		<div class="comment-div">
@@ -90,8 +85,8 @@
 		</div>
 		
 		<form action="comment_on_process.jsp?postId=<%=post.getPostID() %>" id="comment-on-form" class="comment-on-form" method="POST">
-			<textarea id="comment-textarea" class="comment-textarea" name="comment-textarea" placeholder="댓글을 입력해주세요"></textarea>
-			<input type="button" id="commentOn" class="comment-button" value="등록" onclick="onComment()">
+			<textarea id="comment-textarea" class="comment-textarea" name="comment-textarea" placeholder=<%if(!(session.getAttribute("id") == null)){%>"내용을 입력해주세요"<%} else {%>"로그인 후 이용 가능합니다." <%} if(session.getAttribute("id") == null){%>disabled<%}%>></textarea>
+			<input type="button" id="commentOn" class="comment-button" value="등록"  <%if(!(session.getAttribute("id") == null)){%>onclick="onComment()"<%}%>>
 		</form>
 	</div>
 	<%@ include file="/../footer/footer.jsp"%>

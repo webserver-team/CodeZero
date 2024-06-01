@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
 .container.table-container{
+	min-height: 550px;
 	display:flex;
 	flex-direction:column;
+	justify-content: flex-start;
 }
 
 .noticeBoard{
