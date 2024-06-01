@@ -18,7 +18,6 @@
 	</script>
 	
 	<%
-	System.out.println(session.getAttribute("id"));
 	if (session.getAttribute("id") == null){
 		response.sendRedirect("../home/home.jsp");
 	}

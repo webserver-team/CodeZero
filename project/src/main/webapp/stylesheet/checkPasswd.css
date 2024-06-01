@@ -1,28 +1,28 @@
 @charset "UTF-8";
 
-.check_passwd_container{
+.mypage-container{
 	display:flex;
-	justify-content:center;
+	justify-content:flex-start !important;
+	align-items:center;
 	min-height:600px;
-	margin-top:10%;
-	margin-bottom:10%;
 }
 
-.check_passwd_box{
+.my-infos-box{
 	display:flex;
-	align-items:center;
 	width:60%;
-	height:100%;
+	height:70%;
+	min-height:600px;
+	
+	margin-top:150px;
+	
 	border-radius:10px;
 	border:solid 1px #03c75a;
 	background-color:#deefd6;
-	color:#03c75a;
 }
 
-.check_passwd{
+.my-infos{
 	display:flex;
 	flex-direction:column;
-	justify-content:center;
 	align-items:center;
 	color:#03c75a;
 	width:100%;
@@ -30,11 +30,56 @@
 	margin:0px 50px 50px 50px;
 }
 
-.check_passwd_div{
+.my-info{
+	display:flex;
+	justify-content:center;
+	width:80%;
+	margin-bottom:10px;
+}
+
+.my-info-input{
+	margin-left:5px;
+	width:90%;
+	border:0px;
+	color:#03c75a;
+	backGround-color:white;
+}
+
+.my-info-div{
 	width:100%;
 }
 
-.check_passwd_title{
+.my-info-in{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	border:1px solid #03c75a;
+	border-right:0px;
+	backGround-color:white;
+	color:#03c75a;
+	border-radius:7px 0px 0px 7px;
+}
+
+.my-info-in.value{
+	border:1px solid #03c75a;
+	border-radius:0px 7px 7px 0px;
+	flex-grow:1;
+}
+
+.my-p{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	text-align:center;
+	
+	width:55px;
+	height : 30px;
+	padding-left:5px;
+	padding-right:5px;
+	margin:0px;	
+}
+
+.mypage-title{
 	text-align:center; 
 	width:100%;
 	margin-top:30px;
@@ -43,46 +88,77 @@
 	border-bottom:1px solid #03c75a;
 }
 
-
-.check_passwd_form{
+.buttons-div{
 	display:flex;
-	flex-direction:column;
-	justify-content:center;
-	align-items:center;
-	width:100%;
+	
+	margin-top:auto;
+	width:80%;
+	height:35px;
 }
 
-.check_passwd_in{
-	display:flex;
-	justify-content:center;
-	align-items:center;
 
-	width:300px;
+
+.change-info-button{
+	width:80%;
 	height:35px;
 	
-	border:1px solid #03c75a;
-	backGround-color:white;
-	color:#03c75a;
-	border-radius:5px 5px 5px 5px;
+	margin-top:auto;
+	margin-right:5px;
 	
-}
-
-.check_passwd_input{
-	margin-left:5px;
-	width:100%;
-	border:0px;
 	color:#03c75a;
-	backGround-color:white;
+	background-color:white;
+	border:1px solid #03c75a;
+	border-radius:10px;
+	cursor:pointer;
 }
-
-.check_passwd_button{
-	margin-top:250px;
-	width:300px;
+.remove-member-button{
+	width:100%;
+	height:100%;
+	
+	margin-left:5px;
+	
+	color:white;
+	background-color:#ff8c8c;
+	border:1px solid #ff8c8c;
+	border-radius:10px;
+	cursor:pointer;
+}
+.check-passwd-button{
+	margin:auto;
+	
+	width:80%;
 	height:35px;
 	color:#03c75a;
 	background-color:white;
 	border:1px solid #03c75a;
 	border-radius:10px;
-	cursor:pointer;	
+	cursor:pointer;
+}
+
+
+
+.check-passwd-in{
+	flex-grow:1;
+	backGround-color:white;
+}
+
+.check-passwd-div{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height:30px;
+	width:100%;
+	border: 1px solid #03c75a;
+    border-radius: 7px;
+}
+
+.check-passwd-input{
+	margin-left:5px;
+	margin-right:5px;
+	width:100%;
+	border:0px;
+	color:#03c75a;
+	backGround-color:white;
+	outline:0;
 }
 

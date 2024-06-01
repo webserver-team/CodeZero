@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+
+
+.post-div{
+	display:flex;
+	flex-direction:column;
+	
+	width:60%;
+	height:auto;
+	min-height:400px;
+}
+
+.post-title{
+	height:30px;
+	color:#03c75a;
+	padding-left:15px;
+	margin-right:auto;
+}
+
+.post-title-div{
+	width:60%;
+}
+
+.post-title::placeholder{
+	color:#c3c3c3;
+}
+
+.post-textarea{
+	width:100%;
+	height:auto;
+	min-height:400px;
+	
+	color:#03c75a;
+	
+	padding:15px;
+
+	background-color:#f4fff1;
+	
+	border:1px solid #03c75a;
+	border-radius:10px;
+	box-sizing:border-box;
+	
+	outline:0;
+	
+	font-family: emoji;
+	
+	overflow:hidden;
+	resize:none;
+	
+	flex-grow:1;
+}
+.post-textarea::placeholder{
+	color:#c3c3c3;
+}

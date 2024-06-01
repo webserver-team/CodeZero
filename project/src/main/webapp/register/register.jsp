@@ -20,7 +20,7 @@
 					<span id="registerClose" class="close" style="left:10">&times;</span>
 					<h3>회원가입</h3>
 					<div class="id-div input-div">
-						<input type="text" id="regi-input-id" maxlength="20" name="id" class="input id" placeholder="아이디" onkeydown="registerOnEnter(event)">
+						<input type="text" id="regi-input-id" maxlength="12" name="id" class="input id" placeholder="아이디" onkeydown="registerOnEnter(event)">
 					</div>
 					<div id="regi_passwd-div" class="passwd-div input-div">
 						<input type="password" id="regi_input_passwd" maxlength="40" name="passwd" class="input passwd" placeholder="비밀번호" onkeydown="registerOnEnter(event)">

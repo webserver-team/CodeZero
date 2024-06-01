@@ -31,12 +31,12 @@ public class MemberList{
 		}
 	}
 	
-	public String addMember(String id, String passwd, String name, String phone, String email) throws SQLException {
+	public String addMember(Member member) throws SQLException {
 		
 		String result = null;
 		
 		try {
-			String sqlCheckId = "SELECT * FROM member WHERE id = '" + id + "'";
+			String sqlCheckId = "SELECT * FROM member WHERE userId = '" + member.getMemberId() + "'";
 			
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sqlCheckId);
@@ -45,7 +45,7 @@ public class MemberList{
 				result = "이미 사용중인 ID입니다.";
 			}
 			else {
-				String sql="INSERT INTO member VALUES('" + id + "','" + passwd + "','" + name + "','" + phone + "','" + email + "')";
+				String sql="INSERT INTO member VALUES('" + member.getMemberId() + "','" + member.getMemberPasswd() + "','" + member.getMemberName() + "','" + member.getMemberPhone() + "','" + member.getMemberEmail() + "')";
 				
 				stmt = conn.createStatement();
 				stmt.executeUpdate(sql);
@@ -68,7 +68,7 @@ public class MemberList{
 		String[] result = new String[2];
 		
 		try {
-			String sql = "SELECT * FROM member WHERE id = '" + id + "'";
+			String sql = "SELECT * FROM member WHERE userId = '" + id + "'";
 			
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
@@ -104,7 +104,7 @@ public class MemberList{
 	
 	public Member getMember(String id) throws SQLException {
 		
-		Member member = null;
+		Member member = new Member();
 		
 		String db_id = null;
 		String db_passwd = null;
@@ -113,12 +113,12 @@ public class MemberList{
 		String db_email = null;
 		
 		try {
-			String sql = "SELECT * FROM member WHERE id='" + id + "'";
+			String sql = "SELECT * FROM member WHERE userId ='" + id + "'";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 
 			if (rs.next()) {
-				db_id = rs.getString("id");
+				db_id = rs.getString("userId");
 				db_passwd = rs.getString("passwd");
 				db_name = rs.getString("name");
 				db_phone = rs.getString("phone");
@@ -151,7 +151,7 @@ public class MemberList{
 		String message = null;
 		
 		try {
-			String sql = "UPDATE member SET name = '" + name + "', phone = '" + phone + "', email = '" + email + "' WHERE id = '" + id + "';";
+			String sql = "UPDATE member SET name = '" + name + "', phone = '" + phone + "', email = '" + email + "' WHERE userId = '" + id + "';";
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
 			
@@ -171,7 +171,7 @@ public class MemberList{
 		String message = null;
 		
 		try {
-			String sql = "DELETE FROM member WHERE id = '" + id + "';";
+			String sql = "DELETE FROM member WHERE userId = '" + id + "';";
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
 			

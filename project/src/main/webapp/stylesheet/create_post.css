@@ -60,6 +60,10 @@
 	
 	font-family: emoji;
 	
+	
+	scrollbar-width: thin;
+    scrollbar-color: #677b705e #cfe7c3;
+	
 	resize:none;
 }
 .post-textarea::placeholder{

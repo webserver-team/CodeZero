@@ -101,7 +101,7 @@
 				</div>
 				<h3></h3>
 				<div class="buttons-div">
-					<a href="checkPasswd.jsp" class="change-info-button">회원 정보 수정</a>
+					<a href="checkPasswd.jsp" class="change-info-button" style="width:100%">회원 정보 수정</a>
 					<input type="button" class="remove-member-button" value="회원 탈퇴" onclick="removeMember()">
 				</div>
 				<h5></h5>

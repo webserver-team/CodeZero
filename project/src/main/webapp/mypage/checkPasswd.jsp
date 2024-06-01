@@ -4,7 +4,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="../stylesheet/styles.css">
-<link rel="stylesheet" href="../stylesheet/mypage.css">
+<link rel="stylesheet" href="../stylesheet/checkPasswd.css">
 <meta charset="UTF-8">
 <title>마이페이지</title>
 </head>
@@ -37,8 +37,7 @@
 					</div>
 				</div>
 				
-				<p style="height:100px"></p>
-				<input type="submit" class="change-info-button" style="width:250px" value="확인">
+				<input type="submit" class="check-passwd-button" style="width:250px" value="확인">
 			</form>
 		</div>
 	</div>

@@ -6,16 +6,18 @@ public class Post{
 	private String userId;
 	private String postTitle;
 	private String postContent;
+	private String postDate;
 	
 	public Post() {
 		super();
 	}
 	
-	public Post(String postId, String userId, String postTitle, String postContent) {
-		this.postID = postId;
+	public Post(String userId, String postTitle, String postContent, String postDate) {
+		this.postID = null;
 		this.userId = userId;
 		this.postTitle = postTitle;
 		this.postContent = postContent;
+		this.postDate = postDate;
 	}
 
 	public String getPostID() {
@@ -48,5 +50,13 @@ public class Post{
 
 	public void setPostContent(String postContent) {
 		this.postContent = postContent;
+	}
+	
+	public String getPostDate() {
+		return postDate;
+	}
+
+	public void setPostDate(String postDate) {
+		this.postDate = postDate;
 	}
 }

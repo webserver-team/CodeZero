@@ -4,7 +4,7 @@ var noName = false;
 var noPhone = false;
 var noEmail = false;
 
-var regExpId = /^[a-z][a-z0-9]{4,19}$/;
+var regExpId = /^[a-z][a-z0-9]{4,11}$/;
 var regExpName = /^[가-힣]{2,7}$/;
 var regExpPasswd = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 var regExpPhone = /^\d{3}\d{3,4}\d{4}$/;
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			regiBackground.style.opacity = "1";
 			registerModal.style.opacity = "1";
 		}, 10)
-		document.getElementById("regi_input_id").focus();
+		document.getElementById("regi-input-id").focus();
     });
 
     registerClose.addEventListener("click", function () {

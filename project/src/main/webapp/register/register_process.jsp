@@ -24,9 +24,10 @@
 		
 		String message = null;
 		
-		MemberList member = new MemberList(); 
+		Member member = new Member(id, passwd, name, phone, email);
+		MemberList memberlist = new MemberList(); 
 		
-		message = member.addMember(id, passwd, name, phone, email);
+		message = memberlist.addMember(member);
 		
 		session.setAttribute("message", message);
 		

@@ -29,13 +29,11 @@ public class PostList {
 		}
 	}
 
-	public String addPost(String userId, String postTitle, String postContent) throws SQLException {
+	public String addPost(Post post) throws SQLException {
 		Statement stmt = null;
 		ResultSet rs = null;
-
-		int postId = 0;
+		
 		String result = null;
-		int lastId = 0;
 
 		try {
 			String sqlFind = "SELECT * FROM post";
@@ -43,14 +41,7 @@ public class PostList {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sqlFind);
 
-			while (rs.next()) {
-				lastId = rs.getInt("postId");
-			}
-
-			postId = ++lastId;
-
-			String sql = "INSERT INTO post VALUES('" + postId + "','" + postTitle + "','" + postContent + "','" + userId
-					+ "');";
+			String sql = "INSERT INTO post (postTitle, postContent, userId, postDate) VALUES('" + post.getPostTitle() + "','" + post.getPostContent() + "','" + post.getUserId() + "','" + post.getPostDate() + "');";
 
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
@@ -83,10 +74,11 @@ public class PostList {
 
 			if (rs.next()) {
 				post = new Post();
-				post.setPostID("postId");
+				post.setPostID(Integer.toString(rs.getInt("postId")));
 				post.setPostTitle(rs.getString("postTitle"));
 				post.setPostContent(rs.getString("postContent"));
 				post.setUserId(rs.getString("userId"));
+				post.setPostDate(rs.getString("postDate"));
 			} else {
 				post = null;
 			}
@@ -156,10 +148,11 @@ public class PostList {
 
 			while (rs.next()) {
 				post[i] = new Post();
-				post[i].setPostID("postId");
+				post[i].setPostID(Integer.toString(rs.getInt("postId")));
 				post[i].setPostTitle(rs.getString("postTitle"));
 				post[i].setPostContent(rs.getString("postContent"));
 				post[i].setUserId(rs.getString("userId"));
+				post[i].setPostDate(rs.getString("postDate"));
 				i++;
 			}
 

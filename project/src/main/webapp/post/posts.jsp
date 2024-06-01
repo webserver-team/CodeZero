@@ -51,9 +51,9 @@ if (id == null) {
 	<div class="container">
 		<%@ include file="/../header/header.jsp"%>
 	</div>
-	<div class="container table_container">
+	<div class="container table-container">
 		<div style="width: 63%">
-			<div class="board_top">
+			<div class="board-top">
 				<h3 style="padding-left: 10px; color: #03c75a">자유게시판</h3>
 				<div class="createpost-div">
 					<input type="button" id="createpost" class="createpost" value="글쓰기">
@@ -61,7 +61,7 @@ if (id == null) {
 			</div>
 		</div>
 		<div class="noticeBoard">
-			<div class="board_table">
+			<div class="board-table">
 				<!------------------------------------------------------------------------------------>
 				<p style="height: 10px; margin: 0px"></p>
 				<%
@@ -70,7 +70,7 @@ if (id == null) {
 				
 				if (!postlist.existPost()) {
 				%>
-				<div class="table_row" style="display:flex; justify-content:center; align-items:center">
+				<div class="table-row" style="display:flex; justify-content:center; align-items:center">
 						<p>게시물이 없습니다.</p>
 				</div>
 				<%
@@ -80,17 +80,17 @@ if (id == null) {
 					posts = postlist.getPostList();
 
 					if (posts != null){
-						for (int i = 0; i < posts.length; i++){
+						for (int i = posts.length - 1; i >= 0; i--){
 							%>
-							<div class="table_row">
-								<div class="table_col article">
-									<a href="post.jsp?=<%=posts[i].getPostID() %>" class="board_article"><%=posts[i].getPostTitle()%></a>
+							<div class="table-row">
+								<div class="table-col article">
+									<a href="post.jsp?postId=<%=posts[i].getPostID() %>" class="board-article"><%=posts[i].getPostTitle()%></a>
 								</div>
-								<div class="table_col name">
-									<a class="board_name"><%=posts[i].getUserId()%></a>
+								<div class="table-col name">
+									<a class="board-name"><%=posts[i].getUserId()%></a>
 								</div>
-								<div class="table_col date">
-									<p class="board_date">24/05/30</p>
+								<div class="table-col date">
+									<p class="board-date"><%=posts[i].getPostDate()%></p>
 								</div>
 							</div>
 							<%					
