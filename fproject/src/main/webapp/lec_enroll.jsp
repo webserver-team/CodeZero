@@ -98,7 +98,7 @@
 					<textarea class="form-control" id="lecDescription" name="lecDescription" rows="3" placeholder="강의 설명" maxlength="150"></textarea>
 				</div>
 				<div class="d-flex justify-content-end mb-3">
-					<button type="button" class="btn btn-light bnt-lg" onclick="check()">등록</button>
+					<button type="button" class="btn btn-light btn-lg" onclick="check()">등록</button>
 				</div>
 			</form>
 		</div>
