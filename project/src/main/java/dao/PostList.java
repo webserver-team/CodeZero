@@ -31,15 +31,10 @@ public class PostList {
 
 	public String addPost(Post post) throws SQLException {
 		Statement stmt = null;
-		ResultSet rs = null;
 		
 		String result = null;
 
 		try {
-			String sqlFind = "SELECT * FROM post";
-
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sqlFind);
 
 			String sql = "INSERT INTO post (postTitle, postContent, userId, postDate) VALUES('" + post.getPostTitle() + "','" + post.getPostContent() + "','" + post.getUserId() + "','" + post.getPostDate() + "');";
 
@@ -168,5 +163,26 @@ public class PostList {
 		}
 
 		return post;
+	}
+	
+	public void increaseView(String postId) throws SQLException {
+		Statement stmt = null;
+		
+		String result = null;
+
+		try {
+			String sql = "UPDATE post SET views = views + 1 WHERE postId = '" + postId + "';";
+
+			stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (stmt != null)
+				stmt.close();
+			if (conn != null)
+				conn.close();
+		}
 	}
 }

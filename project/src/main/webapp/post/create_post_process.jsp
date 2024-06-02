@@ -29,7 +29,7 @@
 
         String message = null;
 
-        Post post = new Post(userId, postTitle, postContent, postDate);
+        Post post = new Post(userId, postTitle, postContent, postDate, 0);
         PostList postlist = new PostList();
         
         message = postlist.addPost(post);

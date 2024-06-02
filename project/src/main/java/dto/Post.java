@@ -7,17 +7,19 @@ public class Post{
 	private String postTitle;
 	private String postContent;
 	private String postDate;
+	private int views;
 	
 	public Post() {
 		super();
 	}
 	
-	public Post(String userId, String postTitle, String postContent, String postDate) {
+	public Post(String userId, String postTitle, String postContent, String postDate, int views) {
 		this.postID = null;
 		this.userId = userId;
 		this.postTitle = postTitle;
 		this.postContent = postContent;
 		this.postDate = postDate;
+		this.views = views;
 	}
 
 	public String getPostID() {
@@ -58,5 +60,13 @@ public class Post{
 
 	public void setPostDate(String postDate) {
 		this.postDate = postDate;
+	}
+
+	public int getViews() {
+		return views;
+	}
+
+	public void setViews(int views) {
+		this.views = views;
 	}
 }
