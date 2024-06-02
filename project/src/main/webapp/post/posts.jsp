@@ -67,35 +67,36 @@ if (id == null) {
 				<%
 				Post[] posts = null;
 				PostList postlist = new PostList();
-				
+
 				if (!postlist.existPost()) {
 				%>
-				<div class="table-row" style="display:flex; justify-content:center; align-items:center">
-						<p>게시물이 없습니다.</p>
+				<div class="table-row"
+					style="display: flex; justify-content: center; align-items: center">
+					<p>게시물이 없습니다.</p>
+				</div>
+				<%
+				} else {
+				postlist = new PostList();
+				posts = postlist.getPostList();
+
+				if (posts != null) {
+					for (int i = posts.length - 1; i >= 0; i--) {
+				%>
+				<div class="table-row">
+					<div class="table-col article">
+						<a href="post.jsp?postId=<%=posts[i].getPostID()%>"
+							class="board-article"><%=posts[i].getPostTitle()%></a>
+					</div>
+					<div class="table-col name">
+						<a class="board-name"><%=posts[i].getUserId()%></a>
+					</div>
+					<div class="table-col date">
+						<p class="board-date"><%=posts[i].getPostDate()%></p>
+					</div>
 				</div>
 				<%
 				}
-				else {
-					postlist = new PostList();
-					posts = postlist.getPostList();
-
-					if (posts != null){
-						for (int i = posts.length - 1; i >= 0; i--){
-							%>
-							<div class="table-row">
-								<div class="table-col article">
-									<a href="post.jsp?postId=<%=posts[i].getPostID() %>" class="board-article"><%=posts[i].getPostTitle()%></a>
-								</div>
-								<div class="table-col name">
-									<a class="board-name"><%=posts[i].getUserId()%></a>
-								</div>
-								<div class="table-col date">
-									<p class="board-date"><%=posts[i].getPostDate()%></p>
-								</div>
-							</div>
-							<%					
-						}
-					}
+				}
 				}
 				%>
 				<p style="height: 10px; margin: 0px"></p>

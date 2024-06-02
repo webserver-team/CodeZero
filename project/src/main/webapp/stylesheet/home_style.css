@@ -24,12 +24,12 @@
 
 .box{
 	display:grid;
-	grid-template-columns: repeat(3, minmax(100px, auto));
+	grid-template-columns: repeat(3, minmax(33%, auto));
 	width:100%;
 	height:100%;
 }
 
-.lecture-box1{
+.lecture-box{
 	
 	border:1px solid #03c75a;
 	border-radius:10px;
@@ -45,7 +45,10 @@
 /* 	width:40%; */
 /* 	height:50%; */
 }
-.lecture-box2{
+.post-box{
+	display:flex;
+	flex-direction:column;
+	
 	border:1px solid #03c75a;
 	border-radius:10px;
 	background-color:#deefd6;
@@ -61,4 +64,74 @@
 	
 /* 	width:60%; */
 /* 	height:25%; */
+}
+
+.home-post-title{
+	display:flex;
+	align-items:center;
+    justify-content: flex-start;
+    
+    font-weight:bold;
+    
+	height:20%;
+	
+	color:#03c75a;
+	margin:0px 15px 0px 15px;
+	padding:10px 20px 10px 20px;
+	border-bottom:1px solid #03c75a;
+	
+	box-sizing:border-box;
+	
+	font-size:18px;
+}
+.home-post-row-box{
+	display:flex;
+	align-items:center;
+	
+	height:15%;
+	
+	margin: 0px 25px 0px 25px;
+    border-bottom: 1px solid #bcdbac;
+}
+.home-post-row{
+	display:flex;
+	align-items:center;
+	
+	width:100%;
+	
+	color:#03c75a;
+	flex-grow:1;
+}
+.home-post-col{
+	color:#03c75a;
+	
+	margin:0px 5px 0px 5px;
+	white-space: nowrap;
+	overflow:hidden;
+	text-overflow: ellipsis;
+	
+	font-size:15px;
+}
+.home-post-col-a{
+	display:block; 
+	color: #03c75a; 
+	white-space: nowrap;
+	overflow:hidden;
+    text-overflow: ellipsis;
+}
+.home-post-col.article{
+	display:flex;
+	justify-content:flex-start;
+	
+	margin-left:10px;
+	width:75%;
+}
+.home-post-col.userId{
+	width:15%;
+	text-align:center;
+}
+.home-post-col.views{
+	width:10%;
+	text-align:center;
+	margin-right:20px;
 }

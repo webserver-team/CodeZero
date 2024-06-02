@@ -31,12 +31,13 @@ public class PostList {
 
 	public String addPost(Post post) throws SQLException {
 		Statement stmt = null;
-		
+
 		String result = null;
 
 		try {
 
-			String sql = "INSERT INTO post (postTitle, postContent, userId, postDate) VALUES('" + post.getPostTitle() + "','" + post.getPostContent() + "','" + post.getUserId() + "','" + post.getPostDate() + "');";
+			String sql = "INSERT INTO post (postTitle, postContent, userId, postDate) VALUES('" + post.getPostTitle()
+					+ "','" + post.getPostContent() + "','" + post.getUserId() + "','" + post.getPostDate() + "');";
 
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
@@ -148,6 +149,7 @@ public class PostList {
 				post[i].setPostContent(rs.getString("postContent"));
 				post[i].setUserId(rs.getString("userId"));
 				post[i].setPostDate(rs.getString("postDate"));
+				post[i].setViews(rs.getInt("views"));
 				i++;
 			}
 
@@ -164,10 +166,10 @@ public class PostList {
 
 		return post;
 	}
-	
+
 	public void increaseView(String postId) throws SQLException {
 		Statement stmt = null;
-		
+
 		String result = null;
 
 		try {
@@ -184,5 +186,21 @@ public class PostList {
 			if (conn != null)
 				conn.close();
 		}
+	}
+
+	public Post[] sortPost(Post[] post) {
+		if (post.length > 1) {
+			for (int i = 0; i < post.length - 1; i++) {
+				for (int j = i + 1; j < post.length; j++) {
+					if (post[i].getViews() < post[j].getViews()) {
+						Post tmp = post[i];
+						post[i] = post[j];
+						post[j] = tmp;
+					}
+				}
+			}
+		}
+
+		return post;
 	}
 }

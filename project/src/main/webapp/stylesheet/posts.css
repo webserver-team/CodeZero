@@ -67,6 +67,8 @@
 	border-bottom:2px solid #cfe7c3;
 	
 	border-top:2px solid #cfe7c3;
+	
+	overflow:hidden;
 }
 
 .board-article{
@@ -87,6 +89,7 @@
 
 .board-name{
 	display:flex;
+	justify-content: flex-start;
 	color:#03c75a;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -100,7 +103,7 @@
 
 .board-date{
 	display:flex;
-	justify-content:center;
+	justify-content: flex-start;
 	align-items:center;
 	color:#03c75a;
 	margin:0px;
