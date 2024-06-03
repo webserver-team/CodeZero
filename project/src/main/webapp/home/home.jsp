@@ -33,7 +33,7 @@
 				Post[] posts = null;
 				PostList postlist = new PostList();
 
-				if (!postlist.existPost()) {
+				if (!postlist.existPost(null)) {
 				%>
 				<div class="home-post-row-box" style="flex-grow:1">
 					<div class="home-post-row">
@@ -43,7 +43,7 @@
 				<%
 				} else {
 				postlist = new PostList();
-				posts = postlist.getPostList();
+				posts = postlist.getPostList(null);
 				postlist.sortPost(posts);
 				
 				for (int i = 0; i < posts.length; i++) {

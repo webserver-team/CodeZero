@@ -92,13 +92,17 @@ public class PostList {
 		return post;
 	}
 
-	public boolean existPost() throws SQLException {
+	public boolean existPost(String search) throws SQLException {
 		Statement stmt = null;
 		ResultSet rs = null;
 
+		String sql = null;
+		
 		try {
-			String sql = "SELECT * FROM post;";
-			int i = 0;
+			if(search == null)
+				sql = "SELECT * FROM post;";
+			else
+				sql = "SELECT * FROM post WHERE postTitle LIKE '%" + search + "%';";
 
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
@@ -120,14 +124,19 @@ public class PostList {
 		return false;
 	}
 
-	public Post[] getPostList() throws SQLException {
+	public Post[] getPostList(String search) throws SQLException {
 		Statement stmt = null;
 		ResultSet rs = null;
 
 		Post[] post = null;
-
+			
+		String sql = null;
+			
 		try {
-			String sql = "SELECT * FROM post;";
+			if(search == null)
+				sql = "SELECT * FROM post;";
+			else
+				sql = "SELECT * FROM post WHERE postTitle LIKE '%" + search + "%';";
 			int row = 0;
 			int i = 0;
 
@@ -166,11 +175,9 @@ public class PostList {
 
 		return post;
 	}
-
+	
 	public void increaseView(String postId) throws SQLException {
 		Statement stmt = null;
-
-		String result = null;
 
 		try {
 			String sql = "UPDATE post SET views = views + 1 WHERE postId = '" + postId + "';";

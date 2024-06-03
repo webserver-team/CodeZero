@@ -128,5 +128,34 @@
 	border-radius:0px 5px 5px 0px;
 }
 
+.search-div{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width:70%;
+	
+	margin-top:10px;
+}
 
+.search-input{
+	width:75%;
+	height:30px;
+	
+	padding:0px 10px 0px 10px;
+	
+	border:1px solid #03c75a;
+	border-radius:7px; 
+}
+.search-button{
+	width:10%;
+	height:30px;
+
+	color:#03c75a;
+	background-color:white;
+
+	margin:0px 0px 0px 10px;
+	
+	border:1px solid #03c75a;
+	border-radius:7px;	
+}
 

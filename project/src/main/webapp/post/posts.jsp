@@ -47,6 +47,19 @@ if (id == null) {
 }
 %>
 
+<script>
+	function search(){
+		var searchInput	= document.getElementById("search-input");
+		var url = "posts.jsp?search=" + searchInput.value;
+		window.location.href = url;
+	}
+	function searchOnEnter(event) {
+	    if (event.keyCode === 13) {  
+	    	search();
+	    }
+	}
+</script>
+
 <body>
 	<div class="container">
 		<%@ include file="/../header/header.jsp"%>
@@ -65,10 +78,12 @@ if (id == null) {
 				<!------------------------------------------------------------------------------------>
 				<p style="height: 10px; margin: 0px"></p>
 				<%
+				String search = request.getParameter("search");
+				
 				Post[] posts = null;
 				PostList postlist = new PostList();
 
-				if (!postlist.existPost()) {
+				if (!postlist.existPost(search)) {
 				%>
 				<div class="table-row"
 					style="display: flex; justify-content: center; align-items: center">
@@ -77,7 +92,7 @@ if (id == null) {
 				<%
 				} else {
 				postlist = new PostList();
-				posts = postlist.getPostList();
+				posts = postlist.getPostList(search);
 
 				if (posts != null) {
 					for (int i = posts.length - 1; i >= 0; i--) {
@@ -103,6 +118,12 @@ if (id == null) {
 				<!------------------------------------------------------------------------------------>
 			</div>
 		</div>
+		
+		<div class="search-div">
+			<input type="text" id="search-input" class="search-input" placeholder="검색어를 입력해주세요" onkeydown="searchOnEnter(event)">
+			<input type="button" class="search-button" value="검색" onclick="search()">
+		</div>
+		
 	</div>
 	<%@ include file="/../footer/footer.jsp"%>
 </body>

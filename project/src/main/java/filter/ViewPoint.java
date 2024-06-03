@@ -37,13 +37,11 @@ public class ViewPoint implements Filter {
 				PostList postlist = new PostList();
 				try {
 					postlist.increaseView(postIdParam);
-					System.out.println("viewpoint + 1 (postId : " + postIdParam + ")");
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
 		}
-		System.out.println("userId : " + userId);
 		chain.doFilter(request, response);
 	}
 
