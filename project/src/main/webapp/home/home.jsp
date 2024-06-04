@@ -4,7 +4,7 @@
 <%@ page import="dto.Post"%>
 <html>
 <head>
-<link rel="stylesheet" href="../stylesheet/home_style.css">
+<link rel="stylesheet" href="../stylesheet/home.css">
 <link rel="stylesheet" href="../stylesheet/styles.css">
 <title>Welcome</title>
 </head>
@@ -17,6 +17,9 @@
 		<div style="min-height: 125px"></div>
 
 		<div class="searcharea">
+			<a href="../home/home.jsp">
+				<img src="../images/On.png" style="width:100px; height:60px">
+			</a>
 			<div class="searchbox">
 				<input class="search" type="text" placeholder="검색어를 입력해 주세요.">
 			</div>
@@ -26,7 +29,7 @@
 
 		<div class="box">
 			<div class="lecture-box"></div>
-			<div class="post-box">
+			<div class="post-box">	
 				<a href="../post/posts.jsp" class="home-post-title">게시판</a>
 
 				<%

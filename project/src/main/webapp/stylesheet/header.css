@@ -8,10 +8,14 @@
 	top:0; 
 	position:fixed;
 	justify-content:center;
-	border-bottom:1px solid #03c75a;
+	border-bottom:1px solid #5fc703;
 	box-shadow:0px 4px 8px -9px;
 	
 	z-index:1;
+}
+
+.header.row{
+	height:50px;
 }
 
 .header-box{
@@ -25,7 +29,7 @@
 .header-container{
 	margin-right:5%;
 	margin-left:5%;
-	border-bottom: 1px solid #03c75a;
+	border-bottom: 1px solid #5fc703;
 }
 
 .home-button{
@@ -36,7 +40,7 @@
 
 .home-button svg,
 .home-button span{
-	color:#03c75a;
+	color:#5fc703;
 }
 
 .home-button span{
@@ -60,7 +64,7 @@
 	
 	text-decoration: none;
 	
-	color:#03c75a; 
+	color:#5fc703; 
 	font-weight:bolder;
 	
 	margin-right:2px;
@@ -76,7 +80,7 @@
 	align-items:stretch;
 	height:30px;
 
-	border:1px solid #03c75a;
+	border:1px solid #5fc703;
 	border-bottom:0px;
 	border-radius:7px 7px 0px 0px;
 	
@@ -102,7 +106,7 @@
 	
 	height:30px;
 	
-	color:#03c75a; 
+	color:#5fc703; 
 	font-weight:bolder; 
 	font-size:14px; 
 }
@@ -121,7 +125,7 @@
 	height:0;
 	overflow:hidden;
 	box-shadow: 0px 8px 16px -5px rgba(0,0,0,0.2);
-	border:1px solid #03c75a;
+	border:1px solid #5fc703;
 	border-top:0px;
 	border-radius:0px 0px 10px 10px;
 	box-sizing: border-box;
@@ -148,7 +152,7 @@
 
 	border-top:1px solid #bcdbac;
 	
-	color:#03c75a;
+	color:#5fc703;
 }
 
 .dropdown-category-a{
@@ -160,7 +164,7 @@
 	background-color:transparent;	
 	border:0px;
 	cursor:pointer;
-	color:#03c75a;
+	color:#5fc703;
 	font-weight:bold;
 	text-decoration:none;
 }

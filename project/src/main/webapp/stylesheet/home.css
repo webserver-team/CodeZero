@@ -2,17 +2,22 @@
 
 
 .searcharea {
+	display:flex;
+	align-items:center;
 	width:50%; 
 	height:70px; 
 	text-align: center;
 }
 .searchbox {
+	display:flex; 
+	justify-content:center;
 	width:100%; 
 	height:50px;
 	text-align: center;
-	border:1px solid #03c75a;
+	border:1px solid #5fc703;
 	border-radius:33px;
 	background-color:#fff;
+	margin-left:10px;
 }
 .search {
 	width:80%; 
@@ -31,7 +36,7 @@
 
 .lecture-box{
 	
-	border:1px solid #03c75a;
+	border:1px solid #5fc703;
 	border-radius:10px;
 	background-color:#deefd6;
 	
@@ -49,7 +54,7 @@
 	display:flex;
 	flex-direction:column;
 	
-	border:1px solid #03c75a;
+	border:1px solid #5fc703;
 	border-radius:10px;
 	background-color:#deefd6;
 	
@@ -75,10 +80,10 @@
     
 	height:20%;
 	
-	color:#03c75a;
+	color:#5fc703;
 	margin:0px 15px 0px 15px;
 	padding:10px 20px 10px 20px;
-	border-bottom:1px solid #03c75a;
+	border-bottom:1px solid #5fc703;
 	
 	box-sizing:border-box;
 	
@@ -99,11 +104,11 @@
 	
 	width:100%;
 	
-	color:#03c75a;
+	color:#5fc703;
 	flex-grow:1;
 }
 .home-post-col{
-	color:#03c75a;
+	color:#5fc703;
 	
 	margin:0px 5px 0px 5px;
 	white-space: nowrap;
@@ -114,7 +119,7 @@
 }
 .home-post-col-a{
 	display:block; 
-	color: #03c75a; 
+	color: #5fc703; 
 	white-space: nowrap;
 	overflow:hidden;
     text-overflow: ellipsis;

@@ -51,23 +51,22 @@ if (id == null) {
 	function search(){
 		var searchInput	= document.getElementById("search-input");
 		var url = "posts.jsp?search=" + searchInput.value;
-		window.location.href = url;
+		var replaceurl = url.replace(/\\/g, "");
+		window.location.href = replaceurl;
 	}
 	function searchOnEnter(event) {
-	    if (event.keyCode === 13) {  
+	    if (event.keyCode === 13) {
 	    	search();
 	    }
 	}
 </script>
 
 <body>
-	<div class="container">
-		<%@ include file="/../header/header.jsp"%>
-	</div>
+	<%@ include file="/../header/header.jsp"%>
 	<div class="container table-container">
-		<div style="width: 63%">
+		<div style="width:63%; margin-top:100px">
 			<div class="board-top">
-				<h3 style="padding-left: 10px; color: #03c75a">자유게시판</h3>
+				<h3 style="padding-left: 10px; color: #5fc703">자유게시판</h3>
 				<div class="createpost-div">
 					<input type="button" id="createpost" class="createpost" value="글쓰기">
 				</div>
