@@ -7,6 +7,7 @@
 <title>강의 등록</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <script type="text/javascript">
+
 	function check() {
 		var form = document.getElementById("lec_enroll");
 		
@@ -26,6 +27,10 @@
 		else {
 			form.submit();
 		}
+	}
+	
+	function forCategory2 (){
+		
 	}
 </script>
 </head>
@@ -51,6 +56,8 @@
 					<label for="videoName" class="form-label">강의 동영상</label>
 					<input type="file" class="form-control" id="videoName" name="videoName">
 				</div>
+				
+				<!-- 카테고리 선택 -->
 				<div class="mb-3">
 					<label for="lecCategory" class="form-label">카테고리</label>
 					<select class="form-select" id="lecCategory" name="lecCategory">
@@ -80,6 +87,9 @@
 						</optgroup>
 					</select>
 				</div>
+
+				
+				<!-- 단계 선택 -->
 				<div class="mb-3">
 					<label for="lecLevel" class="form-label">단계</label>
 					<select class="form-select" id="lecLevel" name="lecLevel">
@@ -89,14 +99,20 @@
 						<option value="고급">고급</option>
 					</select>
 				</div>
+				
+				<!-- 가격선택 -->
 				<div class="mb-3">
 					<label for="lecPrice" class="form-label">가격</label>
 					<input type="text" class="form-control" id="lecPrice" name="lecPrice" placeholder="가격" maxlength="10">
 				</div>
+				
+				<!-- 강의 설명 -->
 				<div class="mb-3">
 					<label for="lecDescription" class="form-label">강의 설명</label>
 					<textarea class="form-control" id="lecDescription" name="lecDescription" rows="3" placeholder="강의 설명" maxlength="150"></textarea>
 				</div>
+				
+				
 				<div class="d-flex justify-content-end mb-3">
 					<button type="button" class="btn btn-light btn-lg" onclick="check()">등록</button>
 				</div>

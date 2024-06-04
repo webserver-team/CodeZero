@@ -41,8 +41,15 @@ ALTER TABLE lecture MODIFY lecId int not null auto_increment;
 delete from lecture where lecId=201000002;
 delete from lecture;
 
--- 행 추가 --
+-- 열 추가 --
+alter table lecture add lecCategory2 varchar(15);
 alter table lecture add fileName varchar(150);
 alter table lecture add video varchar(150);
+
+-- 열 삭제 --
+ALTER TABLE lecture DROP COLUMN lecCategory2;
+
+--열 이름 변경--
+ALTER TABLE lecture CHANGE lecCategory1 lecCategory VARCHAR(15);
 
 ALTER TABLE lecture CHANGE COLUMN fileName image VARCHAR(100);

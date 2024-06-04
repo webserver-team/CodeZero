@@ -1,3 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -5,42 +14,26 @@
     <meta charset="UTF-8">
     <title>강의 상세페이지</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script>
-    	function addCart() {
-    		if (confirm("장바구니에 등록하시겠습니까?")){
-    			document.cartForm.submit();
-    		} else {
-    			document.cartForm.reset();
-    		}
-		}
-    	
-        document.addEventListener("DOMContentLoaded", function() {
-            var video = document.getElementById("video");
-            video.controls = false;
-        });
-
-    </script>
 </head>
 <body>
     <div class="container mt-4">
     
         <%@ include file="connection.jsp" %>
         <%
-            String lecId = request.getParameter("lecId");
+            String lecCategory = request.getParameter("lecCategory");
             ResultSet rs = null;
             PreparedStatement pstmt = null;
 
             try {
-                String sql = "SELECT lecName, teacherName, lecDescription, lecCategory, lecLevel, lecPrice, lecReviewCount, image, video FROM lecture WHERE lecId=?";
+                String sql = "SELECT lecName, teacherName, lecDescription, lecCategory, lecLevel, lecPrice, lecReviewCount, image, video FROM lecture WHERE lecCategory=?";
                 pstmt = conn.prepareStatement(sql);
-                pstmt.setInt(1, Integer.parseInt(lecId));
+                pstmt.setString(1, lecCategory);
                 rs = pstmt.executeQuery();
 
                 if (rs.next()) {
                     String lecName = rs.getString("lecName");
                     String teacherName = rs.getString("teacherName");
                     String lecDescription = rs.getString("lecDescription");
-                    String lecCategory = rs.getString("lecCategory");
                     String lecLevel = rs.getString("lecLevel");
                     int lecPrice = rs.getInt("lecPrice");
                     int lecReviewCount = rs.getInt("lecReviewCount");
@@ -109,5 +102,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
+	
 </body>
 </html>

@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <!-- 강의 관련 데이터를 받아와서 데이터베이스에 저장하는 코드입니다. -->
+	<!-- 강의 관련 데이터를 받아와서 데이터베이스에 저장 -->
     <%@ include file ="connection.jsp" %>
     <%
         request.setCharacterEncoding("utf-8");
@@ -56,7 +56,8 @@
 
             String message = "강의가 정상적으로 등록되었습니다.";
             System.out.println(message);
-            response.sendRedirect("lecs.jsp");
+            response.sendRedirect("lec_manage.jsp");
+            
         } catch (SQLException ex) {
             out.println("SQLException: " + ex.getMessage());
         } finally {
