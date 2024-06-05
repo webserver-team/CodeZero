@@ -7,6 +7,7 @@
 <title>강의 관리</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <script>
+
 	function deleteLecture(lecId) {
 		if (confirm("해당 강의를 삭제합니다.") == true) {
 			location.href = "lec_delete.jsp?lecId=" + lecId;
@@ -32,7 +33,7 @@
     
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h1 style="font-weight: bold;" class="display-4 mb-2">강의 관리</h1>
+            <h1 style="font-weight: bold;" class="display-4 mb-2"><a href="lecs.jsp" style="text-decoration:none; color:black;">메인</a>/ 강의 관리</h1>
             <a href="lec_enroll.jsp" class="btn btn-light btn-lg" role="button">강의 등록</a>
         </div>
         <table class="table table-bordered mt-5">

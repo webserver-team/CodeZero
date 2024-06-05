@@ -14,10 +14,10 @@
 	<%@ include file="courses_nav.jsp" %>
 	
     <div class="btn-group mb-5">
-       <a href="security.jsp" class="btn btn-light" aria-current="page">보안</a>
-       <a href="network.jsp" class="btn btn-light">네트워크</a>
-       <a href="system.jsp" class="btn btn-light">시스템</a>
-       <a href="cloud.jsp" class="btn btn-light">클라우드</a>
+       <a href="subCategory.jsp?lecCategory=보안" class="btn btn-light" aria-current="page">보안</a>
+       <a href="subCategory.jsp?lecCategory=네트워크" class="btn btn-light">네트워크</a>
+       <a href="subCategory.jsp?lecCategory=시스템" class="btn btn-light">시스템</a>
+       <a href="subCategory.jsp?lecCategory=클라우드" class="btn btn-light">클라우드</a>
     </div>
     
     <div class="row row-cols-1 row-cols-md-3 g-4">

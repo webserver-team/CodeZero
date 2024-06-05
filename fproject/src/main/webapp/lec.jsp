@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>강의 상세페이지</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script>
+<meta charset="UTF-8">
+<title>강의 상세페이지</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<script>
     	function addCart() {
     		if (confirm("장바구니에 등록하시겠습니까?")){
     			document.cartForm.submit();
@@ -22,9 +22,12 @@
     </script>
 </head>
 <body>
+
+	<%@ include file="connection.jsp" %>
+	<%@ include file="courses_nav.jsp" %>
+
     <div class="container mt-4">
     
-        <%@ include file="connection.jsp" %>
         <%
             String lecId = request.getParameter("lecId");
             ResultSet rs = null;
@@ -83,7 +86,7 @@
             <div class="col-md-4">
                 <div class="mt-4">
                     <p style="font-weight: bold;" class="display-6 mt-3 text-end">₩<%= lecPrice %></p>
-                    <form name="cartForm" action="addCart.jsp?id=<%=lecId%>" method="post"><a href="#" class="btn btn-primary btn-lg w-100" onclick="addCart()">장바구니 추가</a></form>
+                    <form name="cartForm" action="addCart.jsp?lecId=<%=lecId%>" method="post"> <a href="#" class="btn btn-primary btn-lg w-100" onclick="addCart()">장바구니 추가</a> </form>
                     <ul class="list-group list-group-flush mt-3">
                         <li class="list-group-item">강의 수: 총 49개 수업</li>
                         <li class="list-group-item">난이도: <%= lecLevel %></li>

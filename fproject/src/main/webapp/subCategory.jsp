@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.net.URLEncoder"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,21 +11,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container mt-4">
-    
-        <%@ include file="connection.jsp" %>
+	<%@ include file="connection.jsp" %>
+	<%@ include file="courses_nav.jsp" %>
+	
+	<div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
         <%
             String lecCategory = request.getParameter("lecCategory");
             ResultSet rs = null;
             PreparedStatement pstmt = null;
 
             try {
-                String sql = "SELECT lecName, teacherName, lecDescription, lecCategory, lecLevel, lecPrice, lecReviewCount, image, video FROM lecture WHERE lecCategory=?";
+                String sql = "SELECT * FROM lecture WHERE lecCategory=?";
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, lecCategory);
                 rs = pstmt.executeQuery();
 
                 if (rs.next()) {
+                	int lecId = rs.getInt("lecId");
                     String lecName = rs.getString("lecName");
                     String teacherName = rs.getString("teacherName");
                     String lecDescription = rs.getString("lecDescription");
@@ -41,55 +38,32 @@
                     String video = rs.getString("video");
         %>
         
-        <div class="row mb-4">
-            <div class="col-12 text-left">
-                <h1 style="font-weight: bold;" class="display-4 mt-3"><%= lecName %></h1>
-                <h3><%= teacherName %></h3>
-                <span class="badge bg-primary" style="font-size: 1rem;"><%= lecCategory %></span>
-                <span class="badge bg-secondary" style="font-size: 1rem;"><%= lecLevel %></span>
-            </div>
-        </div>
-        
-        <div class="row">
-            <!-- Left Column: Lecture Description -->
-            <div class="col-md-8">
-                <div class="mt-4">
-                    <video id="video" width="100%" height="auto" controls>
-                        <source src="resource/upload/<%=video%>" type="video/mp4">
-                    </video>
-                </div>
-                <div class="mt-5">
-                    <h1 style="font-weight: bold;" class="display-5">강의 소개</h1>           
-                    <p><%= lecDescription %></p>
-                </div>
-                <div class="mt-5">
-                    <h1 style="font-weight: bold;" class="display-5">강의 커리큘럼</h1>           
-                    <p>강의 커리큘럼 내용 추가</p>
-                </div>
-                <div class="mt-5">
-                    <h1 style="font-weight: bold;" class="display-5">강의평</h1>           
-                    <p>강의평 내용 추가</p>
+        <a href="lec.jsp?lecId=<%=lecId%>">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="resource/upload/<%=image %>" class="card-img-top" alt="...">
+                    <div class="card-body p-4">
+                        <h5 class="card-title"><%= lecName %></h5>
+                        <p class="card-text"><%= lecDescription %></p>
+                        <div class="d-flex justify-content-between">
+                            <p class="card-text" style="font-weight: bold;"><%= teacherName %></p>
+                            <p class="card-text card-price" style="font-weight: bold;">₩<%= lecPrice %></p>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-light text-end">
+                        <span class="badge bg-primary"><%= lecCategory %></span>
+                        <span class="badge bg-secondary"><%= lecLevel %></span>
+                        <span class="badge bg-success">리뷰 수: <%= lecReviewCount %></span>
+                    </div>
                 </div>
             </div>
+            </a>
             
-            
-            <div class="col-md-4">
-                <div class="mt-4">
-                    <p style="font-weight: bold;" class="display-6 mt-3 text-end">₩<%= lecPrice %></p>
-                    <form name="cartForm" action="addCart.jsp?id=<%=lecId%>" method="post"><a href="#" class="btn btn-primary btn-lg w-100" onclick="addCart()">장바구니 추가</a></form>
-                    <ul class="list-group list-group-flush mt-3">
-                        <li class="list-group-item">강의 수: 총 49개 수업</li>
-                        <li class="list-group-item">난이도: <%= lecLevel %></li>
-                        <li class="list-group-item">수강생: .....명</li>
-                        <li class="list-group-item">리뷰 수: <%= lecReviewCount %>개</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+           
         
         <%
             } else {
-               out.println("<div class='alert alert-warning'>해당 강의를 찾을 수 없습니다.</div>");
+               out.println("<div class='alert alert-warning'>강의가 존재하지 않습니다.</div>");
             }
             } catch (Exception e) {
                 out.println("<div class='alert alert-danger'>데이터베이스 오류: " + e.getMessage() + "</div>");

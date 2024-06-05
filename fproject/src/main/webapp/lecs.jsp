@@ -12,11 +12,8 @@
 <body>
 	<%@ include file="connection.jsp" %>
 	<%@ include file="courses_nav.jsp" %>
-	<div class="btn-group mb-3">
-	</div>
-        
-        <!-- 강의 출력 -->
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+       
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
         <%
         	int pageLimit = 9;
         	int count = 0;
@@ -41,7 +38,7 @@
                     int lecId = rs.getInt("lecId");
                	
         %>
-        	<a href="lec.jsp?lecId=<%=lecId%>">
+        	<a href="lec.jsp?lecId=<%=lecId%>" style = "text-decoration:none; color:black;">
             <div class="col">
                 <div class="card h-100">
                     <img src="resource/upload/<%=image %>" class="card-img-top" alt="...">

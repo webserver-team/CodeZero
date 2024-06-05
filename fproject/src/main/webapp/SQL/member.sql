@@ -1,16 +1,13 @@
+CREATE TABLE `member` (
+  `userId` varchar(45) NOT NULL,
+  `passwd` varchar(45) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `phone` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-show databases;
+INSERT INTO `member` (`userId`, `passwd`) VALUES ('ksy', '1234');
+INSERT INTO `member` (`userId`, `passwd`) VALUES ('admin', '1234');
 
-CREATE TABLE member(
-	user_id VARCHAR(45) NOT NULL,
-	password VARCHAR(45) NOT NULL
-	)
-	
-SHOW TABLES;
-
-DESC member;
-
-SELECT * FROM member;
-
-INSERT INTO member (user_id, password) values ('ksy','12345')
-INSERT INTO member (user_id, password) values ('kss','123')
+select * from member

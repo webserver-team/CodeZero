@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
+<%@ page import="java.net.URLEncoder"%>
 
 <!DOCTYPE html>
 <html>
@@ -15,10 +16,10 @@
 	
     <div class="btn-group mb-5">
        <a href="subCategory.jsp?lecCategory=프론트엔드" class="btn btn-light" aria-current="page">프론트엔드</a>
-       <a href="subCategory.jsp?programming.jsp?lecCategory=백엔드" class="btn btn-light">백엔드</a>
-       <a href="subCategory.jsp" class="btn btn-light">앱 개발</a>
-       <a href="subCategory.jsp" class="btn btn-light">데이터베이스</a>
-       <a href="subCategory.jsp" class="btn btn-light">개발도구</a>
+       <a href="subCategory.jsp?lecCategory=백엔드" class="btn btn-light">백엔드</a>
+       <a href="subCategory.jsp?lecCategory=앱 개발" class="btn btn-light">앱 개발</a>
+       <a href="subCategory.jsp?lecCategory=데이터베이스" class="btn btn-light">데이터베이스</a>
+       <a href="subCategory.jsp?lecCategory=개발도구" class="btn btn-light">개발도구</a>
     </div>
 	
    	<div class="row row-cols-1 row-cols-md-3 g-4">

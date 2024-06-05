@@ -11,9 +11,9 @@ create table lecture(
 	primary key (lecId)
 );
 
-show tables
+show tables;
 
-desc lecture
+desc member;
 
 insert into lecture values(
 	201000000,
@@ -40,6 +40,7 @@ ALTER TABLE lecture MODIFY lecId int not null auto_increment;
 -- lecture 테이블 안에서 Id가 201000002인 행을 지움 --
 delete from lecture where lecId=201000002;
 delete from lecture;
+delete from lecture where lecId=201000049;
 
 -- 열 추가 --
 alter table lecture add lecCategory2 varchar(15);

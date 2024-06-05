@@ -13,9 +13,9 @@
 	<%@ include file="/connection.jsp" %>
 	<%@ include file="courses_nav.jsp" %>
 	<div class="btn-group mb-5">
-          <a href="dataanalysis.jsp" class="btn btn-light" aria-current="page">데이터 분석</a>
-          <a href="computervision.jsp" class="btn btn-light">컴퓨터 비전</a>
-          <a href="nlp.jsp" class="btn btn-light">자연어 처리</a>
+          <a href="subCategory.jsp?lecCategory=데이터 분석" class="btn btn-light" aria-current="time">데이터 분석</a>
+          <a href="subCategory.jsp?lecCategory=컴퓨터 비전" class="btn btn-light">컴퓨터 비전</a>
+          <a href="subCategory.jsp?lecCategory=자연어 처리" class="btn btn-light">자연어 처리</a>
     </div>
 	
 	<div class="row row-cols-1 row-cols-md-3 g-4">

@@ -14,9 +14,9 @@
 	<%@ include file="courses_nav.jsp" %>
 	
 	<div class="btn-group mb-5">
-          <a href="gameprog.jsp" class="btn btn-light" aria-current="page">게임 프로그래밍</a>
-          <a href="gameplanning.jsp" class="btn btn-light">게임 기획</a>
-          <a href="gamegraphics.jsp" class="btn btn-light">게임 그래픽</a>
+          <a href="subCategory.jsp?lecCategory=게임 프로그래밍" class="btn btn-light" aria-current="page">게임 프로그래밍</a>
+          <a href="subCategory.jsp?lecCategory=게임 기획" class="btn btn-light">게임 기획</a>
+          <a href="subCategory.jsp?lecCategory=게임 그래픽" class="btn btn-light">게임 그래픽</a>
     </div>
 	
     <div class="row row-cols-1 row-cols-md-3 g-4">
