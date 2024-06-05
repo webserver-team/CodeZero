@@ -7,6 +7,15 @@
 	    <filter-name>viewpoint</filter-name>
 	    <url-pattern>/post/post.jsp</url-pattern>
 	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>createPostServlet</servlet-name>
+		<servlet-class>servlet.createPostServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>createPostServlet</servlet-name>
+		<url-pattern>/createPost</url-pattern>
+	</servlet-mapping>
 
 <!--     <servlet> -->
 <!--         <servlet-name>RegisterServlet</servlet-name> -->

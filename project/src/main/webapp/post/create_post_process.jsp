@@ -21,22 +21,19 @@
 		String userId = (String)session.getAttribute("id");
 		String postTitle = request.getParameter("postTitle");
 		String postContent = request.getParameter("postContent");
-		 
+		String category = request.getParameter("postCategory");
+		String url = "posts.jsp?category=" + category;
 		
-        String passwd = request.getParameter("passwd");
-        
-        String referer = request.getHeader("Referer");
-
         String message = null;
 
-        Post post = new Post(userId, postTitle, postContent, postDate, 0);
+        Post post = new Post(userId, postTitle, postContent, postDate, 0, category);
         PostList postlist = new PostList();
         
         message = postlist.addPost(post);
         
         session.setAttribute("message", message);
         
-        response.sendRedirect("posts.jsp");
+        response.sendRedirect(url);
         
     %>
 </body>

@@ -30,13 +30,13 @@
 		<div class="box">
 			<div class="lecture-box"></div>
 			<div class="post-box">	
-				<a href="../post/posts.jsp" class="home-post-title">게시판</a>
+				<a href="../post/posts.jsp?category=free" class="home-post-title">자유게시판</a>
 
 				<%
 				Post[] posts = null;
 				PostList postlist = new PostList();
 
-				if (!postlist.existPost(null)) {
+				if (!postlist.existPost(null, "free")) {
 				%>
 				<div class="home-post-row-box" style="flex-grow:1">
 					<div class="home-post-row">
@@ -46,7 +46,7 @@
 				<%
 				} else {
 				postlist = new PostList();
-				posts = postlist.getPostList(null);
+				posts = postlist.getPostList(null, "free");
 				postlist.sortPost(posts);
 				
 				for (int i = 0; i < posts.length; i++) {
@@ -74,7 +74,43 @@
 
 
 			<div class="post-box">
-				<h4 class="home-post-title">게시판</h4>
+				<a href="../post/posts.jsp?category=question" class="home-post-title">질문게시판</a>
+				
+				<%
+				posts = null;
+				postlist = new PostList();
+
+				if (!postlist.existPost(null, "question")) {
+				%>
+				<div class="home-post-row-box" style="flex-grow:1">
+					<div class="home-post-row">
+						<p style="flex-grow:1; text-align:center; margin:0px">게시물이 없습니다.</p>
+					</div>
+				</div>
+				<%
+				} else {
+				postlist = new PostList();
+				posts = postlist.getPostList(null, "question");
+				postlist.sortPost(posts);
+				
+				for (int i = 0; i < posts.length; i++) {
+				%>
+				<div class="home-post-row-box">
+					<div class="home-post-row">
+						<div class="home-post-col article">
+							<a href="../post/post.jsp?postId=<%=posts[i].getPostID()%>"
+								class="home-post-col-a"><%=posts[i].getPostTitle()%></a>
+						</div>
+						<p class="home-post-col userId"><%=posts[i].getUserId()%></p>
+						<p class="home-post-col views"><%=posts[i].getViews()%>회</p>
+					</div>
+				</div>
+				<%
+				if (i == 4)
+					break;
+				}
+				}
+				%>
 
 			</div>
 		</div>

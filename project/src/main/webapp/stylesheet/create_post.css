@@ -21,9 +21,19 @@
 .createpost-title-div{
 	width:60%;
 }
-
+.post-category{
+	height:30px;
+	
+	color:#5fc703;
+	
+	padding:0px 10px;
+	
+	border:1px solid #5fc703;
+	border-radius:10px;
+	margin-bottom:10px;
+}
 .post-title{
-	padding:10px 15px 10px 15px;
+	padding:10px 15px;
 	
 	color:#4f4f4f;
 	

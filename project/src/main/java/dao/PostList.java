@@ -36,8 +36,8 @@ public class PostList {
 
 		try {
 
-			String sql = "INSERT INTO post (postTitle, postContent, userId, postDate) VALUES('" + post.getPostTitle()
-					+ "','" + post.getPostContent() + "','" + post.getUserId() + "','" + post.getPostDate() + "');";
+			String sql = "INSERT INTO post (postTitle, postContent, userId, postDate, category) VALUES('" + post.getPostTitle()
+					+ "','" + post.getPostContent() + "','" + post.getUserId() + "','" + post.getPostDate() + "','" + post.getCategory() + "');";
 
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
@@ -92,18 +92,22 @@ public class PostList {
 		return post;
 	}
 
-	public boolean existPost(String search) throws SQLException {
+	public boolean existPost(String search, String category) throws SQLException {
 		Statement stmt = null;
 		ResultSet rs = null;
 
-		String sql = null;
+		String sql = "SELECT * FROM post;";
 		
 		try {
-			if(search == null)
-				sql = "SELECT * FROM post;";
-			else
-				sql = "SELECT * FROM post WHERE postTitle LIKE '%" + search + "%';";
-
+			if(search != null) {
+				if (category != null)
+					sql = "SELECT * FROM post WHERE postTitle LIKE '%" + search + "%' AND category = '" + category + "';";
+				else
+					sql = "SELECT * FROM post WHERE postTitle LIKE '%" + search + "%';";
+			}
+			else if (category != null)
+				sql = "SELECT * FROM post WHERE category = '" + category + "';";
+			
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 
@@ -124,21 +128,25 @@ public class PostList {
 		return false;
 	}
 
-	public Post[] getPostList(String search) throws SQLException {
+	public Post[] getPostList(String search, String category) throws SQLException {
 		Statement stmt = null;
 		ResultSet rs = null;
 
 		Post[] post = null;
 			
-		String sql = null;
+		String sql = "SELECT * FROM post";
 			
 		try {
-			if(search == null)
-				sql = "SELECT * FROM post;";
-			else
-				sql = "SELECT * FROM post WHERE postTitle LIKE '%" + search + "%';";
+			if(search != null) {
+				if (category != null)
+					sql = "SELECT * FROM post WHERE postTitle LIKE '%" + search + "%' AND category = '" + category + "';";
+				else
+					sql = "SELECT * FROM post WHERE postTitle LIKE '%" + search + "%';";
+			}
+			else if (category != null)
+				sql = "SELECT * FROM post WHERE category = '" + category + "';";
+			
 			int row = 0;
-			int i = 0;
 
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
@@ -152,14 +160,14 @@ public class PostList {
 			rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
-				post[i] = new Post();
-				post[i].setPostID(Integer.toString(rs.getInt("postId")));
-				post[i].setPostTitle(rs.getString("postTitle"));
-				post[i].setPostContent(rs.getString("postContent"));
-				post[i].setUserId(rs.getString("userId"));
-				post[i].setPostDate(rs.getString("postDate"));
-				post[i].setViews(rs.getInt("views"));
-				i++;
+				row--;
+				post[row] = new Post();
+				post[row].setPostID(Integer.toString(rs.getInt("postId")));
+				post[row].setPostTitle(rs.getString("postTitle"));
+				post[row].setPostContent(rs.getString("postContent"));
+				post[row].setUserId(rs.getString("userId"));
+				post[row].setPostDate(rs.getString("postDate"));
+				post[row].setViews(rs.getInt("views"));
 			}
 
 		} catch (SQLException e) {

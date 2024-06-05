@@ -8,18 +8,20 @@ public class Post{
 	private String postContent;
 	private String postDate;
 	private int views;
+	private String category;
 	
 	public Post() {
 		super();
 	}
 	
-	public Post(String userId, String postTitle, String postContent, String postDate, int views) {
+	public Post(String userId, String postTitle, String postContent, String postDate, int views, String category) {
 		this.postID = null;
 		this.userId = userId;
 		this.postTitle = postTitle;
 		this.postContent = postContent;
 		this.postDate = postDate;
 		this.views = views;
+		this.category = category;
 	}
 
 	public String getPostID() {
@@ -68,5 +70,13 @@ public class Post{
 
 	public void setViews(int views) {
 		this.views = views;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }

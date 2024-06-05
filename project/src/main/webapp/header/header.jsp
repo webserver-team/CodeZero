@@ -157,13 +157,9 @@ String header_id = (String) session.getAttribute("id");
 					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
 					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
 				</div>
-				<div id="dropdown-category" class="dropdown-category">
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+				<div id="dropdown-category" class="dropdown-category post-category">
+					<a href="../post/posts.jsp?category=free" id="dropdown-category-a" class="dropdown-category-a">자유게시판</a>
+					<a href="../post/posts.jsp?category=question" id="dropdown-category-a" class="dropdown-category-a">질문게시판</a>
 				</div>
 			</div>
 		</div>
