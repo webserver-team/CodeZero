@@ -47,9 +47,9 @@
                                 int lecId = rs.getInt("lecId");
 
                                 sum += lecPrice;
+ 
                         %>
                         <div class="d-flex align-items-center mb-3">
-                            <input type="checkbox" class="form-check-input me-2">
                             <img src="resource/upload/<%=image %>" class="img-thumbnail me-3" style="width: 120px; height: auto;" alt="Course Image">
                             <div>
                                 <a href="lec.jsp?lecId=<%=lecId %>" class="text-decoration-none" style="font-weight: bold; font-size: 20px;"><%=lecName %></a>
@@ -68,21 +68,17 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <ul class="list-group list-group-flush mb-3">
-                            <li class="list-group-item d-flex justify-content-between">
-                                <span>선택상품 금액</span>
-                                <span><%=sum %>원</span>
-                            </li>
                             <li class="list-group-item d-flex justify-content-between fw-bold">
                                 <span>총 결제금액</span>
                                 <span><%=sum %>원</span>
                             </li>
                         </ul>
-                        <button type="button" class="btn btn-success w-100">결제하기</button>
+                        <a href="payment.jsp?sum=<%=sum%>"><button type="button" class="btn btn-success w-100">결제하기</button></a>
                     </div>
                 </div>
             </div>
         </div>
-
+		
         <%
         	
             } catch (SQLException e) {

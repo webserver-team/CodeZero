@@ -7,22 +7,25 @@
 <title>강의 수정</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <script type="text/javascript">
+
 	function check() {
-		var form = document.getElementById("lec_enroll");
+		var form = document.getElementById("lec_update");
 		
-		if (form.lecName.value == "" || form.teacherName.value == "" || form.videoName.value == "" || form.lecCategory.value == "" || form.lecLevel.value == "" || form.lecPrice.value == "") {
+		if (form.lecName.value=="" || form.teacherName.value=="" || form.videoName.value=="" || form.lecCategory.value=="" || form.lecLevel.value=="" || form.lecPrice.value=="") {
 			alert("입력하지 않은 값이 있습니다.");
 			return false;
+		
 		} else if (form.lecName.value.length < 5) {
-			alert("강의명은 5글자 이상 입력해야 합니다.");
+			alert("강의명은 5글자 이상 입력해야 합니다. ");
 			form.lecName.select();
 			return false;
-		} else if (isNaN(form.lecPrice.value)) {
+		} else if (isNaN(form.lecPrice.value)){
 			alert("가격은 숫자로 입력해야 합니다.");
 			form.lecPrice.select();
 			return false;
-		} else {
-			return true;
+		}
+		else {
+			form.submit();
 		}
 	}
 </script>
@@ -31,14 +34,14 @@
 	<%@ include file="connection.jsp" %>
 
 	<%
-		String lecId = request.getParameter("lecId");
+		int lecId = Integer.parseInt(request.getParameter("lecId"));
 		ResultSet rs = null;
 	   	PreparedStatement pstmt = null;
 	   
 	   	try {
-	       String sql = "SELECT lecId, lecName, teacherName, lecDescription, lecCategory, lecLevel, lecPrice, image, video FROM lecture WHERE lecId=?";
+	       String sql = "SELECT * FROM lecture WHERE lecId=?";
 	       pstmt = conn.prepareStatement(sql);
-           pstmt.setInt(1, Integer.parseInt(lecId));
+           pstmt.setInt(1, lecId);
            rs = pstmt.executeQuery();
            
            if (rs.next()) {
@@ -56,7 +59,7 @@
 		<div class="card-body">
 			<h1 style="font-weight: bold;" class="display-4 mb-2">강의 수정</h1>
 			<br><br>
-			<form id="lec_enroll" name="lec_enroll" action="lec_update_process.jsp" method="post" enctype="multipart/form-data" onsubmit="return check();">
+			<form id="lec_update" name="lec_update" action="lec_update_process.jsp" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="lecId" value="<%= lecId %>">
 				<div class="mb-3">
 					<label for="lecName" class="form-label">강의명</label>
@@ -121,7 +124,7 @@
 					<textarea class="form-control" id="lecDescription" name="lecDescription" rows="3" placeholder="강의 설명" maxlength="150"><%= lecDescription %></textarea>
 				</div>
 				<div class="d-flex justify-content-end mb-3">
-					<button type="submit" class="btn btn-light btn-lg">수정</button>
+					<button type="button" class="btn btn-light btn-lg" onclick="check()">수정</button>
 				</div>
 			</form>
 		</div>
@@ -139,6 +142,7 @@
 	       if (conn != null) conn.close();
 	   }
 	%>
+	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

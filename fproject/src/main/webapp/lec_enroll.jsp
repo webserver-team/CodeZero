@@ -29,9 +29,6 @@
 		}
 	}
 	
-	function forCategory2 (){
-		
-	}
 </script>
 </head>
 <body>
