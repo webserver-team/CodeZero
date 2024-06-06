@@ -17,7 +17,6 @@
         request.setCharacterEncoding("utf-8");
         MultipartRequest multi = new MultipartRequest(request, "/Users/mm/git/CodeZero/fproject/src/main/webapp/resource/upload", 5*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 
-        // *** 데이터를 한번에 받아오도록 수정
         int lecId = 201000001;
         String lecName = multi.getParameter("lecName");
         String teacherName = multi.getParameter("teacherName");

@@ -11,6 +11,7 @@ create table lecture(
 	primary key (lecId)
 );
 
+select * from lecture
 show tables;
 
 desc member;

@@ -44,9 +44,9 @@
 	        int count = pstmt.executeUpdate();
 	
 	        if (count > 0) {
-	            out.println("<script>alert('강의가 성공적으로 수정되었습니다.'); location.href='lec_manage.jsp';</script>");
+	            System.out.println("강의가 성공적으로 수정되었습니다.");
 	        } else {
-	            out.println("<script>alert('수정할 강의를 찾을 수 없습니다.'); location.href='lec_manage.jsp';</script>");
+	            System.out.println("수정할 강의를 찾을 수 없습니다.");
 	        }
 	
 	    } catch (SQLException e) {

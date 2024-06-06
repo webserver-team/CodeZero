@@ -5,19 +5,17 @@
 <meta charset="UTF-8">
 <title>강의 상세페이지</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-	<script>
-    	function addCart() {
-    		if (confirm("장바구니에 등록하시겠습니까?")){
-    			document.cartForm.submit();
-    		} else {
-    			document.cartForm.reset();
-    		}
+<script>
+
+    
+	function addCart() {
+		if (confirm("장바구니에 등록하시겠습니까?")){
+			document.cartForm.submit();
+		} else {
+			document.cartForm.reset();
 		}
-    	
-        document.addEventListener("DOMContentLoaded", function() {
-            var video = document.getElementById("video");
-            video.controls = false;
-        });
+	}
+	
 
     </script>
 </head>
@@ -26,17 +24,28 @@
 	<%@ include file="connection.jsp" %>
 	<%@ include file="courses_nav.jsp" %>
 
-    <div class="container mt-4">
+    <div class="mt-4">
     
         <%
-            String lecId = request.getParameter("lecId");
+        	String user_id = (String) session.getAttribute("userID");
+            int lecId = Integer.parseInt(request.getParameter("lecId"));
             ResultSet rs = null;
             PreparedStatement pstmt = null;
 
             try {
+            	
+            	String check = "SELECT COUNT(*) FROM Payment WHERE userId = ? AND lecId = ?";
+    			pstmt = conn.prepareStatement(check);
+    			pstmt.setString(1, user_id);
+    			pstmt.setInt(2, lecId);
+    			rs = pstmt.executeQuery();
+    			rs.next();
+    			int isOrdered = rs.getInt(1);
+            	
+            	
                 String sql = "SELECT lecName, teacherName, lecDescription, lecCategory, lecLevel, lecPrice, lecReviewCount, image, video FROM lecture WHERE lecId=?";
                 pstmt = conn.prepareStatement(sql);
-                pstmt.setInt(1, Integer.parseInt(lecId));
+                pstmt.setInt(1, lecId);
                 rs = pstmt.executeQuery();
 
                 if (rs.next()) {
@@ -48,7 +57,8 @@
                     int lecPrice = rs.getInt("lecPrice");
                     int lecReviewCount = rs.getInt("lecReviewCount");
                     String image = rs.getString("image");
-                    String video = rs.getString("video");
+                    String video = rs.getString("video");    
+               
         %>
         
         <div class="row mb-4">
@@ -64,9 +74,21 @@
             <!-- Left Column: Lecture Description -->
             <div class="col-md-8">
                 <div class="mt-4">
+                	<% if (isOrdered == 1) { 
+                		%>
+                	
                     <video id="video" width="100%" height="auto" controls>
                         <source src="resource/upload/<%=video%>" type="video/mp4">
                     </video>
+                    
+                    <% } else {
+                    	%>
+                    	
+                    <video id="video" width="100%" height="auto" disabled>
+                        <source src="resource/upload/<%=video%>" type="video/mp4">
+                    </video>
+                    <% } %>
+                    
                 </div>
                 <div class="mt-5">
                     <h1 style="font-weight: bold;" class="display-5">강의 소개</h1>           

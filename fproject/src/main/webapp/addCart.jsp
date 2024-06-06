@@ -11,24 +11,37 @@
         <%@ include file="connection.jsp" %>
 
         <%
-            String lecId = request.getParameter("lecId");
+        	int cart = 0;
+            int lecId = Integer.parseInt(request.getParameter("lecId"));
             String user_id = (String) session.getAttribute("userID");
 
             PreparedStatement pstmt = null;
+            ResultSet rs = null;
 
             try {
-                String sql = "INSERT INTO Cart (userId, lecId) VALUES (?, ?)";
-                pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, user_id); 
-                pstmt.setInt(2, Integer.parseInt(lecId));
-
-                int count = pstmt.executeUpdate();
-                
-                if (count > 0) {
-                    System.out.println("장바구니 추가 성공");
-                } else {
-                    System.out.println("장바구니 추가 실패");
-                }                
+            	
+            	String check = "SELECT COUNT(*) FROM Payment WHERE userId = ? AND lecId = ?";
+    			pstmt = conn.prepareStatement(check);
+    			pstmt.setString(1, user_id);
+    			pstmt.setInt(2, lecId);
+    			rs = pstmt.executeQuery();
+    			rs.next();
+    			
+    			int IsOrdered = rs.getInt(1);
+    			
+    			if (IsOrdered==0) {
+    				
+	                String sql = "INSERT INTO Cart (userId, lecId) VALUES (?, ?)";
+	                pstmt = conn.prepareStatement(sql);
+	                pstmt.setString(1, user_id); 
+	                pstmt.setInt(2, lecId);
+	
+	                pstmt.executeUpdate();
+	                cart = 1;
+	                
+    			} else {
+    				System.out.println("이미 구입한 강의입니다.");
+    			}
 
 
             } catch (SQLException e) {
@@ -39,7 +52,7 @@
                  if (conn != null) conn.close();
              }
             
-            response.sendRedirect("lec.jsp?lecId="+lecId);
+            response.sendRedirect("lec.jsp?lecId="+lecId+"&cart="+cart);
         %>
     </div>
 </body>

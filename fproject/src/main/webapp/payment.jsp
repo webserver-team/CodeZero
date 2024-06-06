@@ -83,6 +83,7 @@
 					</div>			
 					<div class="d-flex justify-content-end mt-5 mb-1">
 						<h3>총 결제 금액  &nbsp;  ₩<%=sum %></h3>
+						<input type="hidden" name=price value="<%=sum %>">
 					</div>
 					<div class="d-flex justify-content-end mb-3">
 						<button type="button" class="btn btn-primary" onclick="payCheck()">결제</button>
