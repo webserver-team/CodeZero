@@ -10,7 +10,7 @@
 
         <%@ include file="/connection.jsp" %>
         <%@ include file="courses_nav.jsp" %>
-		
+		<div class="container mt-4">
 
         <%
             String user_id = (String) session.getAttribute("userID");
@@ -29,6 +29,9 @@
                 pstmt.setString(1, user_id);
                 rs = pstmt.executeQuery();
                 
+                if (!rs.isBeforeFirst()) { 
+                    out.println("<div class='alert alert-danger'>장바구니가 비어 있습니다.</div>");
+                } else {
         %>
      
         <div class="row mt-5">
@@ -38,6 +41,7 @@
 					   <label class="mb-0">장바구니 목록</label>
 					</div>
                     <div class="card-body">
+                    
                         <%
                         	int sum = 0;
                             while (rs.next()) {
@@ -47,8 +51,8 @@
                                 int lecId = rs.getInt("lecId");
 
                                 sum += lecPrice;
- 
                         %>
+                      
                         <div class="d-flex align-items-center mb-3">
                             <img src="resource/upload/<%=image %>" class="img-thumbnail me-3" style="width: 120px; height: auto;" alt="Course Image">
                             <div>
@@ -78,9 +82,9 @@
                 </div>
             </div>
         </div>
-		
+
         <%
-        	
+                }
             } catch (SQLException e) {
                 out.println("<div class='alert alert-danger'>데이터 조회 실패: " + e.getMessage() + "</div>");
             } finally {
@@ -88,9 +92,9 @@
                 if (pstmt != null) try { pstmt.close(); } catch (SQLException ignore) {}
                 if (conn != null) try { conn.close(); } catch (SQLException ignore) {}
             }
-            
-            %>
-        
+        %>
+
     </div>
 </body>
 </html>
+                

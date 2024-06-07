@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -21,6 +22,9 @@
 </script>
 </head>
 <body>
+<fmt:setLocale value='<%= request.getParameter("language") %>'/>
+<fmt:bundle basename="bundle.message" >
+
 	<%@ include file="connection.jsp" %>
 
 	<%
@@ -42,19 +46,22 @@
 		%>
 	
 	<div class="container mt-5">
-	<div class="d-flex justify-content-between align-items-center mb-3">
-		<h1 style="font-weight: bold;" class="display-4 mb-2"><a href="lecs.jsp" style="text-decoration:none; color:black;">메인</a>/ 강의 관리</h1>
-		<a href="lec_enroll.jsp" class="btn btn-light btn-lg" role="button">강의 등록</a>
-	</div>
+		<div class="text-end">
+            <a href="?language=ko" style="text-decoration:none;" >한국어</a> | <a href="?language=en" style="text-decoration:none;" >English &nbsp; </a>
+        </div>
+		<div class="d-flex justify-content-between align-items-center mb-3">
+			<h1 style="font-weight: bold;" class="display-4 mb-2"><a href="lecs.jsp" style="text-decoration:none; color:black;"><fmt:message key="main"/></a>/ <fmt:message key="administration"/></h1>
+			<a href="addLec.jsp" class="btn btn-light btn-lg" role="button"><fmt:message key="addLec"/></a>
+		</div>
 	<table class="table table-bordered mt-5">
 	    <thead>
 	        <tr>
-	            <th>강의ID</th>
-	            <th>강의명</th>
-	            <th>강사명</th>
-	            <th>가격</th>
-	            <th>수정</th>
-	            <th>삭제</th>
+	            <th><fmt:message key="lecId"/></th>
+	            <th><fmt:message key="lecName"/></th>
+	            <th><fmt:message key="teacherName"/></th>
+	            <th><fmt:message key="lecPrice"/></th>
+	            <th><fmt:message key="update"/></th>
+	            <th><fmt:message key="delete"/></th>
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -70,8 +77,8 @@
 		<td><%=lecName%></td>
 		<td><%=teacherName%></td>
 		<td><%=lecPrice%></td>
-		<td><a class="btn btn-primary btn-sm" href="lec_update.jsp?lecId=<%=lecId%>">수정</a></td>
-		<td><a class="btn btn-danger btn-sm" href="#" onclick="event.preventDefault(); deleteLecture('<%=lecId%>');">삭제</a></td>
+		<td><a class="btn btn-primary btn-sm" href="updateLec.jsp?lecId=<%=lecId%>"><fmt:message key="update"/></a></td>
+		<td><a class="btn btn-danger btn-sm" href="#" onclick="event.preventDefault(); deleteLecture('<%=lecId%>');"><fmt:message key="delete"/></a></td>
 	</tr>
 	<%
 	}
@@ -89,5 +96,6 @@
 	}
 	%>
 	</div>
+</fmt:bundle>
 </body>
 </html>

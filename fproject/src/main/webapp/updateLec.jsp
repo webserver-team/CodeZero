@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +11,7 @@
 <script type="text/javascript">
 
 	function check() {
-		var form = document.getElementById("lec_update");
+		var form = document.getElementById("updateLec");
 		
 		if (form.lecName.value=="" || form.teacherName.value=="" || form.videoName.value=="" || form.lecCategory.value=="" || form.lecLevel.value=="" || form.lecPrice.value=="") {
 			alert("입력하지 않은 값이 있습니다.");
@@ -31,6 +33,9 @@
 </script>
 </head>
 <body>
+<fmt:setLocale value='<%= request.getParameter("language") %>'/>
+<fmt:bundle basename="bundle.message" >
+
 	<%@ include file="connection.jsp" %>
 
 	<%
@@ -56,10 +61,13 @@
 	%>
 	
 	<div class="container mt-5">
+	    <div class="text-end">
+            <a href="?language=ko" style="text-decoration:none;" >한국어</a> | <a href="?language=en" style="text-decoration:none;" >English &nbsp; </a>
+        </div>
 		<div class="card-body">
-			<h1 style="font-weight: bold;" class="display-4 mb-2">강의 수정</h1>
+			<h1 style="font-weight: bold;" class="display-4 mb-2"><a href="administration.jsp" style="text-decoration:none; color:black;"><fmt:message key="administration"/></a>/ <fmt:message key="update"/></h1>
 			<br><br>
-			<form id="lec_update" name="lec_update" action="lec_update_process.jsp" method="post" enctype="multipart/form-data">
+			<form id="updateLec" name="updateLec" action="updateLec_process.jsp" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="lecId" value="<%= lecId %>">
 				<div class="mb-3">
 					<label for="lecName" class="form-label">강의명</label>
@@ -142,7 +150,7 @@
 	       if (conn != null) conn.close();
 	   }
 	%>
-	
+</fmt:bundle>	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

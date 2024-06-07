@@ -12,6 +12,7 @@
 <body>
 	<%@ include file="/connection.jsp" %>
 	<%@ include file="courses_nav.jsp" %>
+	<div class="container mt-4">
 	
 	<div class="btn-group mb-5">
           <a href="subCategory.jsp?lecCategory=게임 프로그래밍" class="btn btn-light" aria-current="page">게임 프로그래밍</a>

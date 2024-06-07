@@ -24,7 +24,7 @@
 	<%@ include file="connection.jsp" %>
 	<%@ include file="courses_nav.jsp" %>
 
-    <div class="mt-4">
+     <div class="container mt-4">
     
         <%
         	String user_id = (String) session.getAttribute("userID");
@@ -41,6 +41,14 @@
     			rs = pstmt.executeQuery();
     			rs.next();
     			int isOrdered = rs.getInt(1);
+    			
+            	
+            	String check2 = "SELECT COUNT(*) FROM Payment WHERE lecId = ?";
+    			pstmt = conn.prepareStatement(check2);
+    			pstmt.setInt(1, lecId);
+    			rs = pstmt.executeQuery();
+    			rs.next();
+    			int countOfStudents = rs.getInt(1);
             	
             	
                 String sql = "SELECT lecName, teacherName, lecDescription, lecCategory, lecLevel, lecPrice, lecReviewCount, image, video FROM lecture WHERE lecId=?";
@@ -106,10 +114,9 @@
                     <p style="font-weight: bold;" class="display-6 mt-3 text-end">₩<%= lecPrice %></p>
                     <form name="cartForm" action="addCart.jsp?lecId=<%=lecId%>" method="post"> <a href="#" class="btn btn-primary btn-lg w-100" onclick="addCart()">장바구니 추가</a> </form>
                     <ul class="list-group list-group-flush mt-3">
-                        <li class="list-group-item">강의 수: 총 49개 수업</li>
-                        <li class="list-group-item">난이도: <%= lecLevel %></li>
-                        <li class="list-group-item">수강생: .....명</li>
-                        <li class="list-group-item">리뷰 수: <%= lecReviewCount %>개</li>
+                        <li class="list-group-item">난이도 : <%= lecLevel %></li>
+                        <li class="list-group-item">수강생 : <%= countOfStudents %>명</li>
+                        <li class="list-group-item">리뷰 수 : <%= lecReviewCount %>개</li>
                     </ul>
                 </div>
             </div>

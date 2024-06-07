@@ -14,6 +14,7 @@
 	<%@ include file="/connection.jsp" %>
 	<%@ include file="courses_nav.jsp" %>
 	
+	<div class="container mt-4">
     <div class="btn-group mb-5">
        <a href="subCategory.jsp?lecCategory=프론트엔드" class="btn btn-light" aria-current="page">프론트엔드</a>
        <a href="subCategory.jsp?lecCategory=백엔드" class="btn btn-light">백엔드</a>

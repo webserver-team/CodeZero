@@ -17,7 +17,7 @@ CREATE TABLE Payment (
 CREATE TABLE Payment (
   paymentId INT NOT NULL AUTO_INCREMENT,
   cartId INT,
-  lecIdt INT,
+  lecId INT,
   paymentDate VARCHAR(15),
   paymentMethod VARCHAR(15),
   name VARCHAR(45),

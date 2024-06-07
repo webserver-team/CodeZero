@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.net.URLEncoder"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,9 +11,17 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+<fmt:setLocale value='<%= request.getParameter("language") %>'/>
+<fmt:bundle basename="bundle.message" >
+
 	<%@ include file="connection.jsp" %>
 	<%@ include file="courses_nav.jsp" %>
-       
+	
+    
+    <div class="container mt-4">
+    <div class="text-end">
+		<a href="?language=ko" >Korean</a> | <a href="?language=en" >English</a>
+    </div> 
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
         <%
         	int pageLimit = 9;
@@ -51,9 +60,9 @@
                         </div>
                     </div>
                     <div class="card-footer bg-light text-end">
-                        <span class="badge bg-primary"><%= lecCategory %></span>
-                        <span class="badge bg-secondary"><%= lecLevel %></span>
-                        <span class="badge bg-success">리뷰 수: <%= lecReviewCount %></span>
+                        <span class="badge bg-primary"><fmt:message key="lecCategory"/>: <%= lecCategory %></span>
+                        <span class="badge bg-secondary"><fmt:message key="lecLevel"/>: <%= lecLevel %></span>
+                        <span class="badge bg-success"><fmt:message key="lecReviewCount"/>: <%= lecReviewCount %></span>
                     </div>
                 </div>
             </div>
@@ -82,5 +91,6 @@
             </ul>
         </nav>
     </div>
+</fmt:bundle>
 </body>
 </html>
