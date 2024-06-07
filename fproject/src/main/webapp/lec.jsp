@@ -95,10 +95,6 @@
                     <p><%= lecDescription %></p>
                 </div>
                 <div class="mt-5">
-                    <h1 style="font-weight: bold;" class="display-5">강의 커리큘럼</h1>           
-                    <p>강의 커리큘럼 내용 추가</p>
-                </div>
-                <div class="mt-5">
                     <h1 style="font-weight: bold;" class="display-5">강의평</h1>           
                     <p>강의평 내용 추가</p>
                 </div>
@@ -123,6 +119,7 @@
             } else {
                out.println("<div class='alert alert-warning'>해당 강의를 찾을 수 없습니다.</div>");
             }
+                
             } catch (Exception e) {
                 out.println("<div class='alert alert-danger'>데이터베이스 오류: " + e.getMessage() + "</div>");
             } finally {

@@ -11,6 +11,7 @@
 <body>
 	<%@ include file="connection.jsp" %>
 	<%@ include file="courses_nav.jsp" %>
+	<div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
 	
 	<%
 			String user_id = (String) session.getAttribute("userID");
@@ -38,16 +39,20 @@
 						
 		%>
 		
-		<div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
-			<div class="col">
-				<a href="playing.jsp?lecId=<%=lecId %>" style = "text-decoration:none; color:black;">
-					<div class="mb-3 p-4 border">
-						<img src="resource/upload/<%= image %>" class="img-fluid mb-2" alt="<%= lecName %>">
-						<h5 style="font-weight: bold; class="text-center" style=""><%= lecName %></h5>
-						<%=teacherName %>
-					</div>
-				</a>
-			</div>
+			
+		<a href="playing.jsp?lecId=<%=lecId %>" style="text-decoration:none; color:black;">
+		    <div class="col">
+		        <div class="card h-100">
+		            <img src="resource/upload/<%=image %>" class="card-img-top" alt="...">
+		            <div class="card-body p-4">
+		                <h5 class="card-title"><%= lecName %></h5>
+		                <p class="card-text" style="font-weight: bold;"><%= teacherName %></p>
+		            </div>
+		        </div>
+		    </div>
+		</a>
+		
+            
 		<%
 				}
 			} catch (Exception e) {
