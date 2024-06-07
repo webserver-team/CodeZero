@@ -6,14 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>나의 학습 페이지</title>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
 	<%@ include file="connection.jsp" %>
 	<%@ include file="courses_nav.jsp" %>
 	
-	<div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
-		<%
+	<%
 			String user_id = (String) session.getAttribute("userID");
 
 			if (user_id == null) {
@@ -38,8 +37,10 @@
 					String image = rs.getString("image");
 						
 		%>
+		
+		<div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
 			<div class="col">
-				<a href="lec.jsp?lecId=<%=lecId %>" style = "text-decoration:none; color:black;">
+				<a href="playing.jsp?lecId=<%=lecId %>" style = "text-decoration:none; color:black;">
 					<div class="mb-3 p-4 border">
 						<img src="resource/upload/<%= image %>" class="img-fluid mb-2" alt="<%= lecName %>">
 						<h5 style="font-weight: bold; class="text-center" style=""><%= lecName %></h5>
@@ -63,8 +64,5 @@
 		%>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

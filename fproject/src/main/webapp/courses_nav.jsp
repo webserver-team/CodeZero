@@ -13,7 +13,7 @@
        		<a href="test.jsp" class="btn btn-light btn-lg me-2">로그인</a>
        		<a href="test2.jsp" class="btn btn-light btn-lg me-2">로그아웃</a>
             <a href="cart.jsp" class="btn btn-light btn-lg me-2">장바구니</a>
-            <a href="study.jsp" class="btn btn-light btn-lg me-2">나의 학습</a>
+            <a href="study.jsp" class="btn btn-light btn-lg me-2">내 학습</a>
             <a href="lec_manage.jsp" class="btn btn-light btn-lg">관리 페이지</a>
        </div>
        
