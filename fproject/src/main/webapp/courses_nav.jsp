@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>강의 정보</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<title>네비게이션</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
    <div class="container mt-4">
@@ -13,6 +13,7 @@
        		<a href="test.jsp" class="btn btn-light btn-lg me-2">로그인</a>
        		<a href="test2.jsp" class="btn btn-light btn-lg me-2">로그아웃</a>
             <a href="cart.jsp" class="btn btn-light btn-lg me-2">장바구니</a>
+            <a href="study.jsp" class="btn btn-light btn-lg me-2">나의 학습</a>
             <a href="lec_manage.jsp" class="btn btn-light btn-lg">관리 페이지</a>
        </div>
        

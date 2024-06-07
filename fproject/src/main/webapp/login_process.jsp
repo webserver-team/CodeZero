@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Login Process</title>
+<meta charset="UTF-8">
+<title>로그인 처리</title>
 </head>
 <body>
     <%@ include file ="connection.jsp" %>

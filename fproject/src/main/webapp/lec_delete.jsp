@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>강의 삭제</title>
+<title>강의 삭제 처리</title>
 </head>
 <body>
 	<%@ include file="connection.jsp" %>

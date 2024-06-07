@@ -7,8 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<title>강의/프로그래밍</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
 	<%@ include file="/connection.jsp" %>
@@ -46,7 +46,7 @@
                     int lecId = rs.getInt("lecId");
                		
         %>
-        	<a href="lec.jsp?lecId=<%=lecId%>">
+        	<a href="lec.jsp?lecId=<%=lecId%>" style = "text-decoration:none; color:black;">
             <div class="col">
                 <div class="card h-100">
                     <img src="resource/upload/<%=image %>" class="card-img-top" alt="...">

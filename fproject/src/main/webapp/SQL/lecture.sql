@@ -14,7 +14,7 @@ create table lecture(
 select * from lecture
 show tables;
 
-desc member;
+desc lecture;
 
 insert into lecture values(
 	201000000,

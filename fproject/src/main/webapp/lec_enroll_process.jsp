@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>강의 등록 처리</title>
 </head>
 <body>
 	<!-- 강의 관련 데이터를 받아와서 데이터베이스에 저장 -->

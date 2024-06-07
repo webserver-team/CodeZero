@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>결제 처리</title>
 </head>
 <body>
 	<%@ include file ="connection.jsp" %>
@@ -64,7 +64,7 @@
 			
 	        pstmt.executeUpdate();
 	        
-	        System.out.println("강의가 결제되었습니다.");
+	        System.out.println("장바구니에 있는 강의 삭제.");
 		}
 		
 	    } catch (SQLException e) {
