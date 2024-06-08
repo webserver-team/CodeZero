@@ -11,6 +11,7 @@ select * from Cart;
 
 DELETE FROM Cart WHERE userId = 'ksy';
 
+
 drop table member;
 
 insert into cart value('admin', 201000052);

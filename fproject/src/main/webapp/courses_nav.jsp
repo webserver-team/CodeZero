@@ -22,19 +22,19 @@
        
        <ul class="nav nav-tabs mb-2">
            <li class="nav-item">
-               <a class="nav-link" href="lecs.jsp">전체</a>
+               <a class="nav-link" href="lecs.jsp?category=all">전체</a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="programming.jsp">프로그래밍</a>
+               <a class="nav-link" href="lecs.jsp?category=programming">프로그래밍</a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="game.jsp">게임 개발</a>
+               <a class="nav-link" href="lecs.jsp?category=game">게임 개발</a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="bigdata.jsp">빅데이터/AI</a>
+               <a class="nav-link" href="lecs.jsp?category=bigdata">빅데이터/AI</a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="security.jsp">보안</a>
+               <a class="nav-link" href="lecs.jsp?category=security">보안</a>
            </li>           
        </ul>
    </div>  

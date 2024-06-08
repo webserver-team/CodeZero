@@ -46,7 +46,7 @@
             <div class="col">
                 <a href="playing.jsp?lecId=<%=lecId %>" style="text-decoration:none; color:black;">
                     <div class="card h-100">
-                        <img src="resource/upload/<%=image %>" class="card-img-top" alt="Course Image">
+                        <img src="resource/upload/<%=image %>" class="card-img-top" alt="...">
                         <div class="card-body p-4">
                             <h5 class="card-title"><%= lecName %></h5>
                             <p class="card-text" style="font-weight: bold;"><%= teacherName %></p>

@@ -33,7 +33,7 @@
 	       if (conn != null) try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }
 	   }
 	   
-	   response.sendRedirect("lec_manage.jsp?edit=delete");
+	   response.sendRedirect("administration.jsp?edit=delete");
 	%>
 </body>
 </html>

@@ -29,18 +29,15 @@
                
         %>
         
-		<div class="mb-4 text-center">
+		<div class="container mb-4 text-center">
 	        <h1 class="display-5 mt-3 font-weight-bold text-center"><%= lecName %></h1>
-	        <video id="video" class="img-fluid mt-3" controls style="margin-top: 40px;">
-	            <source src="resource/upload/<%= video %>" type="video/mp4">
-	        </video>
+			<video id="video" class="img-fluid mt-3" controls style="margin-top: 40px; width: 100%; height: auto;">
+			 	<source src="resource/upload/<%= video %>" type="video/mp4">
+			</video>
 	        <p><a href="study.jsp" class="btn btn-light btn-lg">학습 페이지로 돌아가기</a></p>
 		</div>
 
 
-        
-        
-        
         <%
             } else {
                out.println("<div class='alert alert-warning'>해당 강의를 찾을 수 없습니다.</div>");

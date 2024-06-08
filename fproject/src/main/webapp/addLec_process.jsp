@@ -55,7 +55,7 @@
 
             String message = "강의가 정상적으로 등록되었습니다.";
             System.out.println(message);
-            response.sendRedirect("lec_manage.jsp");
+            response.sendRedirect("administration.jsp");
             
         } catch (SQLException ex) {
             out.println("SQLException: " + ex.getMessage());

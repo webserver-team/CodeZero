@@ -84,7 +84,6 @@
             <div class="mb-3">
                 <label for="videoName" class="form-label"><fmt:message key="video"/></label>
                 <input type="file" class="form-control" id="videoName" name="videoName">
-                <small class="form-text text-muted"><fmt:message key="selectFile"/></small>
             </div>
             <div class="mb-3">
                 <label for="lecCategory" class="form-label"><fmt:message key="lecCategory"/></label>

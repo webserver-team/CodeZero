@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.net.URLEncoder"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,26 +10,65 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<fmt:setLocale value='<%= request.getParameter("language") %>'/>
-<fmt:bundle basename="bundle.message" >
 
 	<%@ include file="connection.jsp" %>
 	<%@ include file="courses_nav.jsp" %>
 	
     
     <div class="container mt-4">
+    <div class="btn-group mb-5">
+            <a href="lecs.jsp?category=programming&subCategory=프론트엔드" class="btn btn-light">프론트엔드</a>
+            <a href="lecs.jsp?category=programming&subCategory=백엔드" class="btn btn-light">백엔드</a>
+            <a href="lecs.jsp?category=programming&subCategory=앱 개발" class="btn btn-light">앱 개발</a>
+            <a href="lecs.jsp?category=programming&subCategory=데이터베이스" class="btn btn-light">데이터베이스</a>
+            <a href="lecs.jsp?category=programming&subCategory=개발도구" class="btn btn-light">개발도구</a>
+            <a href="lecs.jsp?category=game&subCategory=게임 프로그래밍" class="btn btn-light">게임 프로그래밍</a>
+            <a href="lecs.jsp?category=game&subCategory=게임 기획" class="btn btn-light">게임 기획</a>
+            <a href="lecs.jsp?category=game&subCategory=게임 그래픽" class="btn btn-light">게임 그래픽</a>
+            <a href="lecs.jsp?category=bigdata&subCategory=데이터 분석" class="btn btn-light">데이터 분석</a>
+            <a href="lecs.jsp?category=bigdata&subCategory=컴퓨터 비전" class="btn btn-light">컴퓨터 비전</a>
+            <a href="lecs.jsp?category=bigdata&subCategory=자연어 처리" class="btn btn-light">자연어 처리</a>
+            <a href="lecs.jsp?category=security&subCategory=보안" class="btn btn-light">보안</a>
+            <a href="lecs.jsp?category=security&subCategory=네트워크" class="btn btn-light">네트워크</a>
+            <a href="lecs.jsp?category=security&subCategory=시스템" class="btn btn-light">시스템</a>
+            <a href="lecs.jsp?category=security&subCategory=클라우드" class="btn btn-light">클라우드</a>
+    </div>
     <div class="text-end">
     </div> 
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+
         <%
         	int pageLimit = 9;
         	int count = 0;
+        	String category = request.getParameter("category");
+        	String subCategory = request.getParameter("subCategory");
+        	
             ResultSet rs = null;
             PreparedStatement pstmt = null;
             
+            
             try {
-                String sql = "SELECT * FROM lecture";
-                pstmt = conn.prepareStatement(sql);
+   
+            	String sql = "SELECT * FROM lecture";
+            	
+                if (category != null && subCategory == null) {
+                    if (category.equals("programming")){
+                        sql = "SELECT * FROM lecture WHERE lecCategory IN ('프론트엔드', '백엔드', '앱 개발', '데이터베이스', '개발도구')";
+                    } else if (category.equals("game")){
+                        sql = "SELECT * FROM lecture WHERE lecCategory IN ('게임 프로그래밍', '게임 기획', '게임 그래픽')";
+                    } else if (category.equals("bigdata")){
+                        sql = "SELECT * FROM lecture WHERE lecCategory IN ('데이터 분석', '컴퓨터 비전', '자연어 처리')";
+                    } else if (category.equals("security")){
+                        sql = "SELECT * FROM lecture WHERE lecCategory IN ('보안', '네트워크', '클라우드', '시스템')";
+                    }
+                    pstmt = conn.prepareStatement(sql);
+                    
+                } else if ( category != null && subCategory != null ){
+                	sql = "SELECT * FROM lecture WHERE lecCategory=?";
+                    pstmt = conn.prepareStatement(sql);
+                    pstmt.setString(1, subCategory);
+                }
+                
                 rs = pstmt.executeQuery();
 
                 // 데이터 출력
@@ -90,6 +128,5 @@
             </ul>
         </nav>
     </div>
-</fmt:bundle>
 </body>
 </html>
