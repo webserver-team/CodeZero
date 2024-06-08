@@ -16,7 +16,7 @@
 	
     
     <div class="container mt-4">
-    <div class="btn-group mb-5">
+    <div class="btn-group mb-3">
             <a href="lecs.jsp?category=programming&subCategory=프론트엔드" class="btn btn-light">프론트엔드</a>
             <a href="lecs.jsp?category=programming&subCategory=백엔드" class="btn btn-light">백엔드</a>
             <a href="lecs.jsp?category=programming&subCategory=앱 개발" class="btn btn-light">앱 개발</a>
@@ -35,7 +35,7 @@
     </div>
     <div class="text-end">
     </div> 
-    <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
 
         <%
         	int pageLimit = 9;
