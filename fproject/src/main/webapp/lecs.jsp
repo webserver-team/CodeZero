@@ -61,13 +61,15 @@
                     } else if (category.equals("security")){
                         sql = "SELECT * FROM lecture WHERE lecCategory IN ('보안', '네트워크', '클라우드', '시스템')";
                     }
-                    pstmt = conn.prepareStatement(sql);
                     
                 } else if ( category != null && subCategory != null ){
                 	sql = "SELECT * FROM lecture WHERE lecCategory=?";
-                    pstmt = conn.prepareStatement(sql);
-                    pstmt.setString(1, subCategory);
                 }
+                pstmt = conn.prepareStatement(sql);
+                
+                if (category != null && subCategory != null) {
+                    pstmt.setString(1, subCategory);
+                }                
                 
                 rs = pstmt.executeQuery();
 

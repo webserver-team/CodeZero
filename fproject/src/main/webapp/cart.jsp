@@ -54,7 +54,7 @@
                         %>
                       
                         <div class="d-flex align-items-center mb-3">
-                            <img src="resource/upload/<%=image %>" class="img-thumbnail me-3" style="width: 120px; height: auto;" alt="Course Image">
+                            <img src="resource/upload/<%=image %>" class="img-thumbnail me-3" style="width: 120px; height: auto;" alt="...">
                             <div>
                                 <a href="lec.jsp?lecId=<%=lecId %>" class="text-decoration-none" style="font-weight: bold; font-size: 20px;"><%=lecName %></a>
                             </div>
