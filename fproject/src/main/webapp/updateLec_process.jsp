@@ -57,7 +57,7 @@
 	        if (conn != null) conn.close();
 	    }
 	    
-	    response.sendRedirect("lec_manage.jsp");
+	    response.sendRedirect("administration.jsp");
 	%>
 </body>
 </html>

@@ -20,7 +20,6 @@
     
     <div class="container mt-4">
     <div class="text-end">
-		<a href="?language=ko" >Korean</a> | <a href="?language=en" >English</a>
     </div> 
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
         <%
@@ -60,9 +59,9 @@
                         </div>
                     </div>
                     <div class="card-footer bg-light text-end">
-                        <span class="badge bg-primary"><fmt:message key="lecCategory"/>: <%= lecCategory %></span>
-                        <span class="badge bg-secondary"><fmt:message key="lecLevel"/>: <%= lecLevel %></span>
-                        <span class="badge bg-success"><fmt:message key="lecReviewCount"/>: <%= lecReviewCount %></span>
+                        <span class="badge bg-primary"><%= lecCategory %></span>
+                        <span class="badge bg-secondary"><%= lecLevel %></span>
+                        <span class="badge bg-success">리뷰 수 : <%= lecReviewCount %></span>
                     </div>
                 </div>
             </div>
