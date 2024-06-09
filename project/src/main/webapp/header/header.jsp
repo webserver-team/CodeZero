@@ -94,6 +94,8 @@ String header_id = (String) session.getAttribute("id");
 					<%
 					} else {
 					%>
+					<a href="../cart/cart.jsp" class="link"
+						style="font-size: 13px; margin-right: 10px">장바구니</a>
 					<a href="../mypage/mypage.jsp" class="link"
 						style="font-size: 13px; margin-right: 5px"><%=header_name%> 님</a>
 					<form action="../login/logout_process.jsp" class="logout"

@@ -16,12 +16,13 @@
 	color:#5fc703;
 	padding-left:15px;
 	margin-right:auto;
+	margin-top:100px;
 }
 
 .createpost-title-div{
 	width:60%;
 }
-.post-category{
+.post-select{
 	height:30px;
 	
 	color:#5fc703;

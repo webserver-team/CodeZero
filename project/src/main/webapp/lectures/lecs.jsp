@@ -24,7 +24,8 @@
 			int count = 0;
 			String category = request.getParameter("category");
 			String subCategory = request.getParameter("subCategory");
-
+			String search = request.getParameter("search");
+			
 			ResultSet rs = null;
 			PreparedStatement pstmt = null;
 
@@ -32,7 +33,11 @@
 
 				String sql = "SELECT * FROM lecture";
 
-				if (category != null && subCategory == null) {
+				if (search != null){
+                	sql = "SELECT * FROM lecture WHERE lecName LIKE '%" + search + "%'";
+                	pstmt = conn.prepareStatement(sql);
+                }
+				else if (category != null && subCategory == null) {
 					if (category.equals("programming")) {
 				sql = "SELECT * FROM lecture WHERE lecCategory IN ('프론트엔드', '백엔드', '앱 개발', '데이터베이스', '개발도구')";
 					} else if (category.equals("game")) {
@@ -43,13 +48,14 @@
 				sql = "SELECT * FROM lecture WHERE lecCategory IN ('보안', '네트워크', '클라우드', '시스템')";
 					}
 
+					pstmt = conn.prepareStatement(sql);
+
 				} else if (subCategory != null) {
 					sql = "SELECT * FROM lecture WHERE lecCategory=?";
-				}
-				pstmt = conn.prepareStatement(sql);
-
-				if (subCategory != null) {
+					pstmt = conn.prepareStatement(sql);
 					pstmt.setString(1, subCategory);
+				} else {
+					pstmt = conn.prepareStatement(sql);
 				}
 
 				rs = pstmt.executeQuery();
@@ -94,8 +100,8 @@
 			}
 			if (count == 0){
 			%>
-			<div class="nolec-container" style="display:flex; justify-content:center; align-items:center; height:50px">
-				<div style="display:flex; height:100%; text-align:center; justify-content:center; align-items:center; color:#5fc703">강의가 없습니다.</div>
+			<div class="empty-lec-div">
+				<p class="empty-lec-p">강의가 없습니다.</p>
 			</div>
 			<%
 			}

@@ -71,7 +71,7 @@
 /* 	height:25%; */
 }
 
-.home-post-title{
+.home-box-title{
 	display:flex;
 	align-items:center;
     justify-content: flex-start;
@@ -89,6 +89,7 @@
 	
 	font-size:18px;
 }
+
 .home-post-row-box{
 	display:flex;
 	align-items:center;

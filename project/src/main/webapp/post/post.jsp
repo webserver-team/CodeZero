@@ -43,10 +43,8 @@
 	<%
 	}
 	%>
+	<%@ include file="/../header/header.jsp"%>
 	
-	<div class="container">
-		<%@ include file="/../header/header.jsp"%>
-	</div>
 	<div class="container table_container" style="height: 90%">
 		<div class="post-title-div">
 			<h3 class="post-title"><%=post.getPostTitle() %></h3>

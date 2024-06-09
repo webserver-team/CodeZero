@@ -28,9 +28,11 @@
 		<div style="min-height: 125px"></div>
 
 		<div class="box">
-			<div class="lecture-box"></div>
+			<div class="lecture-box">
+				<p class="home-box-title" style="height:10%">최근 본 강의</p>
+			</div>
 			<div class="post-box">	
-				<a href="../post/posts.jsp?category=free" class="home-post-title">자유게시판</a>
+				<a href="../post/posts.jsp?category=free" class="home-box-title">자유게시판</a>
 
 				<%
 				Post[] posts = null;
@@ -74,7 +76,7 @@
 
 
 			<div class="post-box">
-				<a href="../post/posts.jsp?category=question" class="home-post-title">질문게시판</a>
+				<a href="../post/posts.jsp?category=question" class="home-box-title">질문게시판</a>
 				
 				<%
 				posts = null;
