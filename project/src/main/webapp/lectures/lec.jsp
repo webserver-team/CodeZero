@@ -78,7 +78,7 @@
         
         <div class="row lec-description">
             <!-- Left Column: Lecture Description -->
-            <div class="col-md-8" style="flex-grow:2; height:100%">
+            <div class="col-lec1">
                 <div class="mt-4">
                 	<% if (isOrdered == 1) { 
                 		%>
@@ -107,10 +107,10 @@
             </div>
             
             
-            <div class="col-md-4" style="flex-grow:1; height:100%">
+            <div class="col-lec2" style="flex-grow:1; height:100%">
                 <div class="mt-4">
-                    <p style="font-weight: bold;" class="display-6 mt-3 text-end">₩<%= lecPrice %></p>
-                    <form name="cartForm" action="addCart.jsp?lecId=<%=lecId%>" method="post"> <a href="#" class="btn btn-primary btn-lg w-100" onclick="addCart()">장바구니 추가</a> </form>
+                    <p class="lec-price">₩<%= lecPrice %></p>
+                    <form name="cartForm" action="addCart.jsp?lecId=<%=lecId%>" method="post"> <a href="#" class="addCart-button" onclick="addCart()">장바구니 추가</a> </form>
                     <ul class="list-group list-group-flush mt-3">
                         <li class="list-group-item">난이도 : <%= lecLevel %></li>
                         <li class="list-group-item">수강생 : <%= countOfStudents %>명</li>
