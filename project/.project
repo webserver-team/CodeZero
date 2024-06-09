@@ -3,7 +3,6 @@
 	<name>CodeZero</name>
 	<comment></comment>
 	<projects>
-		<project>mysql-connector-j-8.4.0</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

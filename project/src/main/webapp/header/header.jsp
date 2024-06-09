@@ -109,19 +109,19 @@ String header_id = (String) session.getAttribute("id");
 
 		<div id="header_category" class="category">
 			<div class="category-div">
-				<a href="../lectures/lectures.jsp" class="category-link"> JAVA </a>
+				<a href="../lectures/lecs.jsp" class="category-link"> 전체 </a>
 			</div>
 			<div class="category-div">
-				<a href="../lectures/lectures.jsp" class="category-link"> C </a>
+				<a href="../lectures/lecs.jsp?category=programming" class="category-link"> 프로그래밍 </a>
 			</div>
 			<div class="category-div">
-				<a href="../lectures/lectures.jsp" class="category-link"> C++ </a>
+				<a href="../lectures/lecs.jsp?category=game" class="category-link"> 게임 개발 </a>
 			</div>
 			<div class="category-div">
-				<a href="../lectures/lectures.jsp" class="category-link"> 인공지능 </a>
+				<a href="../lectures/lecs.jsp?category=bigdata" class="category-link"> 빅데이터/AI </a>
 			</div>
 			<div class="category-div">
-				<a href="../lectures/lectures.jsp" class="category-link"> 디자인 </a>
+				<a href="../lectures/lecs.jsp?category=security" class="category-link"> 보안 </a>
 			</div>
 			<div class="category-div">
 				<a href="../post/posts.jsp" class="category-link">
@@ -129,33 +129,29 @@ String header_id = (String) session.getAttribute("id");
 			</div>
 			<div id="dropdownContent" class="dropdown-content">
 				<div id="dropdown-category" class="dropdown-category">
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a> 
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
 				</div>
 				<div id="dropdown-category" class="dropdown-category">
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a href="../lectures/lecs.jsp?subCategory=프론트엔드" id="dropdown-category-a" class="dropdown-category-a">프론트엔드</a> 
+					<a href="../lectures/lecs.jsp?subCategory=백엔드" id="dropdown-category-a" class="dropdown-category-a">백엔드</a>
+					<a href="../lectures/lecs.jsp?subCategory=앱 개발" id="dropdown-category-a" class="dropdown-category-a">앱 개발</a>
+					<a href="../lectures/lecs.jsp?subCategory=데이터베이스" id="dropdown-category-a" class="dropdown-category-a">데이터베이스</a>
+					<a href="../lectures/lecs.jsp?subCategory=개발 도구" id="dropdown-category-a" class="dropdown-category-a">개발 도구</a>
 				</div>
 				<div id="dropdown-category" class="dropdown-category">
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a href="../lectures/lecs.jsp?subCategory=게임 프로그래밍" id="dropdown-category-a" class="dropdown-category-a">게임 프로그래밍</a>
+					<a href="../lectures/lecs.jsp?subCategory=게임 기획" id="dropdown-category-a" class="dropdown-category-a">게임 기획</a>
+					<a href="../lectures/lecs.jsp?subCategory=게임 그래픽" id="dropdown-category-a" class="dropdown-category-a">게임 그래픽</a>
 				</div>
 				<div id="dropdown-category" class="dropdown-category">
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a href="../lectures/lecs.jsp?subCategory=데이터 분석" id="dropdown-category-a" class="dropdown-category-a">데이터 분석</a>
+					<a href="../lectures/lecs.jsp?subCategory=컴퓨터 비전" id="dropdown-category-a" class="dropdown-category-a">컴퓨터 비전</a>
+					<a href="../lectures/lecs.jsp?subCategory=자연어 처리" id="dropdown-category-a" class="dropdown-category-a">자연어 처리</a>
 				</div>
 				<div id="dropdown-category" class="dropdown-category">
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
-					<a id="dropdown-category-a" class="dropdown-category-a">뭐시기</a>
+					<a href="../lectures/lecs.jsp?subCategory=보안" id="dropdown-category-a" class="dropdown-category-a">보안</a>
+					<a href="../lectures/lecs.jsp?subCategory=네트워크]" id="dropdown-category-a" class="dropdown-category-a">네트워크</a>
+					<a href="../lectures/lecs.jsp?subCategory=시스템" id="dropdown-category-a" class="dropdown-category-a">시스템</a>
+					<a href="../lectures/lecs.jsp?subCategory=클라우드" id="dropdown-category-a" class="dropdown-category-a">클라우드</a>
 				</div>
 				<div id="dropdown-category" class="dropdown-category post-category">
 					<a href="../post/posts.jsp?category=free" id="dropdown-category-a" class="dropdown-category-a">자유게시판</a>
