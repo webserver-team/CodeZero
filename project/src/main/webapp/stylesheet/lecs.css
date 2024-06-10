@@ -46,11 +46,12 @@
 
 .lec-row{
 	max-width:1450px;
+	flex-wrap: wrap;
 }
 
 .lec-a{
-	width:32%;
-	margin:0% 1%;
+	width:31%;
+	margin:1% 1%;
 	border:1px solid #5fc703;
 	border-radius:10px;
 	background-color:#deefd6;

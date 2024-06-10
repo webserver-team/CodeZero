@@ -7,35 +7,24 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import dto.Member;
+import database.DBConnection;
 
 public class MemberList{
 	
-	Connection conn=null;
-
-	String DRIVER = "com.mysql.cj.jdbc.Driver";
-	String url="jdbc:mysql://localhost:3306/JSP_project";
-	String user="root";
-	String passwd="1234";
-	Statement stmt = null;
-	ResultSet rs = null;
-	
 	public MemberList() {
-		try {
-			Class.forName(DRIVER);
-			
-			conn=DriverManager.getConnection(url, user, passwd);
-		} catch(ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch(SQLException e) {
-			e.printStackTrace();
-		}
 	}
 	
-	public String addMember(Member member) throws SQLException {
+	public String addMember(Member member) throws SQLException, ClassNotFoundException {
 		
 		String result = null;
 		
+		Connection conn=null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
 		try {
+			conn = DBConnection.getConnection();
+			
 			String sqlCheckId = "SELECT * FROM member WHERE userId = '" + member.getMemberId() + "'";
 			
 			stmt = conn.createStatement();
@@ -64,10 +53,16 @@ public class MemberList{
 		return result;
 	}
 	
-	public String[] checkMember(String id, String passwd) throws SQLException {
+	public String[] checkMember(String id, String passwd) throws SQLException, ClassNotFoundException {
 		String[] result = new String[2];
 		
+		Connection conn=null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
 		try {
+			conn = DBConnection.getConnection();
+			
 			String sql = "SELECT * FROM member WHERE userId = '" + id + "'";
 			
 			stmt = conn.createStatement();
@@ -102,7 +97,11 @@ public class MemberList{
 		return result;
 	}
 	
-	public Member getMember(String id) throws SQLException {
+	public Member getMember(String id) throws SQLException, ClassNotFoundException {
+		
+		Connection conn=null;
+		Statement stmt = null;
+		ResultSet rs = null;
 		
 		Member member = new Member();
 		
@@ -113,6 +112,8 @@ public class MemberList{
 		String db_email = null;
 		
 		try {
+			conn = DBConnection.getConnection();
+			
 			String sql = "SELECT * FROM member WHERE userId ='" + id + "'";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
@@ -147,10 +148,16 @@ public class MemberList{
 		return member;
 	}
 	
-	public String changeInfo(String id, String name, String phone, String email) throws SQLException {
+	public String changeInfo(String id, String name, String phone, String email) throws SQLException, ClassNotFoundException {
 		String message = null;
 		
+		Connection conn=null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
 		try {
+			conn = DBConnection.getConnection();
+			
 			String sql = "UPDATE member SET name = '" + name + "', phone = '" + phone + "', email = '" + email + "' WHERE userId = '" + id + "';";
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
@@ -167,10 +174,16 @@ public class MemberList{
 		return message;
 	}
 	
-	public String deleteMember(String id) throws SQLException {
+	public String deleteMember(String id) throws SQLException, ClassNotFoundException {
 		String message = null;
 		
+		Connection conn=null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
 		try {
+			conn = DBConnection.getConnection();
+			
 			String sql = "DELETE FROM member WHERE userId = '" + id + "';";
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);

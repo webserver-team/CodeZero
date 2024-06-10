@@ -39,6 +39,9 @@ public class ViewPoint implements Filter {
 					postlist.increaseView(postIdParam);
 				} catch (SQLException e) {
 					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 		}

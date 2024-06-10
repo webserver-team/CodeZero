@@ -7,38 +7,24 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import dto.Post;
+import database.DBConnection;
 
 public class PostList {
 
-	Connection conn = null;
-
-	String DRIVER = "com.mysql.cj.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/JSP_project";
-	String user = "root";
-	String passwd = "1234";
-
-	public PostList() {
-		try {
-			Class.forName(DRIVER);
-
-			conn = DriverManager.getConnection(url, user, passwd);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public PostList(){
+	
 	}
 
-	public String addPost(Post post) throws SQLException {
+	public String addPost(Post post) throws SQLException, ClassNotFoundException {
 		Statement stmt = null;
-
+		Connection conn = null;
 		String result = null;
 
 		try {
-
 			String sql = "INSERT INTO post (postTitle, postContent, userId, postDate, category) VALUES('" + post.getPostTitle()
 					+ "','" + post.getPostContent() + "','" + post.getUserId() + "','" + post.getPostDate() + "','" + post.getCategory() + "');";
 
+			conn = DBConnection.getConnection();
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
 
@@ -56,7 +42,8 @@ public class PostList {
 		return result;
 	}
 
-	public Post getPost(String postId) throws SQLException {
+	public Post getPost(String postId) throws SQLException, ClassNotFoundException {
+		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 
@@ -64,7 +51,8 @@ public class PostList {
 
 		try {
 			String sql = "SELECT * FROM post WHERE postId = '" + postId + "';";
-
+			
+			conn = DBConnection.getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 
@@ -92,13 +80,16 @@ public class PostList {
 		return post;
 	}
 
-	public boolean existPost(String search, String category) throws SQLException {
+	public boolean existPost(String search, String category) throws SQLException, ClassNotFoundException {
+		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 
 		String sql = "SELECT * FROM post;";
 		
 		try {
+			conn = DBConnection.getConnection();
+			
 			if(search != null) {
 				if (category != null)
 					sql = "SELECT * FROM post WHERE postTitle LIKE '%" + search + "%' AND category = '" + category + "';";
@@ -128,7 +119,8 @@ public class PostList {
 		return false;
 	}
 
-	public Post[] getPostList(String search, String category) throws SQLException {
+	public Post[] getPostList(String search, String category) throws SQLException, ClassNotFoundException {
+		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 
@@ -137,6 +129,8 @@ public class PostList {
 		String sql = "SELECT * FROM post";
 			
 		try {
+			conn = DBConnection.getConnection();
+			
 			if(search != null) {
 				if (category != null)
 					sql = "SELECT * FROM post WHERE postTitle LIKE '%" + search + "%' AND category = '" + category + "';";
@@ -184,10 +178,13 @@ public class PostList {
 		return post;
 	}
 	
-	public void increaseView(String postId) throws SQLException {
+	public void increaseView(String postId) throws SQLException, ClassNotFoundException {
+		Connection conn = null;
 		Statement stmt = null;
 
 		try {
+			conn = DBConnection.getConnection();
+			
 			String sql = "UPDATE post SET views = views + 1 WHERE postId = '" + postId + "';";
 
 			stmt = conn.createStatement();

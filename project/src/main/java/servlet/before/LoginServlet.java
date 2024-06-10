@@ -1,4 +1,4 @@
-package servlet;
+package servlet.before;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/Login")
+//@WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,30 +28,30 @@ public class LoginServlet extends HttpServlet {
 
 		String[] result = null;
 
-		MemberList memberlist = new MemberList();
+		MemberList memberlist = null;
+		memberlist = new MemberList();
 
 		try {
 			result = memberlist.checkMember(id, passwd);
-		} catch (SQLException e) {
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		HttpSession session = request.getSession();
 
-		if (result[0].equals("비밀번호가 일치하지 않습니다.")){
-        	session.setAttribute("message", result[0]);
-        	session.setAttribute("login_modal_status", "on");
-        	response.sendRedirect(referer);
-        }
-        else if (result[0].equals("사용자가 존재하지 않습니다.")){
-        	session.setAttribute("message", result[0]);
-        	session.setAttribute("login_modal_status", "on");
-        	response.sendRedirect(referer);
-        }
-        else {
-        	session.setAttribute("id", result[0]);
-        	session.setAttribute("name", result[1]);
-        	response.sendRedirect(referer);
-        }
+		if (result[0].equals("비밀번호가 일치하지 않습니다.")) {
+			session.setAttribute("message", result[0]);
+			session.setAttribute("login_modal_status", "on");
+			response.sendRedirect(referer);
+		} else if (result[0].equals("사용자가 존재하지 않습니다.")) {
+			session.setAttribute("message", result[0]);
+			session.setAttribute("login_modal_status", "on");
+			response.sendRedirect(referer);
+		} else {
+			session.setAttribute("id", result[0]);
+			session.setAttribute("name", result[1]);
+			response.sendRedirect(referer);
+		}
 	}
 }

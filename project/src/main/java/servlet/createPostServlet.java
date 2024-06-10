@@ -44,6 +44,9 @@ public class createPostServlet extends HttpServlet {
 			message = postlist.addPost(post);
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		session.setAttribute("message", message);

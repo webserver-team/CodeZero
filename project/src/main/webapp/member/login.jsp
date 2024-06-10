@@ -14,7 +14,7 @@
 		<div class="login-out">
 			<div class="login-in">
 				
-				<form action="../Login" id="login-member" method="post" class="login-form">
+				<form action="../Login.member" id="login-member" method="post" class="login-form">
 				
 					<span id="login-close" class="close" style="left:10">&times;</span>
 					<h3>로그인</h3>

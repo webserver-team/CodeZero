@@ -6,30 +6,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import database.DBConnection;
 import dto.Comment;
 
 public class CommentList {
 
-	Connection conn = null;
-
-	String DRIVER = "com.mysql.cj.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/JSP_project";
-	String user = "root";
-	String passwd = "1234";
-
 	public CommentList() {
-		try {
-			Class.forName(DRIVER);
-
-			conn = DriverManager.getConnection(url, user, passwd);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	
 	}
 	
-	public String addComment(String postId, String userId, String comment) throws SQLException {
+	public String addComment(String postId, String userId, String comment) throws SQLException, ClassNotFoundException {
+		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		int lastId = 0;
@@ -38,6 +25,8 @@ public class CommentList {
 		String message = null;
 		
 		try {
+			conn = DBConnection.getConnection();
+			
 			String sqlFind = "SELECT * FROM comment";
 
 			stmt = conn.createStatement();
@@ -68,11 +57,14 @@ public class CommentList {
 		return message;
 	}
 	
-	public boolean existComment(String postId) throws SQLException {
+	public boolean existComment(String postId) throws SQLException, ClassNotFoundException {
+		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 
 		try {
+			conn = DBConnection.getConnection();
+			
 			String sql = "SELECT * FROM comment WHERE postId = '" + postId + "'";
 			int i = 0;
 
@@ -97,13 +89,16 @@ public class CommentList {
 	}
 	
 	
-	public Comment[] getCommentList(String postId) throws SQLException {
+	public Comment[] getCommentList(String postId) throws SQLException, ClassNotFoundException {
+		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 
 		Comment[] comment = null;
 
 		try {
+			conn = DBConnection.getConnection();
+			
 			String sql = "SELECT * FROM comment WHERE postId = " + postId + ";";
 			int row = 0;
 			int i = 0;

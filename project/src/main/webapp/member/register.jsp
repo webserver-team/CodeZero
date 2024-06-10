@@ -14,7 +14,7 @@
 		<div class="regi-out">
 			<div class="regi-in">
 				
-			<form action="../Register" id="regi-member" method="post" class="regi-form">
+			<form action="../Register.member" id="regi-member" method="post" class="regi-form">
 <!-- 				<form action="../register/register_process.jsp" id="regi-member" method="post" class="regi-form"> -->
 				
 					<span id="registerClose" class="close" style="left:10">&times;</span>
