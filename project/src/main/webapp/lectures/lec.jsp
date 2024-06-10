@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLEncoder"%>
+<%@ page import="java.net.URLDecoder"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,6 +74,53 @@
 				int lecReviewCount = rs.getInt("lecReviewCount");
 				String image = rs.getString("image");
 				String video = rs.getString("video");
+				
+				Cookie[] existingCookies = request.getCookies();
+				List<Cookie> cookieList = new ArrayList<>();
+				
+				Cookie c_lecId = new Cookie("c_lecId", URLEncoder.encode(String.valueOf(lecId), "utf-8"));
+				Cookie c_lecName = new Cookie("c_lecName", URLEncoder.encode(lecName, "utf-8"));
+				Cookie c_teacherName = new Cookie("c_teacherName", URLEncoder.encode(teacherName, "utf-8"));
+				Cookie c_lecDescription = new Cookie("c_lecDescription", URLEncoder.encode(lecDescription, "utf-8"));
+				Cookie c_lecCategory = new Cookie("c_lecCategory", URLEncoder.encode(lecCategory, "utf-8"));
+				Cookie c_lecLevel = new Cookie("c_lecLevel", URLEncoder.encode(lecLevel, "utf-8"));
+				Cookie c_lecPrice = new Cookie("c_lecPrice", URLEncoder.encode(String.valueOf(lecPrice), "utf-8"));
+				Cookie c_lecReviewCount = new Cookie("c_lecReviewCount", URLEncoder.encode(String.valueOf(lecReviewCount), "utf-8"));
+				Cookie c_image = new Cookie("c_image", URLEncoder.encode(image, "utf-8"));
+				
+				Cookie[] newCookies = {c_lecId, c_lecName, c_teacherName, c_lecDescription, c_lecCategory, c_lecLevel, c_lecPrice, c_lecReviewCount, c_image};
+				
+				boolean currentLecExists = false;
+				
+				if (existingCookies != null) {
+					for (Cookie cookie : existingCookies){
+						if(cookie.getName().equals("c_lecId") && URLDecoder.decode(cookie.getValue(), "utf-8").equals(String.valueOf(lecId))){
+							currentLecExists = true;
+						} else {
+			                cookieList.add(cookie); // 기존 쿠키들을 리스트에 추가
+			            }
+					}
+				}
+				
+				if (!currentLecExists){
+					for(Cookie cookie : newCookies)
+						cookieList.add(cookie);
+				}
+				else {
+					for (int i = newCookies.length - 1; i >= 0; i--)
+						cookieList.add(0, newCookies[i]);
+				}
+
+				for (Cookie cookie : cookieList) {
+			        System.out.println("Name: " + cookie.getName() + ", Value: " + URLDecoder.decode(cookie.getValue(), "utf-8"));
+			    }
+				System.out.println("");
+				
+				for (Cookie cookie : cookieList) {
+				    cookie.setPath(request.getContextPath());
+				    cookie.setMaxAge(100);
+				    response.addCookie(cookie);
+				}
 		%>
 
 		<div class="row-lecname">

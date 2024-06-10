@@ -17,11 +17,11 @@ show tables;
 desc lecture;
 
 insert into lecture (lecName, teacherName, lecDescription, lecCategory, lecLevel, lecPrice, lecReviewCount, image, video) values(
-	'스프링 핵심 원리 - 기본편',
+	'스프링 핵심 원리 - 심화편',
 	'김영한',
 	'스프링 입문자가 예제를 만들어가면서 스프링의 핵심 원리를 이해하고, 스프링 기본기를 확실히 다질 수 있습니다.',
 	'백엔드',
-	'초급',
+	'중급',
 	88000,
 	3588,
 	'333308.png',
