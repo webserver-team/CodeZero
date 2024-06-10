@@ -17,6 +17,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+8zD4yyw/t2iDz1zTQ0tMn0M92DxQ" crossorigin="anonymous"></script>
-    <%@ include file="../footerheader/footer.jsp"%>
+    <%@ include file="../footer/footer.jsp"%>
 </body>
 </html>

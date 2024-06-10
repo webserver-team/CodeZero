@@ -37,7 +37,7 @@
 	<div class="container">
 
 		<%
-		String user_id = (String) session.getAttribute("userID");
+		String user_id = (String) session.getAttribute("id");
 		int lecId = Integer.parseInt(request.getParameter("lecId"));
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
@@ -51,6 +51,10 @@
 			rs = pstmt.executeQuery();
 			rs.next();
 			int isOrdered = rs.getInt(1);
+			
+			System.out.println(isOrdered);
+			System.out.println(user_id);
+			System.out.println(lecId);
 
 			String check2 = "SELECT COUNT(*) FROM Payment WHERE lecId = ?";
 			pstmt = conn.prepareStatement(check2);
@@ -79,16 +83,8 @@
 				List<Cookie> cookieList = new ArrayList<>();
 				
 				Cookie c_lecId = new Cookie("c_lecId", URLEncoder.encode(String.valueOf(lecId), "utf-8"));
-				Cookie c_lecName = new Cookie("c_lecName", URLEncoder.encode(lecName, "utf-8"));
-				Cookie c_teacherName = new Cookie("c_teacherName", URLEncoder.encode(teacherName, "utf-8"));
-				Cookie c_lecDescription = new Cookie("c_lecDescription", URLEncoder.encode(lecDescription, "utf-8"));
-				Cookie c_lecCategory = new Cookie("c_lecCategory", URLEncoder.encode(lecCategory, "utf-8"));
-				Cookie c_lecLevel = new Cookie("c_lecLevel", URLEncoder.encode(lecLevel, "utf-8"));
-				Cookie c_lecPrice = new Cookie("c_lecPrice", URLEncoder.encode(String.valueOf(lecPrice), "utf-8"));
-				Cookie c_lecReviewCount = new Cookie("c_lecReviewCount", URLEncoder.encode(String.valueOf(lecReviewCount), "utf-8"));
-				Cookie c_image = new Cookie("c_image", URLEncoder.encode(image, "utf-8"));
 				
-				Cookie[] newCookies = {c_lecId, c_lecName, c_teacherName, c_lecDescription, c_lecCategory, c_lecLevel, c_lecPrice, c_lecReviewCount, c_image};
+				Cookie[] newCookies = {c_lecId};
 				
 				boolean currentLecExists = false;
 				
@@ -97,7 +93,7 @@
 						if(cookie.getName().equals("c_lecId") && URLDecoder.decode(cookie.getValue(), "utf-8").equals(String.valueOf(lecId))){
 							currentLecExists = true;
 						} else {
-			                cookieList.add(cookie); // 기존 쿠키들을 리스트에 추가
+			                cookieList.add(cookie); 
 			            }
 					}
 				}
@@ -108,7 +104,7 @@
 				}
 				else {
 					for (int i = newCookies.length - 1; i >= 0; i--)
-						cookieList.add(0, newCookies[i]);
+						cookieList.add(1, newCookies[i]);
 				}
 
 				for (Cookie cookie : cookieList) {
@@ -118,7 +114,7 @@
 				
 				for (Cookie cookie : cookieList) {
 				    cookie.setPath(request.getContextPath());
-				    cookie.setMaxAge(100);
+				    cookie.setMaxAge(600);
 				    response.addCookie(cookie);
 				}
 		%>
@@ -133,7 +129,6 @@
 		</div>
 
 		<div class="row lec-description">
-			<!-- Left Column: Lecture Description -->
 			<div class="col-lec1">
 				<div class="mt-4">
 					<%
