@@ -52,7 +52,7 @@
 		<div class="createpost-title-div">
 			<h3 class="createpost-title">게시물 작성</h3>
 		</div>
-		<form action="create_post_process.jsp" method="post" id="post-form" class="createpost-form" onsubmit="return false;">
+		<form action="../createPost" method="post" id="post-form" class="createpost-form" onsubmit="return false;">
 			<select id="post-category" name="postCategory" class="post-select">
 				<option value="none" hidden>카테고리</option>
 				<option value="free">자유게시판</option>

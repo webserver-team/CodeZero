@@ -33,8 +33,7 @@ public class createPostServlet extends HttpServlet {
 		String postTitle = request.getParameter("postTitle");
 		String postContent = request.getParameter("postContent");
 		String category = request.getParameter("postCategory");
-
-		String referer = request.getHeader("Referer");
+		String url = "posts.jsp?category=" + category;
 
 		String message = null;
 
@@ -49,7 +48,7 @@ public class createPostServlet extends HttpServlet {
 
 		session.setAttribute("message", message);
 
-		response.sendRedirect("posts.jsp");
+		response.sendRedirect(url);
 
 	}
 }

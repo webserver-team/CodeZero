@@ -133,27 +133,27 @@ String header_id = (String) session.getAttribute("id");
 				<div id="dropdown-category" class="dropdown-category">
 				</div>
 				<div id="dropdown-category" class="dropdown-category">
-					<a href="../lectures/lecs.jsp?subCategory=프론트엔드" id="dropdown-category-a" class="dropdown-category-a">프론트엔드</a> 
-					<a href="../lectures/lecs.jsp?subCategory=백엔드" id="dropdown-category-a" class="dropdown-category-a">백엔드</a>
-					<a href="../lectures/lecs.jsp?subCategory=앱 개발" id="dropdown-category-a" class="dropdown-category-a">앱 개발</a>
-					<a href="../lectures/lecs.jsp?subCategory=데이터베이스" id="dropdown-category-a" class="dropdown-category-a">데이터베이스</a>
-					<a href="../lectures/lecs.jsp?subCategory=개발 도구" id="dropdown-category-a" class="dropdown-category-a">개발 도구</a>
+					<a href="../lectures/lecs.jsp?Category=프론트엔드" id="dropdown-category-a" class="dropdown-category-a">프론트엔드</a> 
+					<a href="../lectures/lecs.jsp?Category=백엔드" id="dropdown-category-a" class="dropdown-category-a">백엔드</a>
+					<a href="../lectures/lecs.jsp?Category=앱 개발" id="dropdown-category-a" class="dropdown-category-a">앱 개발</a>
+					<a href="../lectures/lecs.jsp?Category=데이터베이스" id="dropdown-category-a" class="dropdown-category-a">데이터베이스</a>
+					<a href="../lectures/lecs.jsp?Category=개발 도구" id="dropdown-category-a" class="dropdown-category-a">개발 도구</a>
 				</div>
 				<div id="dropdown-category" class="dropdown-category">
-					<a href="../lectures/lecs.jsp?subCategory=게임 프로그래밍" id="dropdown-category-a" class="dropdown-category-a">게임 프로그래밍</a>
-					<a href="../lectures/lecs.jsp?subCategory=게임 기획" id="dropdown-category-a" class="dropdown-category-a">게임 기획</a>
-					<a href="../lectures/lecs.jsp?subCategory=게임 그래픽" id="dropdown-category-a" class="dropdown-category-a">게임 그래픽</a>
+					<a href="../lectures/lecs.jsp?Category=게임 프로그래밍" id="dropdown-category-a" class="dropdown-category-a">게임 프로그래밍</a>
+					<a href="../lectures/lecs.jsp?Category=게임 기획" id="dropdown-category-a" class="dropdown-category-a">게임 기획</a>
+					<a href="../lectures/lecs.jsp?Category=게임 그래픽" id="dropdown-category-a" class="dropdown-category-a">게임 그래픽</a>
 				</div>
 				<div id="dropdown-category" class="dropdown-category">
-					<a href="../lectures/lecs.jsp?subCategory=데이터 분석" id="dropdown-category-a" class="dropdown-category-a">데이터 분석</a>
-					<a href="../lectures/lecs.jsp?subCategory=컴퓨터 비전" id="dropdown-category-a" class="dropdown-category-a">컴퓨터 비전</a>
-					<a href="../lectures/lecs.jsp?subCategory=자연어 처리" id="dropdown-category-a" class="dropdown-category-a">자연어 처리</a>
+					<a href="../lectures/lecs.jsp?Category=데이터 분석" id="dropdown-category-a" class="dropdown-category-a">데이터 분석</a>
+					<a href="../lectures/lecs.jsp?Category=컴퓨터 비전" id="dropdown-category-a" class="dropdown-category-a">컴퓨터 비전</a>
+					<a href="../lectures/lecs.jsp?Category=자연어 처리" id="dropdown-category-a" class="dropdown-category-a">자연어 처리</a>
 				</div>
 				<div id="dropdown-category" class="dropdown-category">
-					<a href="../lectures/lecs.jsp?subCategory=보안" id="dropdown-category-a" class="dropdown-category-a">보안</a>
-					<a href="../lectures/lecs.jsp?subCategory=네트워크]" id="dropdown-category-a" class="dropdown-category-a">네트워크</a>
-					<a href="../lectures/lecs.jsp?subCategory=시스템" id="dropdown-category-a" class="dropdown-category-a">시스템</a>
-					<a href="../lectures/lecs.jsp?subCategory=클라우드" id="dropdown-category-a" class="dropdown-category-a">클라우드</a>
+					<a href="../lectures/lecs.jsp?Category=보안" id="dropdown-category-a" class="dropdown-category-a">보안</a>
+					<a href="../lectures/lecs.jsp?Category=네트워크]" id="dropdown-category-a" class="dropdown-category-a">네트워크</a>
+					<a href="../lectures/lecs.jsp?Category=시스템" id="dropdown-category-a" class="dropdown-category-a">시스템</a>
+					<a href="../lectures/lecs.jsp?Category=클라우드" id="dropdown-category-a" class="dropdown-category-a">클라우드</a>
 				</div>
 				<div id="dropdown-category" class="dropdown-category post-category">
 					<a href="../post/posts.jsp?category=free" id="dropdown-category-a" class="dropdown-category-a">자유게시판</a>

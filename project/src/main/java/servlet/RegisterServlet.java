@@ -1,66 +1,51 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.SQLException;
 
+import dao.MemberList;
+import dto.Member;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/RegisterServlet")
+
+@WebServlet("/Register")
 public class RegisterServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		String passwd = request.getParameter("passwd");
-		String name = request.getParameter("name");
-		String phone = request.getParameter("phone");
-		String email = request.getParameter("email");
 		
-		Connection conn = null;
-		ResultSet rs = null;
-		Statement stmt = null;
+		request.setCharacterEncoding("utf-8");
+		
+		String id=request.getParameter("id");
+		String passwd=request.getParameter("passwd");
+		String name=request.getParameter("name");
+		String phone=request.getParameter("phone");
+		String email=request.getParameter("email");
+		
+		String referer = request.getHeader("Referer");
+		
+		String message = null;
 		
 		try {
-			String url="jdbc:mysql://localhost:3306/JSP_project";
-			String user="root";
-			String password="1234";
-
-			Class.forName("com.mysql.jdbc.Driver");
-			conn=DriverManager.getConnection(url, user, password);
-
-			String sql = "SELECT * FROM member WHERE id ='" + id + "'";
-
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery(sql);
-			
-            if (rs.next()) {
-            	request.setAttribute("idError", "이미 사용 중인 ID입니다.");
-                request.getRequestDispatcher("/home/home.jsp").forward(request, response);
-            }
-            else {
-            	String sqlInsert="INSERT INTO member VALUES('" + id + "','" + passwd + "','" + name + "','" + phone + "','" + email + "')";
-    			stmt=conn.createStatement();
-    			stmt.executeUpdate(sqlInsert);
-    			
-    			response.sendRedirect("/project/home/home.jsp");
-            }
-		}catch(Exception e) {
+			Member member = new Member(id, passwd, name, phone, email);
+			MemberList memberlist = new MemberList(); 
+			message = memberlist.addMember(member);
+		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if (rs != null) rs.close();
-				if (stmt != null) stmt.close();
-				if (conn != null) conn.close();
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
 		}
+		
+		HttpSession session = request.getSession();
+        session.setAttribute("message", message);
+        
+		if(message.equals("이미 사용중인 ID입니다.")){
+			session.setAttribute("regi_modal_status","on");
+		}
+		
+		response.sendRedirect(referer);
 	}
 }
