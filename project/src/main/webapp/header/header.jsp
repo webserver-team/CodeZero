@@ -86,11 +86,11 @@ String header_id = (String) session.getAttribute("id");
 					%>
 					<button id="loginButton" class="header-button"
 						onclick="clearText()">로그인</button>
-					<jsp:include page="../login/login.jsp"></jsp:include>
+					<jsp:include page="../member/login.jsp"></jsp:include>
 
 					<button id="registerButton" class="header-button"
 						onclick="clearText()">회원가입</button>
-					<jsp:include page="../register/register.jsp"></jsp:include>
+					<jsp:include page="../member/register.jsp"></jsp:include>
 					<%
 					} else {
 					%>
@@ -98,7 +98,7 @@ String header_id = (String) session.getAttribute("id");
 						style="font-size: 13px; margin-right: 10px">장바구니</a>
 					<a href="../mypage/mypage.jsp" class="link"
 						style="font-size: 13px; margin-right: 5px"><%=header_name%> 님</a>
-					<form action="../login/logout_process.jsp" class="logout"
+					<form action="../member/logout_process.jsp" class="logout"
 						style="height: 100%">
 						<button type="submit" id="logout" class="header-button">로그아웃</button>
 					</form>

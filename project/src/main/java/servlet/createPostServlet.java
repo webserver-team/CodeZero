@@ -33,7 +33,7 @@ public class createPostServlet extends HttpServlet {
 		String postTitle = request.getParameter("postTitle");
 		String postContent = request.getParameter("postContent");
 		String category = request.getParameter("postCategory");
-		String url = "posts.jsp?category=" + category;
+		String url = "post/posts.jsp?category=" + category;
 
 		String message = null;
 
