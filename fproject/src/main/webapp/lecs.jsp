@@ -122,7 +122,6 @@
         %>
         </div>
         
-        <!-- 페이지 -->
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center mt-4">
                 <li class="page-item"><a class="page-link" href="lecs.jsp?page=1">1</a></li>

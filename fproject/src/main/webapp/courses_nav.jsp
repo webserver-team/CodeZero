@@ -15,9 +15,11 @@
        <div class="d-flex justify-content-end mb-3">
        		<a href="test.jsp" class="btn btn-light btn-lg me-2">로그인</a>
        		<a href="test2.jsp" class="btn btn-light btn-lg me-2">로그아웃</a>
+       		<a href="recent.jsp" class="btn btn-light btn-lg me-2">최근 본 강의</a>
             <a href="cart.jsp" class="btn btn-light btn-lg me-2">장바구니</a>
             <a href="study.jsp" class="btn btn-light btn-lg me-2">내 학습</a>
             <a href="administration.jsp" class="btn btn-light btn-lg">관리 페이지</a>
+            
        </div>
        
        <ul class="nav nav-tabs mb-2">
@@ -35,6 +37,7 @@
            </li>
            <li class="nav-item">
                <a class="nav-link" href="lecs.jsp?category=security">보안</a>
-           </li>           
+           </li>
+                
        </ul>
    </div>  

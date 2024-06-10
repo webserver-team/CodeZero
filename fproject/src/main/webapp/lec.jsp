@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLEncoder"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +29,11 @@
      <div class="container mt-4">
     
         <%
+        	request.setCharacterEncoding("UTF-8");
+        
         	String user_id = (String) session.getAttribute("userID");
             int lecId = Integer.parseInt(request.getParameter("lecId"));
+            
             ResultSet rs = null;
             PreparedStatement pstmt = null;
 
@@ -65,8 +70,27 @@
                     int lecPrice = rs.getInt("lecPrice");
                     int lecReviewCount = rs.getInt("lecReviewCount");
                     String image = rs.getString("image");
-                    String video = rs.getString("video");    
-               
+                    String video = rs.getString("video");   
+               		
+                    
+                    Cookie c_lecId = new Cookie("c_lecId", URLEncoder.encode(String.valueOf(lecId), "utf-8"));
+                    Cookie c_lecName = new Cookie("c_lecName", URLEncoder.encode(lecName, "utf-8"));
+                    Cookie c_teacherName = new Cookie("c_teacherName", URLEncoder.encode(teacherName, "utf-8"));
+                    Cookie c_lecDescription = new Cookie("c_lecDescription", URLEncoder.encode(lecDescription, "utf-8"));
+                    Cookie c_lecCategory = new Cookie("c_lecCategory", URLEncoder.encode(lecCategory, "utf-8"));
+                    Cookie c_lecLevel = new Cookie("c_lecLevel", URLEncoder.encode(lecLevel, "utf-8"));
+                    Cookie c_lecPrice = new Cookie("c_lecPrice", URLEncoder.encode(String.valueOf(lecPrice), "utf-8"));
+                    Cookie c_lecReviewCount = new Cookie("c_lecReviewCount", URLEncoder.encode(String.valueOf(lecReviewCount), "utf-8"));
+                    Cookie c_image = new Cookie("c_image", URLEncoder.encode(image, "utf-8"));
+					
+                    Cookie[] cookies = {c_lecId, c_lecName, c_teacherName, c_lecDescription, c_lecCategory, c_lecLevel, c_lecPrice, c_lecReviewCount, c_image};
+                    
+                    for (Cookie cookie : cookies) {
+                        cookie.setPath(request.getContextPath());
+                        cookie.setMaxAge(10);
+                        response.addCookie(cookie);
+                    }
+                   
         %>
         
         <div class="row mb-4">
@@ -122,13 +146,17 @@
             </div>
         </div>
         
+        
+        
         <%
             } else {
                out.println("<div class='alert alert-warning'>해당 강의를 찾을 수 없습니다.</div>");
             }
                 
+                
+                
             } catch (Exception e) {
-                out.println("<div class='alert alert-danger'>데이터베이스 오류: " + e.getMessage() + "</div>");
+                out.println("<div class='alert alert-danger'>오류: " + e.getMessage() + "</div>");
             } finally {
                 if (rs != null) rs.close();
                 if (pstmt != null) pstmt.close();
