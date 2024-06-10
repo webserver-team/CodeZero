@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.gridbox{
+	justify-content:center;
+	display:grid;
+	grid-template-columns:repeat(auto-fit, minmax(200px, 32%));
+	grid-auto-rows:minmax(200px, 1fr);
+	row-gap:10px;
+	column-gap:10px;
+	color:#cfe7c3;
+	height:100%;
+}
+
+.box{
+	background:#DCF0D2;
+	width:100%;
+	height:100%;
+	text-align:center; 
+}
+
+.lecture{
+	background:white;
+	width:95%;
+	height:75%;
+	margin:auto;
+	margin-top:2%;
+	margin-bottom:20%;
+	
+}
