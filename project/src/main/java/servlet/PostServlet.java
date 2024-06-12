@@ -14,20 +14,35 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/createPost")
-public class createPostServlet extends HttpServlet {
+@WebServlet("*.post")
+public class PostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		String RequestURI = request.getRequestURI();
+		String contextPath = request.getContextPath();
+		String command = RequestURI.substring(contextPath.length());
+
+		response.setContentType("text/html; charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		
+		if (command.equals("/createPost.post")) {
+			createPost(request, response);
+		}
+	}
+		
+		
+	public void createPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	
+		HttpSession session = request.getSession();
+	
 		request.setCharacterEncoding("utf-8");
 
 		LocalDate currentDate = LocalDate.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy/MM/dd");
 		String postDate = currentDate.format(formatter);
-
-		HttpSession session = request.getSession();
 		
 		String userId = (String) session.getAttribute("id");
 		String postTitle = request.getParameter("postTitle");
@@ -45,7 +60,6 @@ public class createPostServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

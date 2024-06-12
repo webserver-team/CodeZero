@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLEncoder"%>
+<%@ page import="java.net.URLDecoder"%>
+<%@ page import="java.util.*"%>
 <%@ page import="dao.PostList"%>
 <%@ page import="dto.Post"%>
+<%@ page import="dao.LectureList"%>
+<%@ page import="dto.Lecture"%>
+
+
 <html>
 <head>
 <link rel="stylesheet" href="../stylesheet/home.css">
@@ -45,6 +52,70 @@
 		<div class="box">
 			<div class="lecture-box">
 				<p class="home-box-title" style="height:10%">최근 본 강의</p>
+					
+				<%
+				
+				Cookie[] cookies = request.getCookies();
+			    String lectureCookieValue = "";
+			    List<String> lectureList = new ArrayList<>();
+
+			    if (cookies != null) {
+			        for (Cookie cookie : cookies) {
+			            if ("recentLectures".equals(cookie.getName())) {
+			                lectureCookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
+			                break;
+			            }
+			        }
+			    }
+
+			    if (lectureCookieValue != null && !lectureCookieValue.trim().isEmpty()) {
+			        String[] lectures = lectureCookieValue.split(",");
+			        lectureList.addAll(Arrays.asList(lectures));
+			    }
+				
+			    String[] lecId = new String[lectureList.size()];
+			    
+			    for (int i = 0; i < lectureList.size(); i++){
+			    	lecId[i] = lectureList.get(i);
+			    }
+			    	
+				Lecture[] lectures = new Lecture[lectureList.size()];
+				LectureList lecturelist = new LectureList();
+				
+				if (lectureList.size() < 1){
+				%>
+				<div class="noRecentLec">
+					최근 본 강의가 없습니다.
+				</div>
+				<%
+				} else {
+					for (int i = 0; i < lectureList.size(); i++){
+						lectures[i] = lecturelist.getLecture(lecId[i]);
+						if (i < 4){
+				%>
+						<div class="recentLec">
+							<a href="../lectures/lec.jsp?lecId=<%=lectures[i].getLecId() %>" class="recentLec-a"> <%=lectures[i].getLecName() %></a>
+							<div class="badge-div">
+								<span class="badge bg-primary"><%=lectures[i].getLecCategory()%></span>
+								<span class="badge bg-secondary"><%=lectures[i].getLecLevel()%></span>							
+							</div>
+						</div>
+				<%
+						}else{
+				%>
+						<div class="recentLec last">
+							<a href="../lectures/lec.jsp?lecId=<%=lectures[i].getLecId() %>" class="recentLec-a"> <%=lectures[i].getLecName() %></a>
+							<div class="badge-div">
+								<span class="badge bg-primary"><%=lectures[i].getLecCategory()%></span>
+								<span class="badge bg-secondary"><%=lectures[i].getLecLevel()%></span>							
+							</div>
+						</div>
+				<%
+				}
+				}
+				}
+				%>
+	
 			</div>
 			<div class="post-box">	
 				<a href="../post/posts.jsp?category=free" class="home-box-title">자유게시판</a>

@@ -16,37 +16,23 @@
 <body>
 	<%@ include file="../header/header.jsp"%>
 
+
 	<div class="container" style="margin-top: 200px !important; display:flex; justify-content:flex-start; align-items:center; min-height:500px; box-sizing:border-box">
-		<%
-		String category = null;
-		if ((category = request.getParameter("category")) != null) {
-		%>
-		<h2 class="lec-header"><%=category %></h2>
-		<%
-		} else {
-		%>
-		<h2 class="lec-header">모든 강의</h2>
-		<%
-		}
-		%>
+		<h2 class="lec-header">내 강의실</h2>
 		<div class="lec-row"
 			style="width: 100%; display: flex; align-items: flex-start; padding:0px 5% 0px 5%">
+
 			<%
-			int i = 0;
-			category = request.getParameter("category");
-			String search = request.getParameter("search");
-			
-			if (category == null)
-				category = request.getParameter("subCategory");	
+			int i = 0;	
 			
 			Lecture[] lectures = null;
 			LectureList lectureList = new LectureList(); 
 			
-			lectures = lectureList.getLectureList(search, category);
+			lectures = lectureList.getMyLectureList((String)session.getAttribute("id"));
 			
 			for (i = 0; i < lectures.length; i++){
 			%>
-			<a href="lec.jsp?lecId=<%=lectures[i].getLecId()%>" class="lec-a" style="text-decoration: none; color: black;">
+			<a href="../lectures/lec.jsp?lecId=<%=lectures[i].getLecId()%>" class="lec-a" style="text-decoration: none; color: black;">
 				<div class="lec-col">
 					<div class="card h-100" style="width:100%">
 						<img src="../resource/upload/<%=lectures[i].getImage()%>" class="card-img-top"
@@ -74,7 +60,7 @@
 			if (i == 0){
 				%>
 				<div class="empty-lec-div">
-					<p class="empty-lec-p">강의가 없습니다.</p>
+					<p class="empty-lec-p">수강중인 강좌가 없습니다.</p>
 				</div>
 				<%
 				}

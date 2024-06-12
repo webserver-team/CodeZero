@@ -29,7 +29,7 @@ public class MemberServlet extends HttpServlet {
 		if (command.equals("/Register.member")) {
 			try {
 				register(request, response);
-			} catch (ClassNotFoundException | IOException e) {
+			} catch (ClassNotFoundException | IOException | SQLException e) {
 				e.printStackTrace();
 			}
 		} else if (command.equals("/Login.member")) {
@@ -38,11 +38,23 @@ public class MemberServlet extends HttpServlet {
 			} catch (ClassNotFoundException | IOException | SQLException e) {
 				e.printStackTrace();
 			}
+		} else if (command.equals("/checkPasswd.member")) {
+			try {
+				checkPasswd(request, response);
+			} catch (ClassNotFoundException | IOException | SQLException e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/mypage_modify.member")) {
+			try {
+				mypageModify(request, response);
+			} catch (ClassNotFoundException | IOException | SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
 	public void register(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ClassNotFoundException {
+			throws IOException, ClassNotFoundException, SQLException {
 		request.setCharacterEncoding("utf-8");
 
 		String id = request.getParameter("id");
@@ -55,13 +67,9 @@ public class MemberServlet extends HttpServlet {
 
 		String message = null;
 
-		try {
-			Member member = new Member(id, passwd, name, phone, email);
-			MemberList memberlist = new MemberList();
-			message = memberlist.addMember(member);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		Member member = new Member(id, passwd, name, phone, email);
+		MemberList memberlist = new MemberList();
+		message = memberlist.addMember(member);
 
 		HttpSession session = request.getSession();
 		session.setAttribute("message", message);
@@ -84,12 +92,8 @@ public class MemberServlet extends HttpServlet {
 
 		String[] result = null;
 
-		try {
-			MemberList memberlist = new MemberList();
-			result = memberlist.checkMember(id, passwd);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		MemberList memberlist = new MemberList();
+		result = memberlist.checkMember(id, passwd);
 
 		HttpSession session = request.getSession();
 
@@ -108,4 +112,54 @@ public class MemberServlet extends HttpServlet {
 		}
 	}
 
+	public void checkPasswd(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ClassNotFoundException, SQLException {
+		HttpSession session = request.getSession();
+
+		String id = (String) session.getAttribute("id");
+		String passwd = request.getParameter("passwd");
+
+		String referer = request.getHeader("Referer");
+
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("../home/home.jsp");
+		} else {
+			String[] result = null;
+
+			MemberList memberlist = new MemberList();
+
+			result = memberlist.checkMember(id, passwd);
+
+			if (result[0].equals("비밀번호가 일치하지 않습니다.")) {
+				session.setAttribute("message", result[0]);
+				response.sendRedirect(referer);
+			} else
+				response.sendRedirect("mypage/mypage_modify.jsp");
+		}
+	}
+
+	public void mypageModify(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ClassNotFoundException, SQLException {
+		HttpSession session = request.getSession();
+
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("../home/home.jsp");
+		}
+
+		String id = (String) session.getAttribute("id");
+		String name = request.getParameter("name");
+		String phone = request.getParameter("phone");
+		String email = request.getParameter("email");
+
+		String message = null;
+
+		MemberList memberlist = new MemberList();
+
+		message = memberlist.changeInfo(id, name, phone, email);
+
+		session.setAttribute("message", message);
+		session.setAttribute("name", name);
+		session.setAttribute("id", id);
+		response.sendRedirect("mypage/mypage.jsp");
+	}
 }

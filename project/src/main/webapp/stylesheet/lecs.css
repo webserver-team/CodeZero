@@ -17,6 +17,15 @@
 	border-radius:10px;
 }
 
+.lec-header{
+	width:100%;
+	
+	color:#5fc703;
+	padding:10px 30px 0px 30px;
+	
+	box-sizing:border-box;
+}
+
 .box{
 	background:#DCF0D2;
 	width:100%;

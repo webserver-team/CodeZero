@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.net.URLEncoder"%>
 <%@ page import="java.net.URLDecoder"%>
+<%@ page import="java.util.*"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
 
@@ -51,10 +52,6 @@
 			rs = pstmt.executeQuery();
 			rs.next();
 			int isOrdered = rs.getInt(1);
-			
-			System.out.println(isOrdered);
-			System.out.println(user_id);
-			System.out.println(lecId);
 
 			String check2 = "SELECT COUNT(*) FROM Payment WHERE lecId = ?";
 			pstmt = conn.prepareStatement(check2);
@@ -78,46 +75,8 @@
 				int lecReviewCount = rs.getInt("lecReviewCount");
 				String image = rs.getString("image");
 				String video = rs.getString("video");
-				
-				Cookie[] existingCookies = request.getCookies();
-				List<Cookie> cookieList = new ArrayList<>();
-				
-				Cookie c_lecId = new Cookie("c_lecId", URLEncoder.encode(String.valueOf(lecId), "utf-8"));
-				
-				Cookie[] newCookies = {c_lecId};
-				
-				boolean currentLecExists = false;
-				
-				if (existingCookies != null) {
-					for (Cookie cookie : existingCookies){
-						if(cookie.getName().equals("c_lecId") && URLDecoder.decode(cookie.getValue(), "utf-8").equals(String.valueOf(lecId))){
-							currentLecExists = true;
-						} else {
-			                cookieList.add(cookie); 
-			            }
-					}
-				}
-				
-				if (!currentLecExists){
-					for(Cookie cookie : newCookies)
-						cookieList.add(cookie);
-				}
-				else {
-					for (int i = newCookies.length - 1; i >= 0; i--)
-						cookieList.add(1, newCookies[i]);
-				}
 
-				for (Cookie cookie : cookieList) {
-			        System.out.println("Name: " + cookie.getName() + ", Value: " + URLDecoder.decode(cookie.getValue(), "utf-8"));
-			    }
-				System.out.println("");
-				
-				for (Cookie cookie : cookieList) {
-				    cookie.setPath(request.getContextPath());
-				    cookie.setMaxAge(600);
-				    response.addCookie(cookie);
-				}
-		%>
+			%>
 
 		<div class="row-lecname">
 			<div class="col-12 text-left">

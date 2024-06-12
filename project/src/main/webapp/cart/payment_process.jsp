@@ -27,13 +27,14 @@
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
+		int count = 0;
 		
 		try {
 		
-		String sql1 = "SELECT lecId FROM Cart WHERE userId = ?";
-		pstmt = conn.prepareStatement(sql1);
-		pstmt.setString(1, user_id);
-		rs = pstmt.executeQuery();
+			String sql1 = "SELECT lecId FROM Cart WHERE userId = ?";
+			pstmt = conn.prepareStatement(sql1);
+			pstmt.setString(1, user_id);
+			rs = pstmt.executeQuery();
 		
 		while (rs.next()) {
 			
@@ -49,7 +50,7 @@
 			pstmt.setString(6, user_id);
 			pstmt.setInt(7, lecId);
 			
-	        int count = pstmt.executeUpdate();
+	        count = pstmt.executeUpdate();
 	    	
 	        if (count > 0) {
 	            System.out.println("결제가 완료되었습니다.");
@@ -67,6 +68,8 @@
 	        System.out.println("장바구니에 있는 강의 삭제.");
 		}
 		
+		
+		
 	    } catch (SQLException e) {
 	        System.out.println("<script>alert('데이터베이스 오류: " + e.getMessage() + "'); location.href='lec_manage.jsp';</script>");
 	    
@@ -75,8 +78,12 @@
 	        if (pstmt != null) pstmt.close();
 	        if (conn != null) conn.close();
 	    }
-	    
-		response.sendRedirect("payment_success.jsp");
+		if (count == 0){
+			response.sendRedirect("payment_fail.jsp");
+		}
+		else{
+			response.sendRedirect("payment_success.jsp");
+		}
 	%>      
 	
 </body>

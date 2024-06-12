@@ -82,7 +82,7 @@
 			
 		</div>
 		
-		<form action="comment_on_process.jsp?postId=<%=post.getPostID() %>" id="comment-on-form" class="comment-on-form" method="POST">
+		<form action="../commentOn.comment?postId=<%=post.getPostID() %>" id="comment-on-form" class="comment-on-form" method="POST">
 			<textarea id="comment-textarea" class="comment-textarea" name="comment-textarea" placeholder=<%if(!(session.getAttribute("id") == null)){%>"내용을 입력해주세요"<%} else {%>"로그인 후 이용 가능합니다." <%} if(session.getAttribute("id") == null){%>disabled<%}%>></textarea>
 			<input type="button" id="commentOn" class="comment-button" value="등록"  <%if(!(session.getAttribute("id") == null)){%>onclick="onComment()"<%}%>>
 		</form>

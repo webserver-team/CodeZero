@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<link rel="stylesheet" href="../stylesheet/payment.css">
+<link rel="stylesheet" href="../stylesheet/styles.css">
 <title>결제 페이지</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <script>
 	function payCheck() {
 		var form = document.getElementById("paymentForm");
@@ -26,7 +26,8 @@
     <%@ include file="../connection/connection.jsp" %>
     
     <div class="container">
-        <h1 style="font-weight: bold;" class="display-4 mt-5 mb-4">결제 정보</h1>
+    	<div class="pay-container">
+        	<h1 class="pay-title">결제 정보</h1>
         
         <%
         	int sum = Integer.parseInt(request.getParameter("sum"));
@@ -47,50 +48,51 @@
                     String email = rs.getString("email");
         %>
 
-		  <div class="row align-items-start">
-		    <div class="col">
-				<form id="paymentForm" action="payment_process.jsp" method="post">
-					<div class="mb-3">
+				<form id="paymentForm" class="pay-form" action="payment_process.jsp" method="post">
+					<div class="info-div">
 				        <label for="name" class="form-label">이름</label>
-				        <input type="text" class="form-control" id="name" name="name" value="<%= name %>" required>
+				        <input type="text" class="form-input" id="name" name="name" value="<%= name %>" required>
 					</div>
-					<div class="mb-3">
+					<div class="info-div">
 					    <label for="phone" class="form-label">전화번호</label>
-					    <input type="tel" class="form-control" id="phone" name="phone" value="<%= phone %>" required>
+					    <input type="text" class="form-input" id="phone" name="phone" value="<%= phone %>" required>
 					</div>
-					<div class="mb-3">
+					<div class="info-div">
 					    <label for="email" class="form-label">이메일</label>
-					    <input type="email" class="form-control" id="email" name="email" value="<%= email %>" required>
+					    <input type="text" class="form-input" id="email" name="email" value="<%= email %>" required>
 					</div>
-					<div class="mb-3">					
-					<label class="form-label">결제 방식</label><br>
-						<div class="form-check form-check-inline">
+					<div class="pay-way">					
+					<div class="form-label" style="margin-bottom:0px;">결제 방식</div><br>
+					
+					<div class="form-select">
+					
+						<div class="form-check" style="width:100px; float:left;">
 						  <input class="form-check-input" type="radio" name="paymentMethods" id="paymentMethod1" value="신용카드" checked>
 						  <label class="form-check-label" for="paymentMethod1">신용카드</label>
 						</div>
-						<div class="form-check form-check-inline">
+						<div class="form-check" style="width:100px; float:left;">
 						  <input class="form-check-input" type="radio" name="paymentMethods" id="paymentMethod2" value="가상계좌">
 						  <label class="form-check-label" for="paymentMethod2">가상계좌</label>
 						</div>
-						<div class="form-check form-check-inline">
+						<div class="form-check" style="width:120px; float:left;">
 						  <input class="form-check-input" type="radio" name="paymentMethods" id="paymentMethod3" value="휴대폰 결제">
 						  <label class="form-check-label" for="paymentMethod3">휴대폰 결제</label>
 						</div>
-						<div class="form-check form-check-inline">
+						<div class="form-check" style="width:150px; float:left;">
 						  <input class="form-check-input" type="radio" name="paymentMethods" id="paymentMethod4" value="실시간 계좌이체">
 						  <label class="form-check-label" for="paymentMethod4">실시간 계좌이체</label>
 						</div>						
-					</div>			
+					</div>
+								
+					</div>
 					<div class="d-flex justify-content-end mt-5 mb-1">
-						<h3>총 결제 금액  &nbsp;  ₩<%=sum %></h3>
+						<h3 style="text-align:center">총 결제 금액  &nbsp;  ₩<%=sum %></h3>
 						<input type="hidden" name=price value="<%=sum %>">
 					</div>
 					<div class="d-flex justify-content-end mb-3">
-						<button type="button" class="btn btn-primary" onclick="payCheck()">결제</button>
+						<button type="button" class="pay-button" onclick="payCheck()">결제</button>
 					</div>
 				</form>
-		    </div>
-		 </div>
 
         <%
                 } else {
@@ -104,6 +106,7 @@
                 if (conn != null) pstmt.close();
             }
         %>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

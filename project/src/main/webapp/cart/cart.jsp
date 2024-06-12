@@ -64,8 +64,8 @@
 							class="img-thumbnail me-3" style="width: 120px; height: auto;"
 							alt="..."> 
 						<a href="../lectures/lec.jsp?lecId=<%=lecId%>" class="lec-name" ><%=lecName%></a>
-						<span style="font-weight: bold; font-size: 20px; flex-grow: 1"><%=lecPrice%>원</span>
-						<a href="deleteCart.jsp?lecId=<%=lecId%>">삭제</a>
+						<span style="font-weight: bold; font-size: 17px; min-width:10%; max-width:10%; color:black"><%=lecPrice%>원</span>
+						<a href="deleteCart.jsp?lecId=<%=lecId%>" style="min-width:35px; color:#d75f5f">삭제</a>
 					</div>
 					<%
 					}

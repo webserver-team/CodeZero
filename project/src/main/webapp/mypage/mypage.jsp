@@ -21,7 +21,6 @@
 	
 	String id = (String) session.getAttribute("id");
 
-// 	String referer = request.getHeader("Referer");
 
 	String db_id = null;
 	String db_passwd = null;
@@ -39,9 +38,7 @@
 	db_name = member.getMemberName();
 	db_phone = member.getMemberPhone();
 	db_email = member.getMemberEmail();
-	
-// 	if (db_id == null)
-// 		response.sendRedirect(referer);
+
 	%>
 
 	<%@ include file="/../header/header.jsp"%>

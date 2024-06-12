@@ -39,7 +39,6 @@
 
 .cart-content{
 	width:70%;
-	padding:0% 0% 2% 0%;
 	
 	border:1px solid #5fc703;
 	border-radius:10px;
@@ -53,9 +52,13 @@
 	justify-content:space-between;
 	
 	padding:0% 3% 0% 3%;
+	margin:20px 0px;
+	
 	width:100%;
 	
 	box-sizing: border-box;
+	
+	overflow:hidden;
 }
 
 .lec-name{
@@ -64,7 +67,14 @@
 	font-size: 20px; 
 	flex-grow: 3; 
 	
+	max-width:65%;
+	
 	margin:0px 10px 0px 10px;
+	color:black;
+	
+	text-wrap: nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
 }
 
 .cart-pay{
@@ -78,6 +88,7 @@
 .pay-price{
 	display:flex;
     justify-content: space-between;	
+    color:black;
 }
 
 .pay-button{

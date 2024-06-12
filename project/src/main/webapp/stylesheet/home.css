@@ -141,3 +141,80 @@
 	text-align:center;
 	margin-right:20px;
 }
+
+.noRecentLec{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height:90%;
+	color:#5fc703;
+}
+
+.recentLec{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	
+	
+	height:18%;
+	
+	border-bottom:1px solid #bcdbac;
+	box-sizing:border-box; 
+	
+	margin:0% 5%;
+	
+	overflow:hidden
+}
+.recentLec.last{
+	border:0 !important;
+}
+
+.recentLec-a{
+	display:inline;
+	
+	white-space: nowrap;
+	
+	font-size:15px;
+	
+	color:#5fc703;
+	
+	margin:5px 10px;
+	
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+.badge-div{
+	display:flex;
+	justify-content:flex-end;
+	margin: 5px 0px;
+}
+
+.badge{
+	--bs-badge-padding-x: 0.65em;
+    --bs-badge-padding-y: 0.35em;
+    --bs-badge-font-size: 0.75em;
+    --bs-badge-font-weight: 700;
+    --bs-badge-color: #fff;
+    --bs-badge-border-radius: var(--bs-border-radius);
+    display: inline-block;
+    padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+    margin: 2px;
+    font-size: var(--bs-badge-font-size);
+    font-weight: var(--bs-badge-font-weight);
+    line-height: 1;
+    color: var(--bs-badge-color);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 7px;
+    
+    --bs-bg-opacity: 1;
+}
+
+.bg-primary{
+	background-color:#0d6efd;
+}
+.bg-secondary{
+	background-color:#6c757d;
+}

@@ -46,7 +46,7 @@
 		
 	<div class="container mypage-container">
 		<div class="my-infos-box">
-			<form action="mypage_modify_process.jsp" method="POST" id="mypage-modify-form" class="my-infos">
+			<form action="../mypage_modify.member" method="POST" id="mypage-modify-form" class="my-infos">
 
 				<h2 class="mypage-title">회원정보</h2>
 

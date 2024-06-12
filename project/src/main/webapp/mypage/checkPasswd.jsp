@@ -24,7 +24,7 @@
 	<%@ include file="/../header/header.jsp"%>
 	<div class="container mypage-container">
 		<div class="my-infos-box">
-			<form action="checkPasswd_process.jsp" method="POST" class="my-infos">
+			<form action="../checkPasswd.member" method="POST" class="my-infos">
 
 				<h2 class="mypage-title">회원정보</h2>
 

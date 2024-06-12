@@ -1,13 +1,12 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import dto.Member;
 import database.DBConnection;
+import dto.Member;
 
 public class MemberList{
 	

@@ -96,6 +96,8 @@ String header_id = (String) session.getAttribute("id");
 					%>
 					<a href="../cart/cart.jsp" class="link"
 						style="font-size: 13px; margin-right: 10px">장바구니</a>
+					<a href="../mypage/mylec.jsp" class="link"
+						style="font-size: 13px; margin-right: 10px">내 강의실</a>
 					<a href="../mypage/mypage.jsp" class="link"
 						style="font-size: 13px; margin-right: 5px"><%=header_name%> 님</a>
 					<form action="../member/logout_process.jsp" class="logout"
@@ -114,16 +116,16 @@ String header_id = (String) session.getAttribute("id");
 				<a href="../lectures/lecs.jsp" class="category-link"> 전체 </a>
 			</div>
 			<div class="category-div">
-				<a href="../lectures/lecs.jsp?category=programming" class="category-link"> 프로그래밍 </a>
+				<a href="../lectures/lecs.jsp?category=프로그래밍" class="category-link"> 프로그래밍 </a>
 			</div>
 			<div class="category-div">
-				<a href="../lectures/lecs.jsp?category=game" class="category-link"> 게임 개발 </a>
+				<a href="../lectures/lecs.jsp?category=게임 개발" class="category-link"> 게임 개발 </a>
 			</div>
 			<div class="category-div">
-				<a href="../lectures/lecs.jsp?category=bigdata" class="category-link"> 빅데이터/AI </a>
+				<a href="../lectures/lecs.jsp?category=빅데이터/AI" class="category-link"> 빅데이터/AI </a>
 			</div>
 			<div class="category-div">
-				<a href="../lectures/lecs.jsp?category=security" class="category-link"> 보안 </a>
+				<a href="../lectures/lecs.jsp?category=보안/네트워크" class="category-link"> 보안/네트워크 </a>
 			</div>
 			<div class="category-div">
 				<a href="../post/posts.jsp" class="category-link">
@@ -151,7 +153,7 @@ String header_id = (String) session.getAttribute("id");
 				</div>
 				<div id="dropdown-category" class="dropdown-category">
 					<a href="../lectures/lecs.jsp?category=보안" id="dropdown-category-a" class="dropdown-category-a">보안</a>
-					<a href="../lectures/lecs.jsp?category=네트워크]" id="dropdown-category-a" class="dropdown-category-a">네트워크</a>
+					<a href="../lectures/lecs.jsp?category=네트워크" id="dropdown-category-a" class="dropdown-category-a">네트워크</a>
 					<a href="../lectures/lecs.jsp?category=시스템" id="dropdown-category-a" class="dropdown-category-a">시스템</a>
 					<a href="../lectures/lecs.jsp?category=클라우드" id="dropdown-category-a" class="dropdown-category-a">클라우드</a>
 				</div>

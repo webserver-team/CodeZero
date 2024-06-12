@@ -100,8 +100,10 @@ a{
 input[type="text"]{
 	outline:0;
 }
+
 input{
     font-size: inherit;
+    transition: outline 0.1s ease-in-out;
 }
 textarea{
 	outline:0;

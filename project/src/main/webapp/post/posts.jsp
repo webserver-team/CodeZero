@@ -12,6 +12,7 @@
 </head>
 
 <%
+
 String category = request.getParameter("category");
 
 String id = (String) session.getAttribute("id");
@@ -114,7 +115,7 @@ if (id == null) {
 				Post[] posts = null;
 				PostList postlist = new PostList();
 				int pageNum = 1;
-
+				
 				if (!postlist.existPost(search, category)) {
 				%>
 				<div class="table-row"
@@ -126,6 +127,12 @@ if (id == null) {
 				postlist = new PostList();
 				posts = postlist.getPostList(search, category);
 
+				if (request.getParameter("page") != null){
+					if (Integer.parseInt(request.getParameter("page")) > ((posts.length - 1) / pagePost) + 1){
+						response.sendRedirect("posts.jsp");
+					}
+				}
+				
 				if (request.getParameter("page") == null)
 					pageNum = 1;
 				else
